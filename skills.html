@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills — Tom's Tech Ally</title>
+    <meta name="description" content="Full skills catalog for Tom's Tech Ally: web design, UX/UI, full stack development, heuristic analysis, reviews, crypto and blockchain evaluation, product design, and more.">
+    <link rel="canonical" href="https://tomstech.net/skills.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --paper: #FBF5E8;
+            --ink: #1C2332;
+            --ink-soft: #3B455C;
+            --white: #FFFDF8;
+            --orange: #FF6B35;
+            --acid: #D8FF66;
+            --teal: #10A7A0;
+            --blue: #4E87FF;
+            --line: rgba(28, 35, 50, 0.25);
+            --shadow: 0 12px 26px rgba(28, 35, 50, 0.14);
+        }
+
+        body {
+            font-family: "Bricolage Grotesque", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 10% 8%, rgba(255, 107, 53, 0.14), transparent 26%),
+                radial-gradient(circle at 90% 12%, rgba(78, 135, 255, 0.16), transparent 28%),
+                linear-gradient(180deg, #FBF5E8 0%, #F2E5C9 100%);
+            min-height: 100vh;
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrap {
+            width: min(1200px, 100%);
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .topbar {
+            margin-top: 0.5rem;
+            background: rgba(255, 253, 248, 0.92);
+            border: 2px solid var(--ink);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            padding: 0.75rem 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.08rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--ink);
+        }
+
+        .brand span {
+            color: var(--orange);
+        }
+
+        .top-actions {
+            display: flex;
+            gap: 0.55rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            border: 2px solid var(--ink);
+            border-radius: 11px;
+            padding: 0.62rem 0.95rem;
+            text-decoration: none;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.74rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-home {
+            background: var(--white);
+            color: var(--ink);
+        }
+
+        .btn-call {
+            background: var(--acid);
+            color: var(--ink);
+        }
+
+        .hero {
+            margin-top: 1rem;
+            border: 2px solid var(--ink);
+            border-radius: 20px;
+            background: linear-gradient(140deg, #151D2E 0%, #22324D 64%, #1F5162 100%);
+            color: var(--white);
+            box-shadow: 0 20px 34px rgba(18, 25, 40, 0.28);
+            padding: 2.4rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "SKILLS";
+            position: absolute;
+            right: 0.7rem;
+            top: 0.55rem;
+            font-family: "IBM Plex Mono", monospace;
+            letter-spacing: 0.18em;
+            font-size: 0.68rem;
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .hero h1 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            line-height: 0.96;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.7rem;
+            max-width: 16ch;
+        }
+
+        .hero p {
+            max-width: 62ch;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1rem;
+        }
+
+        .skills-layout {
+            margin-top: 1rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.9rem;
+        }
+
+        .group {
+            border: 2px solid var(--ink);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow);
+            padding: 1rem;
+        }
+
+        .group h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.72rem;
+            letter-spacing: -0.02em;
+        }
+
+        .chip-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.45rem;
+        }
+
+        .chip {
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 0.4rem 0.6rem;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            background: var(--white);
+            text-align: center;
+            color: var(--ink);
+        }
+
+        .group:nth-child(1) .chip:nth-child(odd) { background: #FFF0E5; }
+        .group:nth-child(2) .chip:nth-child(odd) { background: #EAF5FF; }
+        .group:nth-child(3) .chip:nth-child(odd) { background: #EDFFF2; }
+        .group:nth-child(4) .chip:nth-child(odd) { background: #F7EEFF; }
+
+        .feature-strip {
+            margin-top: 1rem;
+            border: 2px solid var(--ink);
+            border-radius: 16px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            padding: 1rem;
+        }
+
+        .feature-strip h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.55rem;
+        }
+
+        .feature-item {
+            border: 2px solid var(--ink);
+            border-radius: 10px;
+            background: #fffdf8;
+            padding: 0.7rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--ink-soft);
+        }
+
+        .cta {
+            margin: 1rem 0 1.3rem;
+            border: 2px solid var(--ink);
+            border-radius: 18px;
+            background: linear-gradient(140deg, #FFF6E7 0%, #E8FAFF 100%);
+            box-shadow: var(--shadow);
+            padding: 1.4rem 1rem;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .cta p {
+            color: var(--ink-soft);
+            margin-bottom: 0.8rem;
+            font-size: 0.96rem;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .footer {
+            text-align: center;
+            color: rgba(28, 35, 50, 0.7);
+            font-size: 0.82rem;
+            padding-bottom: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            .skills-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .chip-grid,
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                align-items: stretch;
+            }
+
+            .top-actions {
+                width: 100%;
+            }
+
+            .btn {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <nav class="topbar" aria-label="Top">
+            <a href="/" class="brand">Tom's Tech <span>Ally</span></a>
+            <div class="top-actions">
+                <a href="/" class="btn btn-home">Back Home</a>
+                <a href="tel:2063354552" class="btn btn-call">Call (206) 335-4552</a>
+            </div>
+        </nav>
+
+        <header class="hero">
+            <h1>Full Skills Catalog</h1>
+            <p>End-to-end digital support for strategy, product, design, development, audits, and bilingual communication. If you do not see your exact need, ask.</p>
+        </header>
+
+        <main>
+            <section class="skills-layout" aria-label="Skills groups">
+                <article class="group">
+                    <h2>Design & UX</h2>
+                    <div class="chip-grid">
+                        <div class="chip">Web Design</div>
+                        <div class="chip">UX/UI</div>
+                        <div class="chip">Product Design</div>
+                        <div class="chip">Design Systems</div>
+                        <div class="chip">Information Architecture</div>
+                        <div class="chip">Rapid Prototyping</div>
+                        <div class="chip">User Flows</div>
+                        <div class="chip">Interaction Design</div>
+                    </div>
+                </article>
+
+                <article class="group">
+                    <h2>Engineering</h2>
+                    <div class="chip-grid">
+                        <div class="chip">Full Stack Development</div>
+                        <div class="chip">Frontend Engineering</div>
+                        <div class="chip">Backend/API Integration</div>
+                        <div class="chip">No-Code Integrations</div>
+                        <div class="chip">Automation Workflows</div>
+                        <div class="chip">Performance Optimization</div>
+                        <div class="chip">Technical QA</div>
+                        <div class="chip">Implementation Reviews</div>
+                    </div>
+                </article>
+
+                <article class="group">
+                    <h2>Analysis & Evaluation</h2>
+                    <div class="chip-grid">
+                        <div class="chip">Heuristic Analysis</div>
+                        <div class="chip">Reviews</div>
+                        <div class="chip">Accessibility Audits</div>
+                        <div class="chip">Usability Diagnostics</div>
+                        <div class="chip">Conversion Analysis</div>
+                        <div class="chip">Competitive Analysis</div>
+                        <div class="chip">Crypto & Blockchain Evaluation</div>
+                        <div class="chip">Risk Evaluation</div>
+                    </div>
+                </article>
+
+                <article class="group">
+                    <h2>Product & Communication</h2>
+                    <div class="chip-grid">
+                        <div class="chip">Product Strategy</div>
+                        <div class="chip">Feature Prioritization</div>
+                        <div class="chip">Roadmap Framing</div>
+                        <div class="chip">Content Strategy</div>
+                        <div class="chip">User Research Synthesis</div>
+                        <div class="chip">Spanish-Friendly Support</div>
+                        <div class="chip">Bilingual Documentation</div>
+                        <div class="chip">Stakeholder Summaries</div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="feature-strip" aria-label="Most requested">
+                <h2>Most Requested Skills</h2>
+                <div class="feature-list">
+                    <div class="feature-item">Web Design</div>
+                    <div class="feature-item">UX/UI</div>
+                    <div class="feature-item">Full Stack Development</div>
+                    <div class="feature-item">Heuristic Analysis</div>
+                    <div class="feature-item">Reviews</div>
+                    <div class="feature-item">Crypto & Blockchain Evaluation</div>
+                    <div class="feature-item">Product Design</div>
+                    <div class="feature-item">Spanish-Friendly Support</div>
+                    <div class="feature-item">Rapid Prototyping</div>
+                </div>
+            </section>
+
+            <section class="cta" aria-label="Contact">
+                <h2>Want this mapped to your project?</h2>
+                <p>Start with a quick triage call and I can scope the right stack of skills for your website or product.</p>
+                <div class="cta-actions">
+                    <a href="tel:2063354552" class="btn btn-call">Call</a>
+                    <a href="sms:2063354552" class="btn btn-home">Text</a>
+                    <a href="mailto:accounts@tomstech.net" class="btn btn-home">Email</a>
+                </div>
+            </section>
+        </main>
+
+        <p class="footer">&copy; 2026 Tom's Tech Ally · Seattle, WA</p>
+    </div>
+</body>
+</html>

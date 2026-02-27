@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tom's Tech Ally — Print Pack 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+
+    <style>
+        /* ── Reset & Tokens ─────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --blue:    #3B82F6;
+            --blue-dk: #2563EB;
+            --blue-lt: #93C5FD;
+            --purple:  #A78BFA;
+            --plum:    #7C3AED;
+            --pur-lt:  #DDD6FE;
+            --coal:    #1F2937;
+            --gray:    #6B7280;
+            --gray-lt: #9CA3AF;
+            --cream:   #F4F3EE;
+            --cream-dk:#E8E6DE;
+            --white:   #FFFFFF;
+            --cut:     rgba(0,0,0,0.18);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #DDDBD4;
+            color: var(--coal);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Header ─────────────────────────────────── */
+        .pack-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            background: var(--coal);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0.85rem 1.5rem 0.85rem 220px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .pack-title { display: flex; align-items: baseline; gap: 0.75rem; }
+        .pack-brand { color: #fff; font-weight: 800; font-size: 1rem; letter-spacing: -0.3px; }
+        .pack-subtitle { color: rgba(255,255,255,0.45); font-size: 0.82rem; font-weight: 500; }
+        .pack-actions { display: flex; align-items: center; gap: 0.75rem; }
+        .print-btn {
+            background: var(--blue); color: #fff;
+            border: none; cursor: pointer;
+            padding: 0.55rem 1.25rem; border-radius: 7px;
+            font-size: 0.85rem; font-weight: 600;
+            font-family: inherit;
+            transition: background 0.15s;
+        }
+        .print-btn:hover { background: var(--blue-dk); }
+        .qr-url-note { color: rgba(255,255,255,0.5); font-size: 0.78rem; }
+
+        /* ── Sidebar ─────────────────────────────────── */
+        .pack-nav {
+            position: fixed; left: 0; top: 0; bottom: 0; width: 200px; z-index: 199;
+            background: #161e29;
+            padding: 4.5rem 0 1.5rem;
+            overflow-y: auto;
+            display: flex; flex-direction: column;
+        }
+        .nav-section-label {
+            color: rgba(255,255,255,0.3);
+            font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1.2px;
+            padding: 1rem 1.25rem 0.4rem;
+        }
+        .pack-nav a {
+            display: block;
+            padding: 0.55rem 1.25rem;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.82rem; font-weight: 500;
+            transition: color 0.15s, background 0.15s;
+            border-left: 2px solid transparent;
+        }
+        .pack-nav a:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.05);
+            border-left-color: var(--blue);
+        }
+        .nav-dim {
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.3);
+            display: block; margin-top: 1px;
+        }
+
+        /* ── Main Canvas ─────────────────────────────── */
+        .pack-main {
+            margin-left: 200px;
+            padding: 5.5rem 3rem 4rem;
+        }
+
+        /* ── Section wrapper ─────────────────────────── */
+        .print-section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 5rem;
+        }
+        .section-label {
+            display: flex; align-items: center; gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+        .section-label h2 {
+            font-size: 1rem; font-weight: 700; color: var(--coal);
+        }
+        .dim-badge {
+            background: var(--coal); color: rgba(255,255,255,0.8);
+            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px;
+            padding: 0.25rem 0.65rem; border-radius: 4px;
+        }
+        .piece-row {
+            display: flex; gap: 2rem; flex-wrap: wrap; align-items: flex-start;
+        }
+
+        /* ── Piece board (screen wrapper) ────────────── */
+        .board {
+            background: var(--cream-dk);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: inline-flex;
+            flex-direction: column; align-items: center;
+            gap: 0.5rem;
+        }
+        .board-label {
+            font-size: 0.7rem; font-weight: 600; color: var(--gray);
+            text-transform: uppercase; letter-spacing: 0.8px;
+        }
+
+        /* ── Piece scale wrappers ────────────────────── */
+        /* All pieces use actual inch dimensions × 96 = px, then transform */
+        .scale-wrap {
+            position: relative;
+            overflow: visible;
+        }
+
+        /* ── Shared piece styles ─────────────────────── */
+        .piece {
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ── QR placeholder ──────────────────────────── */
+        .qr-block {
+            display: flex; flex-direction: column; align-items: center; gap: 4px;
+        }
+        .qr-block canvas, .qr-block img { display: block; }
+        .qr-caption {
+            font-size: 7px; font-weight: 600; color: var(--gray);
+            text-align: center; letter-spacing: 0.3px; line-height: 1.4;
+        }
+
+        /* ═══════════════════════════════════════════════
+           1. BUSINESS CARD  3.5" × 2" = 336 × 192px
+           Displayed at 2× = 672 × 384px
+        ═══════════════════════════════════════════════ */
+        .bc {
+            width: 336px; height: 192px;
+            transform: scale(2); transform-origin: top left;
+            border-radius: 6px;
+        }
+        .bc-wrap { width: 672px; height: 384px; }
+
+        /* Front */
+        .bc-front {
+            display: flex; flex-direction: column; justify-content: space-between;
+            padding: 14px 16px 12px;
+        }
+        .bc-front .brand-top { display: flex; flex-direction: column; }
+        .bc-front .bc-brand {
+            font-size: 10px; font-weight: 800; color: var(--coal);
+            letter-spacing: -0.3px; line-height: 1.2;
+        }
+        .bc-front .bc-brand span { color: var(--blue); }
+        .bc-front .bc-tag {
+            font-size: 6px; font-weight: 500; color: var(--gray);
+            margin-top: 2px;
+        }
+        .bc-front .bc-divider {
+            height: 1.5px; background: linear-gradient(90deg, var(--blue), var(--purple));
+            margin: 6px 0;
+        }
+        .bc-front .bc-bottom {
+            display: flex; justify-content: space-between; align-items: flex-end;
+        }
+        .bc-front .bc-info .bc-name {
+            font-size: 7.5px; font-weight: 700; color: var(--coal); margin-bottom: 3px;
+        }
+        .bc-front .bc-info .bc-contact {
+            font-size: 5.5px; color: var(--gray); line-height: 1.7;
+        }
+        .bc-front .bc-info .bc-contact strong {
+            color: var(--coal); font-weight: 600;
+        }
+        .bc-front .bc-qr canvas { width: 40px !important; height: 40px !important; }
+        .bc-front .bc-tagline-pill {
+            font-size: 5px; font-weight: 600; color: var(--plum);
+            background: var(--pur-lt);
+            padding: 2px 6px; border-radius: 10px;
+            display: inline-block; margin-bottom: 4px;
+        }
+
+        /* Back */
+        .bc-back {
+            background: var(--coal);
+            padding: 11px 14px;
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+        .bc-back .bc-back-head {
+            font-size: 6px; font-weight: 700; color: rgba(255,255,255,0.5);
+            text-transform: uppercase; letter-spacing: 0.8px;
+        }
+        .bc-back .bc-back-offer {
+            border: 1px solid var(--blue);
+            border-radius: 3px;
+            padding: 5px 7px;
+            margin: 5px 0;
+        }
+        .bc-back .bc-back-offer-title {
+            font-size: 5.5px; font-weight: 700; color: var(--blue-lt);
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .bc-back .bc-back-price {
+            font-size: 14px; font-weight: 800; color: #fff; line-height: 1.1;
+        }
+        .bc-back .bc-back-price span {
+            font-size: 6px; font-weight: 500; color: rgba(255,255,255,0.6);
+        }
+        .bc-back .bc-back-credit {
+            font-size: 5px; color: rgba(255,255,255,0.55); margin-top: 2px;
+        }
+        .bc-back .bc-rates {
+            font-size: 5px; color: rgba(255,255,255,0.5); line-height: 1.7;
+        }
+        .bc-back .bc-back-area {
+            font-size: 4.5px; color: rgba(255,255,255,0.35);
+            line-height: 1.6; border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 4px;
+        }
+        .bc-back .bc-tags {
+            font-size: 4.5px; color: rgba(255,255,255,0.4);
+            margin-top: 3px;
+        }
+
+        /* ═══════════════════════════════════════════════
+           2. FLYER   8.5" × 11" = 816 × 1056px
+           Displayed at 0.52× ≈ 424 × 549px
+        ═══════════════════════════════════════════════ */
+        .flyer {
+            width: 816px; height: 1056px;
+            transform: scale(0.52); transform-origin: top left;
+        }
+        .flyer-wrap { width: 424px; height: 549px; }
+
+        .flyer {
+            padding: 48px 52px;
+            display: flex; flex-direction: column;
+        }
+        .flyer-badge {
+            font-size: 9px; font-weight: 700; color: var(--plum);
+            background: var(--pur-lt);
+            display: inline-flex; align-items: center;
+            width: fit-content; padding: 4px 12px; border-radius: 20px;
+            margin-bottom: 16px; letter-spacing: 0.3px;
+        }
+        .flyer h1 {
+            font-size: 42px; font-weight: 800; line-height: 1.08;
+            letter-spacing: -2px; color: var(--coal);
+            margin-bottom: 14px;
+        }
+        .flyer h1 .hl {
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .flyer-sub {
+            font-size: 16px; color: var(--gray); line-height: 1.55;
+            margin-bottom: 22px; max-width: 580px;
+        }
+        .flyer-bullets {
+            list-style: none; margin-bottom: 24px;
+            display: flex; flex-direction: column; gap: 6px;
+        }
+        .flyer-bullets li {
+            display: flex; align-items: flex-start; gap: 10px;
+            font-size: 14px; color: var(--coal); font-weight: 500; line-height: 1.5;
+        }
+        .flyer-bullets li::before {
+            content: '';
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--blue); flex-shrink: 0; margin-top: 5px;
+        }
+        .flyer-offer {
+            border: 2.5px solid var(--blue); border-radius: 12px;
+            padding: 20px 24px; margin-bottom: 18px;
+        }
+        .flyer-offer-title {
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--gray); margin-bottom: 6px;
+        }
+        .flyer-offer-price {
+            font-size: 36px; font-weight: 800; color: var(--blue);
+            line-height: 1; margin-bottom: 6px;
+        }
+        .flyer-offer-price span {
+            font-size: 14px; font-weight: 500; color: var(--gray);
+        }
+        .flyer-offer-desc {
+            font-size: 12px; color: var(--gray); line-height: 1.55; margin-bottom: 6px;
+        }
+        .flyer-offer-credit {
+            font-size: 11px; font-weight: 600; color: var(--coal);
+        }
+        .flyer-rates {
+            font-size: 11px; color: var(--gray); margin-bottom: 10px;
+        }
+        .flyer-area {
+            font-size: 10px; color: var(--gray); line-height: 1.6; margin-bottom: 20px;
+        }
+        .flyer-footer {
+            border-top: 1px solid var(--cream-dk); padding-top: 20px;
+            margin-top: auto;
+            display: flex; justify-content: space-between; align-items: flex-end;
+        }
+        .flyer-contact-block .flyer-contact-name {
+            font-size: 14px; font-weight: 800; color: var(--coal); margin-bottom: 6px;
+        }
+        .flyer-contact-block .flyer-contact-info {
+            font-size: 12px; color: var(--gray); line-height: 1.7;
+        }
+        .flyer-contact-block .flyer-contact-info strong {
+            color: var(--coal); font-weight: 700;
+        }
+        .flyer-qr { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        .flyer-qr canvas { width: 80px !important; height: 80px !important; }
+        .flyer-qr .qr-scan {
+            font-size: 8px; font-weight: 600; color: var(--gray);
+            text-align: center;
+        }
+
+        /* Flyer B differences */
+        .flyer-b-bullets li::before { background: var(--purple); }
+        .flyer-b-offer { border-color: var(--purple); }
+        .flyer-b-offer .flyer-offer-price { color: var(--plum); }
+
+        /* ═══════════════════════════════════════════════
+           4. DOOR HANGER  3.5" × 8.5" = 336 × 816px
+           Displayed at 1.1× = 370 × 898px
+        ═══════════════════════════════════════════════ */
+        .dh {
+            width: 336px; height: 816px;
+            transform: scale(1.1); transform-origin: top left;
+        }
+        .dh-wrap { width: 370px; height: 898px; }
+
+        .dh-front {
+            padding: 24px 20px 22px;
+            display: flex; flex-direction: column;
+            height: 100%;
+        }
+        /* Hole cutout area */
+        .dh-hole {
+            width: 32px; height: 32px; border-radius: 50%;
+            border: 2px dashed var(--cut);
+            margin: 0 auto 16px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .dh-hole span {
+            font-size: 6px; font-weight: 600; color: var(--cut);
+            text-transform: uppercase; letter-spacing: 0.3px;
+        }
+        .dh-front .dh-brand {
+            font-size: 18px; font-weight: 800; color: var(--coal);
+            letter-spacing: -0.5px; text-align: center; line-height: 1.2;
+        }
+        .dh-front .dh-brand span { color: var(--blue); }
+        .dh-front .dh-tag {
+            font-size: 9px; color: var(--gray); text-align: center;
+            font-weight: 500; margin-top: 4px;
+        }
+        .dh-divider {
+            height: 2px; background: linear-gradient(90deg, var(--blue), var(--purple));
+            border-radius: 1px; margin: 14px 0;
+        }
+        .dh-services {
+            display: flex; flex-wrap: wrap; gap: 4px;
+            justify-content: center; margin-bottom: 16px;
+        }
+        .dh-service-pill {
+            background: var(--cream); border: 1px solid var(--cream-dk);
+            padding: 3px 8px; border-radius: 10px;
+            font-size: 8px; font-weight: 600; color: var(--coal);
+        }
+        .dh-offer-box {
+            background: var(--coal); border-radius: 8px;
+            padding: 14px 16px; margin-bottom: 16px; text-align: center;
+        }
+        .dh-offer-box .dh-offer-label {
+            font-size: 7px; font-weight: 700; color: rgba(255,255,255,0.5);
+            text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px;
+        }
+        .dh-offer-box .dh-price {
+            font-size: 30px; font-weight: 800; color: #fff; line-height: 1;
+        }
+        .dh-offer-box .dh-price-sub {
+            font-size: 8px; color: rgba(255,255,255,0.6); margin-top: 3px;
+        }
+        .dh-offer-box .dh-credit {
+            font-size: 7.5px; color: rgba(255,255,255,0.45); margin-top: 4px;
+        }
+        .dh-contact {
+            text-align: center; margin-bottom: 14px;
+        }
+        .dh-contact .dh-phone {
+            font-size: 14px; font-weight: 800; color: var(--blue);
+            letter-spacing: -0.3px;
+        }
+        .dh-contact .dh-web {
+            font-size: 9px; font-weight: 600; color: var(--gray); margin-top: 2px;
+        }
+        .dh-qr { display: flex; flex-direction: column; align-items: center; gap: 4px; margin-top: auto; }
+        .dh-qr canvas { width: 60px !important; height: 60px !important; }
+
+        /* Door hanger BACK */
+        .dh-back {
+            background: #FAFAF8;
+            padding: 22px 20px;
+            display: flex; flex-direction: column;
+            height: 100%;
+        }
+        .dh-back-head {
+            font-size: 12px; font-weight: 800; color: var(--coal);
+            margin-bottom: 12px;
+        }
+        .dh-problem-list {
+            list-style: none; display: flex; flex-direction: column; gap: 7px;
+            margin-bottom: 16px;
+        }
+        .dh-problem-list li {
+            display: flex; align-items: flex-start; gap: 8px;
+            font-size: 9.5px; color: var(--coal); font-weight: 500; line-height: 1.45;
+        }
+        .dh-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--blue); flex-shrink: 0; margin-top: 3px;
+        }
+        .dh-back-area {
+            font-size: 8px; color: var(--gray); line-height: 1.7;
+            border-top: 1px solid var(--cream-dk); padding-top: 10px;
+            margin-top: auto;
+        }
+        .dh-back .dh-back-hole {
+            width: 28px; height: 28px; border-radius: 50%;
+            border: 2px dashed var(--cut);
+            margin: 0 auto 14px;
+        }
+
+        /* ═══════════════════════════════════════════════
+           5. TEAR-OFF  8.5" × 11" = 816 × 1056px
+           Displayed at 0.52× ≈ 424 × 549px
+        ═══════════════════════════════════════════════ */
+        .tearoff-wrap { width: 424px; height: 549px; }
+        .tearoff {
+            width: 816px; height: 1056px;
+            transform: scale(0.52); transform-origin: top left;
+            display: flex; flex-direction: column;
+        }
+        .tearoff-body {
+            flex: 1; padding: 48px 52px 32px;
+            display: flex; flex-direction: column;
+        }
+        .tearoff-body .to-header {
+            font-size: 11px; font-weight: 800; color: var(--coal);
+            text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px;
+        }
+        .tearoff-body h2 {
+            font-size: 38px; font-weight: 800; letter-spacing: -1.5px;
+            color: var(--coal); line-height: 1.1; margin-bottom: 10px;
+        }
+        .tearoff-body h2 .hl {
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .tearoff-offer-box {
+            border: 2.5px solid var(--blue); border-radius: 12px;
+            padding: 18px 22px; margin: 16px 0;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .tearoff-offer-left .to-price {
+            font-size: 42px; font-weight: 800; color: var(--blue); line-height: 1;
+        }
+        .tearoff-offer-left .to-price span {
+            font-size: 14px; font-weight: 500; color: var(--gray);
+        }
+        .tearoff-offer-left .to-credit {
+            font-size: 12px; color: var(--gray); margin-top: 4px;
+        }
+        .to-contact-center {
+            text-align: center;
+        }
+        .to-contact-center .to-phone {
+            font-size: 22px; font-weight: 800; color: var(--coal);
+            letter-spacing: -0.5px;
+        }
+        .to-contact-center .to-web {
+            font-size: 14px; font-weight: 600; color: var(--blue);
+        }
+        .to-contact-center .to-email {
+            font-size: 11px; color: var(--gray);
+        }
+        .to-qr-row { display: flex; justify-content: center; margin: 12px 0; }
+        .to-qr-row canvas { width: 90px !important; height: 90px !important; }
+
+        /* Tear tabs */
+        .tearoff-tabs {
+            height: 140px;
+            border-top: 2px dashed var(--cut);
+            display: flex;
+        }
+        .tearoff-tab {
+            flex: 1;
+            border-right: 2px dashed var(--cut);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 8px 4px;
+        }
+        .tearoff-tab:last-child { border-right: none; }
+        /* rotate tab text */
+        .tab-text {
+            transform: rotate(-90deg);
+            white-space: nowrap;
+            display: flex; flex-direction: column; align-items: center; gap: 3px;
+        }
+        .tab-text .tab-brand { font-size: 8px; font-weight: 800; color: var(--coal); }
+        .tab-text .tab-phone { font-size: 7.5px; font-weight: 600; color: var(--blue); }
+        .tab-text .tab-web { font-size: 6.5px; color: var(--gray); }
+
+        /* ═══════════════════════════════════════════════
+           6. REFERRAL CARD  5.5" × 4.25" = 528 × 408px
+           Displayed at 1.3× = 686 × 530px
+        ═══════════════════════════════════════════════ */
+        .ref {
+            width: 528px; height: 408px;
+            transform: scale(1.3); transform-origin: top left;
+            border-radius: 10px;
+        }
+        .ref-wrap { width: 686px; height: 530px; }
+
+        .ref-front {
+            padding: 28px 32px;
+            display: flex; flex-direction: column; justify-content: space-between;
+            height: 100%;
+        }
+        .ref-front .ref-hook {
+            font-size: 22px; font-weight: 800; color: var(--coal);
+            line-height: 1.2; letter-spacing: -0.8px; max-width: 360px;
+        }
+        .ref-front .ref-hook span { color: var(--blue); }
+        .ref-front .ref-brand-line {
+            font-size: 13px; font-weight: 700; color: var(--coal); margin-bottom: 4px;
+        }
+        .ref-front .ref-desc {
+            font-size: 10px; color: var(--gray); margin-bottom: 10px;
+        }
+        .ref-services {
+            display: flex; flex-wrap: wrap; gap: 4px;
+        }
+        .ref-pill {
+            background: var(--pur-lt); color: var(--plum);
+            font-size: 8px; font-weight: 600;
+            padding: 3px 8px; border-radius: 12px;
+        }
+        .ref-gradient-bar {
+            height: 3px; background: linear-gradient(90deg, var(--blue), var(--purple));
+            border-radius: 2px; margin: 12px 0;
+        }
+
+        .ref-back {
+            background: var(--coal); border-radius: 10px;
+            padding: 24px 28px;
+            display: flex; flex-direction: column; justify-content: space-between;
+            height: 100%;
+        }
+        .ref-back .ref-back-head {
+            font-size: 8px; font-weight: 700; color: var(--blue-lt);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+        }
+        .ref-back .ref-back-price {
+            font-size: 32px; font-weight: 800; color: #fff; line-height: 1;
+        }
+        .ref-back .ref-back-price span {
+            font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5);
+        }
+        .ref-back .ref-back-credit {
+            font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 4px; margin-bottom: 16px;
+        }
+        .ref-back-footer {
+            display: flex; justify-content: space-between; align-items: flex-end;
+        }
+        .ref-back-contact .ref-back-phone {
+            font-size: 16px; font-weight: 800; color: #fff;
+        }
+        .ref-back-contact .ref-back-web {
+            font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 2px;
+        }
+        .ref-back-qr canvas { width: 60px !important; height: 60px !important; }
+
+        /* ═══════════════════════════════════════════════
+           7. QR LABELS
+        ═══════════════════════════════════════════════ */
+        .qr-labels-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+        .qr-label {
+            background: var(--white);
+            border: 1px solid var(--cream-dk);
+            border-radius: 8px;
+            padding: 14px 18px;
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            min-width: 160px;
+        }
+        .qr-label canvas { width: 100px !important; height: 100px !important; }
+        .qr-label .ql-line1 {
+            font-size: 11px; font-weight: 700; color: var(--coal); text-align: center;
+        }
+        .qr-label .ql-line2 {
+            font-size: 9px; color: var(--gray); text-align: center; line-height: 1.5;
+        }
+        .qr-label .ql-url {
+            font-size: 9px; font-weight: 600; color: var(--blue); text-align: center;
+        }
+        .qr-label-alt {
+            background: var(--coal);
+        }
+        .qr-label-alt .ql-line1 { color: #fff; }
+        .qr-label-alt .ql-line2 { color: rgba(255,255,255,0.5); }
+        .qr-label-alt .ql-url { color: var(--blue-lt); }
+
+        /* ── Notes ──────────────────────────────────── */
+        .spec-note {
+            background: var(--white); border-left: 3px solid var(--blue);
+            border-radius: 6px; padding: 0.85rem 1.1rem; margin-top: 1.25rem;
+            font-size: 0.8rem; color: var(--gray); line-height: 1.6;
+            max-width: 580px;
+        }
+        .spec-note strong { color: var(--coal); }
+
+        /* ── Print styles ────────────────────────────── */
+        @media print {
+            @page { margin: 0.5in; }
+
+            body { background: white; }
+            .pack-header, .pack-nav { display: none !important; }
+            .pack-main { margin-left: 0; padding: 0; }
+
+            .print-section {
+                page-break-after: always;
+                margin-bottom: 0;
+            }
+            .print-section:last-child { page-break-after: avoid; }
+
+            .section-label { padding: 0.25in 0 0.15in; }
+            .section-label h2 { font-size: 0.7rem; color: #999; }
+            .dim-badge { background: #eee; color: #666; }
+
+            .board { background: white; padding: 0; box-shadow: none; }
+            .spec-note { display: none; }
+
+            /* Reset transforms for print — show at actual sizes */
+            .bc { transform: scale(1) !important; }
+            .bc-wrap { width: 336px !important; height: 192px !important; }
+
+            .flyer { transform: scale(1) !important; }
+            .flyer-wrap { width: 816px !important; height: 1056px !important; }
+
+            .dh { transform: scale(1) !important; }
+            .dh-wrap { width: 336px !important; height: 816px !important; }
+
+            .tearoff { transform: scale(1) !important; }
+            .tearoff-wrap { width: 816px !important; height: 1056px !important; }
+
+            .ref { transform: scale(1) !important; }
+            .ref-wrap { width: 528px !important; height: 408px !important; }
+
+            .piece-row { flex-direction: column; gap: 0.5in; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="pack-header">
+    <div class="pack-title">
+        <span class="pack-brand">Tom's Tech Ally</span>
+        <span class="pack-subtitle">Print Pack — 2026 · All copy + QR ready</span>
+    </div>
+    <div class="pack-actions">
+        <span class="qr-url-note">QR → tomstech.net</span>
+        <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+    </div>
+</header>
+
+<!-- ── Sidebar ── -->
+<nav class="pack-nav">
+    <div class="nav-section-label">Print Materials</div>
+    <a href="#bc">Business Card <span class="nav-dim">3.5" × 2" · 2-sided</span></a>
+    <a href="#flyer-a">Flyer A — General <span class="nav-dim">8.5" × 11"</span></a>
+    <a href="#flyer-b">Flyer B — Wi-Fi <span class="nav-dim">8.5" × 11"</span></a>
+    <a href="#door-hanger">Door Hanger <span class="nav-dim">3.5" × 8.5" · 2-sided</span></a>
+    <a href="#tearoff">Tear-off Sheet <span class="nav-dim">8.5" × 11"</span></a>
+    <a href="#referral">Referral Card <span class="nav-dim">5.5" × 4.25" · 2-sided</span></a>
+    <a href="#qr-labels">QR Labels <span class="nav-dim">Sticker / small print</span></a>
+</nav>
+
+<!-- ── Main ── -->
+<main class="pack-main">
+
+    <!-- ════════════════════════════════════════════
+         1. BUSINESS CARD
+    ════════════════════════════════════════════ -->
+    <section class="print-section" id="bc">
+        <div class="section-label">
+            <h2>Business Card</h2>
+            <span class="dim-badge">3.5" × 2" · Standard</span>
+        </div>
+        <div class="piece-row">
+            <!-- Front -->
+            <div class="board">
+                <span class="board-label">Front</span>
+                <div class="bc-wrap">
+                    <div class="piece bc bc-front">
+                        <div class="brand-top">
+                            <div class="bc-tagline-pill">Your Neighborhood Tech Companion</div>
+                            <div class="bc-brand">Tom's Tech <span>Ally</span></div>
+                            <div class="bc-tag">Patient support. Real solutions.</div>
+                        </div>
+                        <div class="bc-divider"></div>
+                        <div class="bc-bottom">
+                            <div class="bc-info">
+                                <div class="bc-name">Tom Petrie</div>
+                                <div class="bc-contact">
+                                    <strong>Text/Call:</strong> (206) 335-4552<br>
+                                    <strong>Email:</strong> accounts@tomstech.net<br>
+                                    <strong>Web:</strong> tomstech.net
+                                </div>
+                            </div>
+                            <div class="bc-qr">
+                                <div class="qr-block">
+                                    <div class="qr-bc-1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Back -->
+            <div class="board">
+                <span class="board-label">Back</span>
+                <div class="bc-wrap">
+                    <div class="piece bc bc-back">
+                        <div class="bc-back-head">Neighborhood Tech Support, Consulting &amp; Solutions</div>
+                        <div class="bc-back-offer">
+                            <div class="bc-back-offer-title">Start Here · Tech Triage Call 15–20 min</div>
+                            <div class="bc-back-price">$21 <span>credited toward first appt.</span></div>
+                            <div class="bc-back-credit">$21 is fully credited toward your first appointment</div>
+                        </div>
+                        <div class="bc-rates">
+                            Remote Support: $42/hr (1-hour min)<br>
+                            In-Home Support: $42/hr (90-min min)
+                        </div>
+                        <div class="bc-back-area">
+                            Green Lake · Wallingford · Phinney Ridge · Ballard · Queen Anne · Capitol Hill · Greenwood · Ravenna · U District · Laurelhurst · Madison Park · View Ridge · Maple Leaf · nearby
+                        </div>
+                        <div class="bc-tags">Troubleshoot · Setup · Smart Home · Tutoring · Consulting</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spec-note">
+            <strong>Print spec:</strong> 3.5" × 2" · Bleed: 0.125" on all sides · Safe zone: 0.125" from trim ·
+            Recommend 16pt coated stock, soft-touch matte laminate on front, gloss UV on back.
+            Submit as separate front/back PDFs at 300dpi+.
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         2. FLYER A — General
+    ════════════════════════════════════════════ -->
+    <section class="print-section" id="flyer-a">
+        <div class="section-label">
+            <h2>Flyer — Version A (General)</h2>
+            <span class="dim-badge">8.5" × 11" · US Letter · Single-sided</span>
+        </div>
+        <div class="board">
+            <span class="board-label">Flyer A — 52% scale preview</span>
+            <div class="flyer-wrap">
+                <div class="piece flyer">
+                    <div class="flyer-badge">Serving Seattle Neighborhoods</div>
+                    <h1>Seattle Tech Support That<br><span class="hl">Solves the Problem</span></h1>
+                    <p class="flyer-sub">Troubleshooting first. Real solutions after.<br>In-home and remote help for home and small business.</p>
+                    <ul class="flyer-bullets">
+                        <li>Troubleshooting &amp; fixes (the "it was working yesterday" stuff)</li>
+                        <li>Wi-Fi and home network solutions (dead zones, drops, mesh setup)</li>
+                        <li>New computer/phone setup, cleanup, backups</li>
+                        <li>Email, accounts, recovery, security basics</li>
+                        <li>Smart home setup and cleanup</li>
+                        <li>Consulting before you buy (hardware/software guidance)</li>
+                        <li>Patient tutoring for any age</li>
+                    </ul>
+                    <div class="flyer-offer">
+                        <div class="flyer-offer-title">Start Here</div>
+                        <div class="flyer-offer-price">$21 <span>Tech Triage Call · 15–20 min</span></div>
+                        <div class="flyer-offer-desc">Quick diagnosis, clear next steps, and a straightforward estimate.</div>
+                        <div class="flyer-offer-credit">Your $21 is fully credited toward your first paid remote session or in-home visit.</div>
+                    </div>
+                    <div class="flyer-rates">Remote: $42/hr (1-hour min) &nbsp;·&nbsp; In-home: $42/hr (90-min min)</div>
+                    <div class="flyer-area">Serving: Green Lake, Wallingford, Phinney Ridge, Ballard, Queen Anne, Capitol Hill, Greenwood, Ravenna, U District, Laurelhurst, Madison Park, View Ridge, Maple Leaf, and nearby.</div>
+                    <div class="flyer-footer">
+                        <div class="flyer-contact-block">
+                            <div class="flyer-contact-name">Tom Petrie — Tom's Tech Ally</div>
+                            <div class="flyer-contact-info">
+                                <strong>Text/Call: (206) 335-4552</strong><br>
+                                accounts@tomstech.net &nbsp;·&nbsp; tomstech.net
+                            </div>
+                        </div>
+                        <div class="flyer-qr">
+                            <div class="qr-fa-1"></div>
+                            <div class="qr-scan">Scan to book triage<br>or text Tom</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spec-note">
+            <strong>Print spec:</strong> 8.5" × 11" · Bleed: 0.125" · 80–100lb gloss text or uncoated.
+            Full color. No bleed needed if printed on white stock with white background.
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         3. FLYER B — Wi-Fi Hook
+    ════════════════════════════════════════════ -->
+    <section class="print-section" id="flyer-b">
+        <div class="section-label">
+            <h2>Flyer — Version B (Wi-Fi Hook)</h2>
+            <span class="dim-badge">8.5" × 11" · US Letter · Single-sided</span>
+        </div>
+        <div class="board">
+            <span class="board-label">Flyer B — 52% scale preview</span>
+            <div class="flyer-wrap">
+                <div class="piece flyer">
+                    <div class="flyer-badge" style="background:var(--pur-lt);color:var(--plum);">Wi-Fi &amp; Home Network</div>
+                    <h1 style="font-size:38px;">Wi-Fi Slow in Some Rooms?<br><span class="hl">Drops at Random?</span></h1>
+                    <p class="flyer-sub">Most home Wi-Fi problems are fixable without paying for a higher internet plan.</p>
+                    <ul class="flyer-bullets flyer-b-bullets">
+                        <li>Dead zones, weak rooms, unstable connections</li>
+                        <li>Router and mesh setup done right</li>
+                        <li>Better placement, settings, and stability</li>
+                        <li>Device connectivity issues (TVs, cameras, locks, speakers)</li>
+                        <li>Clean, simple network you can live with</li>
+                    </ul>
+                    <div class="flyer-offer flyer-b-offer">
+                        <div class="flyer-offer-title">Start Here</div>
+                        <div class="flyer-offer-price" style="color:var(--plum);">$21 <span>Tech Triage Call · 15–20 min</span></div>
+                        <div class="flyer-offer-desc">Rapid diagnosis of your Wi-Fi problem. Clear fix options and a straight estimate.</div>
+                        <div class="flyer-offer-credit">$21 credited toward your first appointment.</div>
+                    </div>
+                    <div class="flyer-rates">Remote: $42/hr (1-hour min) &nbsp;·&nbsp; In-home: $42/hr (90-min min)</div>
+                    <div class="flyer-area">Serving: Green Lake, Wallingford, Phinney Ridge, Ballard, Queen Anne, Capitol Hill, Greenwood, Ravenna, U District, Laurelhurst, Madison Park, View Ridge, Maple Leaf, and nearby.</div>
+                    <div class="flyer-footer">
+                        <div class="flyer-contact-block">
+                            <div class="flyer-contact-name">Tom Petrie — Tom's Tech Ally</div>
+                            <div class="flyer-contact-info">
+                                <strong>Text/Call: (206) 335-4552</strong><br>
+                                accounts@tomstech.net &nbsp;·&nbsp; tomstech.net
+                            </div>
+                        </div>
+                        <div class="flyer-qr">
+                            <div class="qr-fb-1"></div>
+                            <div class="qr-scan">Scan to book triage<br>or text Tom</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         4. DOOR HANGER
+    ════════════════════════════════════════════ -->
+    <section class="print-section" id="door-hanger">
+        <div class="section-label">
+            <h2>Door Hanger</h2>
+            <span class="dim-badge">3.5" × 8.5" · 2-sided</span>
+        </div>
+        <div class="piece-row">
+            <!-- Front -->
+            <div class="board">
+                <span class="board-label">Front</span>
+                <div class="dh-wrap">
+                    <div class="piece dh dh-front">
+                        <div class="dh-hole"><span>hole</span></div>
+                        <div class="dh-brand">Tom's Tech <span>Ally</span></div>
+                        <div class="dh-tag">Your Neighborhood Tech Companion</div>
+                        <div class="dh-divider"></div>
+                        <div class="dh-services">
+                            <span class="dh-service-pill">Troubleshoot</span>
+                            <span class="dh-service-pill">Setup</span>
+                            <span class="dh-service-pill">Teach</span>
+                            <span class="dh-service-pill">Advise</span>
+                        </div>
+                        <div class="dh-offer-box">
+                            <div class="dh-offer-label">Tech Triage Call · 15–20 min</div>
+                            <div class="dh-price">$21</div>
+                            <div class="dh-price-sub">Includes diagnosis + estimate</div>
+                            <div class="dh-credit">Credited toward your first appointment</div>
+                        </div>
+                        <div class="dh-contact">
+                            <div class="dh-phone">(206) 335-4552</div>
+                            <div class="dh-web">tomstech.net</div>
+                        </div>
+                        <div class="dh-qr">
+                            <div class="qr-dh-1"></div>
+                            <div class="qr-caption">Scan to visit site or text Tom</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Back -->
+            <div class="board">
+                <span class="board-label">Back</span>
+                <div class="dh-wrap">
+                    <div class="piece dh dh-back">
+                        <div class="dh-back-hole"></div>
+                        <div class="dh-back-head">Common problems I fix</div>
+                        <ul class="dh-problem-list">
+                            <li><div class="dh-dot"></div>Wi-Fi drops / dead zones / slow rooms</li>
+                            <li><div class="dh-dot"></div>New devices setup and data transfers</li>
+                            <li><div class="dh-dot"></div>Phones full / backups not working</li>
+                            <li><div class="dh-dot"></div>Email and accounts: setup, recovery, security</li>
+                            <li><div class="dh-dot"></div>Smart home devices won't connect</li>
+                            <li><div class="dh-dot"></div>Printers and "it used to work" issues</li>
+                            <li><div class="dh-dot"></div>Buying guidance before you spend money</li>
+                        </ul>
+                        <div class="dh-back-area">
+                            Green Lake · Wallingford · Phinney · Ballard · Queen Anne · Capitol Hill · Greenwood · Ravenna · U District · Laurelhurst · Madison Park · View Ridge · Maple Leaf · nearby
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spec-note">
+            <strong>Print spec:</strong> 3.5" × 8.5" · Standard door hanger die-cut with 1.5" hole at top center ·
+            100lb gloss cover · Full color both sides. Most online printers (GotPrint, PrintingForLess, VistaPrint)
+            offer pre-cut door hanger templates.
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         5. TEAR-OFF SHEET
+    ════════════════════════════════════════════ -->
+    <section class="print-section" id="tearoff">
+        <div class="section-label">
+            <h2>Tear-off Sheet</h2>
+            <span class="dim-badge">8.5" × 11" · Coffee shops / bulletin boards</span>
+        </div>
+        <div class="board">
+            <span class="board-label">Full sheet — 52% scale preview</span>
+            <div class="tearoff-wrap">
+                <div class="piece tearoff">
+                    <div class="tearoff-body">
+                        <div class="to-header">Tom's Tech Ally — Neighborhood Tech Support, Consulting &amp; Solutions</div>
+                        <h2>Seattle Tech Support That<br><span class="hl">Solves the Problem</span></h2>
+                        <div class="tearoff-offer-box">
+                            <div class="tearoff-offer-left">
+                                <div class="to-price">$21 <span>Tech Triage Call · 15–20 min</span></div>
+                                <div class="to-credit">$21 credited toward your first appointment</div>
+                            </div>
+                            <div class="to-contact-center">
+                                <div class="to-phone">(206) 335-4552</div>
+                                <div class="to-web">tomstech.net</div>
+                                <div class="to-email">accounts@tomstech.net</div>
+                            </div>
+                        </div>
+                        <div class="to-qr-row">
+                            <div class="qr-to-1"></div>
+                        </div>
+                    </div>
+                    <!-- Tear tabs -->
+                    <div class="tearoff-tabs">
+                        <div class="tearoff-tab"><div class="tab-text"><span class="tab-brand">Tom's Tech Ally</span><span class="tab-phone">(206) 335-4552</span><span class="tab-web">tomstech.net</span></div></div>
+                        <div class="tearoff-tab"><div class="tab-text"><span class="tab-brand">Tom's Tech Ally</span><span class="tab-phone">(206) 335-4552</span><span class="tab-web">tomstech.net</span></div></div>
+                        <div class="tearoff-tab"><div class="tab-text"><span class="tab-brand">Tom's Tech Ally</span><span class="tab-phone">(206) 335-4552</span><span class="tab-web">tomstech.net</span></div></div>
+                        <div class="tearoff-tab"><div class="tab-text"><span class="tab-brand">Tom's Tech Ally</span><span class="tab-phone">(206) 335-4552</span><span class="tab-web">tomstech.net</span></div></div>
+                        <div class="tearoff-tab"><div class="tab-text"><span class="tab-brand">Tom's Tech Ally</span><span class="tab-phone">(206) 335-4552</span><span class="tab-web">tomstech.net</span></div></div>
+                        <div class="tearoff-tab"><div class="tab-text"><span class="tab-brand">Tom's Tech Ally</span><span class="tab-phone">(206) 335-4552</span><span class="tab-web">tomstech.net</span></div></div>
+                        <div class="tearoff-tab"><div class="tab-text"><span class="tab-brand">Tom's Tech Ally</span><span class="tab-phone">(206) 335-4552</span><span class="tab-web">tomstech.net</span></div></div>
+                        <div class="tearoff-tab"><div class="tab-text"><span class="tab-brand">Tom's Tech Ally</span><span class="tab-phone">(206) 335-4552</span><span class="tab-web">tomstech.net</span></div></div>
+                        <div class="tearoff-tab"><div class="tab-text"><span class="tab-brand">Tom's Tech Ally</span><span class="tab-phone">(206) 335-4552</span><span class="tab-web">tomstech.net</span></div></div>
+                        <div class="tearoff-tab"><div class="tab-text"><span class="tab-brand">Tom's Tech Ally</span><span class="tab-phone">(206) 335-4552</span><span class="tab-web">tomstech.net</span></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spec-note">
+            <strong>Print tip:</strong> Print on standard 8.5" × 11" white paper. Cut vertical slits between each tab with scissors before posting.
+            10 tabs shown. Can be printed on a laser printer — thicker 28–32lb paper holds up better on bulletin boards.
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         6. REFERRAL CARD
+    ════════════════════════════════════════════ -->
+    <section class="print-section" id="referral">
+        <div class="section-label">
+            <h2>Referral Card</h2>
+            <span class="dim-badge">5.5" × 4.25" · Half-letter / Postcard · 2-sided</span>
+        </div>
+        <div class="piece-row">
+            <!-- Front -->
+            <div class="board">
+                <span class="board-label">Front</span>
+                <div class="ref-wrap">
+                    <div class="piece ref ref-front">
+                        <div>
+                            <div class="ref-hook">Know someone who needs<br><span>patient tech help?</span></div>
+                            <div class="ref-gradient-bar"></div>
+                            <div class="ref-brand-line">Send them to Tom's Tech Ally.</div>
+                            <div class="ref-desc">Tech support, consulting, and real solutions</div>
+                            <div class="ref-services">
+                                <span class="ref-pill">Wi-Fi</span>
+                                <span class="ref-pill">Devices</span>
+                                <span class="ref-pill">Smart Home</span>
+                                <span class="ref-pill">Email &amp; Accounts</span>
+                                <span class="ref-pill">Tutoring</span>
+                                <span class="ref-pill">Buying Guidance</span>
+                            </div>
+                        </div>
+                        <div style="font-size:9px;color:var(--gray);">tomstech.net &nbsp;·&nbsp; (206) 335-4552</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Back -->
+            <div class="board">
+                <span class="board-label">Back</span>
+                <div class="ref-wrap">
+                    <div class="piece ref ref-back">
+                        <div>
+                            <div class="ref-back-head">Start Here</div>
+                            <div class="ref-back-price">$21 <span>Tech Triage Call · 15–20 min</span></div>
+                            <div class="ref-back-credit">Credited toward the first appointment</div>
+                        </div>
+                        <div class="ref-back-footer">
+                            <div class="ref-back-contact">
+                                <div class="ref-back-phone">Text/Call: (206) 335-4552</div>
+                                <div class="ref-back-web">tomstech.net</div>
+                            </div>
+                            <div class="ref-back-qr">
+                                <div class="qr-ref-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spec-note">
+            <strong>Print spec:</strong> 5.5" × 4.25" (A2 postcard / half-letter) ·
+            16pt coated stock or 100lb gloss cover · Can double as a leave-behind or mailing postcard.
+            For mailing, leave 3.5" × 2.125" bottom-right of back clear for address/stamp.
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════
+         7. QR LABELS
+    ════════════════════════════════════════════ -->
+    <section class="print-section" id="qr-labels">
+        <div class="section-label">
+            <h2>QR Labels</h2>
+            <span class="dim-badge">Sticker sheet / small print</span>
+        </div>
+        <div class="qr-labels-row">
+            <div class="qr-label">
+                <div class="qr-label-qr-1"></div>
+                <div class="ql-line1">Scan to book a $21 triage call</div>
+                <div class="ql-line2">$21 credited toward your first appointment</div>
+                <div class="ql-url">tomstech.net</div>
+            </div>
+            <div class="qr-label qr-label-alt">
+                <div class="qr-label-qr-2"></div>
+                <div class="ql-line1">Scan to text Tom and get started</div>
+                <div class="ql-line2">Quick response · Patient help</div>
+                <div class="ql-url">(206) 335-4552</div>
+            </div>
+        </div>
+        <div class="spec-note">
+            <strong>Primary QR:</strong> Points to <strong>https://tomstech.net</strong> —
+            so you can change booking flows without reprinting.
+            Recommend Avery 5160 or 5163 label sheets for easy laser printing.
+            Minimum QR size: 0.8" × 0.8" for reliable scanning.
+            For the alt label (text Tom), point QR to <strong>sms:2063354552</strong>.
+        </div>
+    </section>
+
+</main>
+
+<script>
+    // Generate all QR codes pointing to tomstech.net
+    const URL_MAIN = 'https://tomstech.net';
+    const URL_SMS  = 'sms:2063354552';
+
+    const qrConfigs = [
+        // [selector, url, size]
+        ['.qr-bc-1',      URL_MAIN, 40],
+        ['.qr-fa-1',      URL_MAIN, 80],
+        ['.qr-fb-1',      URL_MAIN, 80],
+        ['.qr-dh-1',      URL_MAIN, 60],
+        ['.qr-to-1',      URL_MAIN, 90],
+        ['.qr-ref-1',     URL_MAIN, 60],
+        ['.qr-label-qr-1',URL_MAIN, 100],
+        ['.qr-label-qr-2',URL_SMS,  100],
+    ];
+
+    qrConfigs.forEach(([selector, url, size]) => {
+        const el = document.querySelector(selector);
+        if (!el) return;
+        QRCode.toCanvas(url, {
+            width: size,
+            margin: 1,
+            color: { dark: '#1F2937', light: '#FFFFFF' }
+        }, (err, canvas) => {
+            if (!err) el.appendChild(canvas);
+        });
+    });
+</script>
+</body>
+</html>

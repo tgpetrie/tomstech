@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Tom's Tech Ally — Seattle Neighborhood Tech Support & Consulting</title>
+    <meta name="description" content="Patient in-home and remote tech support for Seattle neighborhoods. Troubleshooting, Wi-Fi, device setup, smart home, email, consulting. $21 triage call. Serving Green Lake, Wallingford, Ballard & more.">
+    <link rel="canonical" href="https://tomstech.net/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tomstech.net/">
+    <meta property="og:title" content="Tom's Tech Ally — Seattle Neighborhood Tech Support">
+    <meta property="og:description" content="Patient in-home and remote tech support for Seattle neighborhoods. Start with a $21 triage call — credited toward your first appointment.">
+    <meta property="og:site_name" content="Tom's Tech Ally">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Tom's Tech Ally — Seattle Neighborhood Tech Support">
+    <meta name="twitter:description" content="Patient in-home and remote tech support for Seattle neighborhoods. Start with a $21 triage call.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231F2937'/><text y='.9em' font-size='72' x='12'>🛡️</text></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Tom's Tech Ally",
+      "description": "Neighborhood tech support, consulting and solutions in Seattle. Patient in-home and remote help for home and small business.",
+      "url": "https://tomstech.net",
+      "telephone": "+12063354552",
+      "email": "accounts@tomstech.net",
+      "priceRange": "$21–$42/hr",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Seattle",
+        "addressRegion": "WA",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 47.6762,
+        "longitude": -122.3490
+      },
+      "areaServed": [
+        "Green Lake", "Wallingford", "Phinney Ridge", "Ballard",
+        "Queen Anne", "Capitol Hill", "Greenwood", "Ravenna",
+        "University District", "Laurelhurst", "Madison Park",
+        "View Ridge", "Maple Leaf"
+      ],
+      "serviceType": [
+        "Computer Repair",
+        "Wi-Fi Setup",
+        "Smart Home Installation",
+        "Tech Tutoring",
+        "Remote Tech Support",
+        "In-Home Tech Support",
+        "Technology Consulting"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Tom Petrie"
+      }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --paper: #FAF4E5;
+            --paper-deep: #F0E3C6;
+            --ink: #1C2332;
+            --ink-soft: #3B455C;
+            --line: rgba(28, 35, 50, 0.22);
+            --white: #FFFDF8;
+            --orange: #FF6B35;
+            --acid: #D8FF66;
+            --teal: #10A7A0;
+            --blue: #4E87FF;
+            --pink: #FF4E8D;
+            --shadow: 0 12px 26px rgba(28, 35, 50, 0.14);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--paper);
+        }
+
+        body {
+            font-family: "Bricolage Grotesque", sans-serif;
+            color: var(--ink);
+            line-height: 1.58;
+            background:
+                radial-gradient(circle at 14% 5%, rgba(255, 107, 53, 0.16), transparent 30%),
+                radial-gradient(circle at 85% 9%, rgba(78, 135, 255, 0.14), transparent 30%),
+                linear-gradient(180deg, #FBF5E8 0%, #F3E7CB 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(rgba(28, 35, 50, 0.05) 0.7px, transparent 0.7px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.42) 1px, transparent 1px);
+            background-size: 9px 9px, 24px 24px;
+            opacity: 0.35;
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(160deg, rgba(255, 255, 255, 0.16), transparent 44%);
+            z-index: -2;
+        }
+
+        main {
+            overflow: hidden;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            background: var(--ink);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 0 0 10px 10px;
+            font-size: 0.86rem;
+            font-weight: 700;
+            z-index: 999;
+            transition: top 0.2s;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .main-nav {
+            position: fixed;
+            top: 0.55rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(1200px, calc(100% - 1rem));
+            background: rgba(255, 252, 244, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--ink);
+            border-radius: 20px;
+            padding: 0.72rem 0.9rem;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 1rem;
+            z-index: 120;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .main-nav::before,
+        .main-nav::after {
+            content: "";
+            position: absolute;
+            width: 54px;
+            height: 14px;
+            background: rgba(248, 211, 110, 0.8);
+            border: 1px solid rgba(28, 35, 50, 0.22);
+            top: -10px;
+            transform: rotate(-4deg);
+        }
+
+        .main-nav::before {
+            left: 18%;
+        }
+
+        .main-nav::after {
+            right: 14%;
+            transform: rotate(6deg);
+        }
+
+        .main-nav.scrolled {
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--ink);
+            white-space: nowrap;
+            padding-left: 0.25rem;
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--ink);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.79rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 0.45rem 0.72rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-color: var(--ink);
+            background: var(--acid);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-cta {
+            text-decoration: none;
+            color: var(--ink);
+            background: var(--acid);
+            border: 2px solid var(--ink);
+            border-radius: 999px;
+            padding: 0.52rem 0.95rem;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.76rem;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: transform 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 21px;
+            height: 2px;
+            background: var(--ink);
+            border-radius: 2px;
+            transition: all 0.25s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 76px;
+            left: 0.5rem;
+            right: 0.5rem;
+            background: rgba(255, 252, 244, 0.96);
+            border: 2px solid var(--ink);
+            border-radius: 16px;
+            padding: 1rem;
+            z-index: 110;
+            flex-direction: column;
+            gap: 0.65rem;
+            box-shadow: var(--shadow);
+        }
+
+        .mobile-nav.open {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--ink);
+            font-weight: 700;
+            padding: 0.45rem 0.2rem;
+        }
+
+        .mobile-nav .mobile-cta {
+            display: block;
+            margin-top: 0.4rem;
+            padding: 0.72rem 0.9rem;
+            background: var(--acid);
+            border: 2px solid var(--ink);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .hero {
+            width: min(1240px, 100%);
+            margin: 0 auto;
+            min-height: 100vh;
+            padding: 8.3rem 3rem 4rem;
+            display: grid;
+            grid-template-columns: minmax(320px, 1.1fr) minmax(280px, 0.9fr);
+            gap: 2.2rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "SEATTLE TECH SUPPORT";
+            position: absolute;
+            top: 6.5rem;
+            right: -2.4rem;
+            transform: rotate(90deg);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            color: rgba(28, 35, 50, 0.36);
+            font-weight: 700;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 620px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.45rem 0.82rem;
+            margin-bottom: 1.35rem;
+            border-radius: 10px;
+            border: 2px solid var(--ink);
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 4px 4px 0 rgba(28, 35, 50, 0.18);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.74rem;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+            font-size: clamp(2.6rem, 6vw, 5.2rem);
+            max-width: 12ch;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 .highlight {
+            color: var(--orange);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 .highlight::after {
+            content: "";
+            position: absolute;
+            left: -0.06em;
+            right: -0.04em;
+            bottom: 0.08em;
+            height: 0.2em;
+            background: rgba(216, 255, 102, 0.9);
+            z-index: -1;
+            transform: rotate(-1.5deg);
+        }
+
+        .hero-tagline {
+            font-family: "IBM Plex Mono", monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.82rem;
+            color: var(--ink-soft);
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+        }
+
+        .hero > .hero-content > p {
+            max-width: 50ch;
+            color: var(--ink-soft);
+            font-size: 1.03rem;
+            margin-bottom: 1.55rem;
+        }
+
+        .hero-offer {
+            max-width: 430px;
+            padding: 1.2rem 1.25rem 1.15rem;
+            border: 2px solid var(--ink);
+            border-radius: 14px;
+            background: var(--white);
+            box-shadow: 9px 9px 0 rgba(28, 35, 50, 0.14);
+            margin-bottom: 1.8rem;
+            transform: rotate(-1.25deg);
+            position: relative;
+        }
+
+        .hero-offer::before,
+        .hero-offer::after {
+            content: "";
+            position: absolute;
+            width: 58px;
+            height: 14px;
+            background: rgba(255, 214, 124, 0.75);
+            border: 1px solid rgba(28, 35, 50, 0.25);
+            top: -9px;
+        }
+
+        .hero-offer::before {
+            left: 16px;
+            transform: rotate(-10deg);
+        }
+
+        .hero-offer::after {
+            right: 16px;
+            transform: rotate(8deg);
+        }
+
+        .hero-offer h3 {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink-soft);
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-offer .price {
+            font-family: "Space Grotesk", sans-serif;
+            color: var(--teal);
+            font-size: 2.35rem;
+            line-height: 1;
+            margin-bottom: 0.42rem;
+        }
+
+        .hero-offer .price span {
+            font-size: 0.94rem;
+            color: var(--ink-soft);
+            font-family: "Bricolage Grotesque", sans-serif;
+        }
+
+        .hero-offer p {
+            color: var(--ink-soft);
+            font-size: 0.9rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 0.72rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-secondary,
+        .btn-sms {
+            border: 2px solid var(--ink);
+            border-radius: 12px;
+            padding: 0.8rem 1.35rem;
+            text-decoration: none;
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 700;
+            font-size: 0.93rem;
+            letter-spacing: -0.01em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.42rem;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--ink);
+            color: var(--white);
+            box-shadow: 6px 6px 0 rgba(28, 35, 50, 0.2);
+        }
+
+        .btn-secondary {
+            background: var(--acid);
+            color: var(--ink);
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover,
+        .btn-sms:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0 rgba(28, 35, 50, 0.2);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-visual::before {
+            content: "";
+            position: absolute;
+            width: 96%;
+            aspect-ratio: 1 / 1;
+            border-radius: 28px;
+            background: linear-gradient(155deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.35));
+            border: 2px solid rgba(28, 35, 50, 0.22);
+            transform: rotate(-6deg);
+            box-shadow: var(--shadow);
+        }
+
+        .icon-grid {
+            position: relative;
+            z-index: 1;
+            width: min(430px, 92%);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.85rem;
+            padding: 1rem;
+        }
+
+        .iso-icon {
+            min-height: 156px;
+            padding: 0.45rem;
+            border: 2px solid var(--ink);
+            border-radius: 16px;
+            background: var(--white);
+            box-shadow: 8px 8px 0 rgba(28, 35, 50, 0.16);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            --tilt: 0deg;
+            animation: floatCard 5.8s ease-in-out infinite;
+        }
+
+        .iso-icon::after {
+            content: "";
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--pink);
+            border: 2px solid var(--ink);
+        }
+
+        .iso-icon:nth-child(1) {
+            --tilt: -4deg;
+            background: #FFF3E7;
+            animation-delay: 0.2s;
+        }
+
+        .iso-icon:nth-child(2) {
+            --tilt: 3.5deg;
+            background: #EDF4FF;
+            animation-delay: 1s;
+        }
+
+        .iso-icon:nth-child(3) {
+            --tilt: -2.6deg;
+            background: #EDFFF9;
+            animation-delay: 1.7s;
+        }
+
+        .iso-icon:nth-child(4) {
+            --tilt: 4.4deg;
+            background: #FFFBEA;
+            animation-delay: 2.2s;
+        }
+
+        .iso-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .how-it-works {
+            margin: 0 auto;
+            width: min(1230px, calc(100% - 2rem));
+            background: linear-gradient(128deg, #161D2D 0%, #252F47 65%, #174455 100%);
+            border: 2px solid #0E131F;
+            border-radius: 26px;
+            padding: 4.6rem 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 24px 38px rgba(21, 29, 44, 0.28);
+        }
+
+        .how-it-works::before {
+            content: "";
+            position: absolute;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.22), transparent 65%);
+            top: -170px;
+            right: -130px;
+            pointer-events: none;
+        }
+
+        .section-wrap {
+            width: min(1240px, 100%);
+            margin: 0 auto;
+            padding: 5.2rem 3rem;
+        }
+
+        .section-header {
+            margin-bottom: 2.6rem;
+            text-align: left;
+            max-width: 760px;
+        }
+
+        .section-header h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(2rem, 4vw, 3.45rem);
+            line-height: 1.02;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.6rem;
+        }
+
+        .section-header p {
+            font-size: 1rem;
+            color: var(--ink-soft);
+            max-width: 55ch;
+        }
+
+        .how-it-works .section-header {
+            text-align: center;
+            margin: 0 auto 2.3rem;
+        }
+
+        .how-it-works .section-header h2 {
+            color: var(--white);
+        }
+
+        .how-it-works .section-header p {
+            color: rgba(255, 255, 255, 0.76);
+            margin: 0 auto;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            max-width: 980px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .steps::before {
+            content: "";
+            position: absolute;
+            left: 8%;
+            right: 8%;
+            top: 48px;
+            border-top: 2px dashed rgba(216, 255, 102, 0.5);
+            z-index: 0;
+        }
+
+        .step {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            border-radius: 16px;
+            padding: 1.85rem 1.2rem 1.35rem;
+            text-align: center;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+        }
+
+        .step:nth-child(2) {
+            transform: translateY(22px);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 0.9rem;
+            border-radius: 11px;
+            border: 2px solid var(--ink);
+            background: var(--acid);
+            color: var(--ink);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 4px 4px 0 rgba(9, 13, 20, 0.32);
+        }
+
+        .step h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.08rem;
+            color: var(--white);
+            margin-bottom: 0.45rem;
+            letter-spacing: -0.01em;
+        }
+
+        .step p {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 0.9rem;
+            line-height: 1.62;
+        }
+
+        .step-arrow {
+            position: absolute;
+            right: -0.82rem;
+            top: 44px;
+            color: rgba(216, 255, 102, 0.55);
+            font-size: 1.45rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 0.9rem;
+        }
+
+        .service-card {
+            grid-column: span 4;
+            border-radius: 15px;
+            border: 2px solid var(--ink);
+            padding: 1.35rem 1.2rem 1.2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.25s, box-shadow 0.25s;
+            position: relative;
+            overflow: hidden;
+            min-height: 100%;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.34), transparent 35%);
+        }
+
+        .service-card:nth-child(1),
+        .service-card:nth-child(4) {
+            background: #FFF2E6;
+        }
+
+        .service-card:nth-child(2),
+        .service-card:nth-child(5) {
+            background: #E8F8FF;
+        }
+
+        .service-card:nth-child(3),
+        .service-card:nth-child(6) {
+            background: #EDFFF5;
+        }
+
+        .service-card:nth-child(1) {
+            transform: rotate(-1.2deg);
+        }
+
+        .service-card:nth-child(2) {
+            transform: rotate(0.8deg);
+        }
+
+        .service-card:nth-child(3) {
+            transform: rotate(-0.7deg);
+        }
+
+        .service-card:nth-child(4) {
+            grid-column: span 5;
+        }
+
+        .service-card:nth-child(5) {
+            grid-column: span 4;
+        }
+
+        .service-card:nth-child(6) {
+            grid-column: span 3;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px) rotate(0deg);
+            box-shadow: 0 18px 36px rgba(28, 35, 50, 0.18);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 0.86rem;
+        }
+
+        .service-card h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.42rem;
+            letter-spacing: -0.01em;
+        }
+
+        .service-card p {
+            font-size: 0.92rem;
+            color: var(--ink-soft);
+            line-height: 1.62;
+        }
+
+        .skills-section {
+            padding-top: 3.8rem;
+        }
+
+        .skills-panel {
+            border: 2px solid var(--ink);
+            border-radius: 18px;
+            padding: 1.4rem;
+            background:
+                radial-gradient(circle at 12% 10%, rgba(255, 107, 53, 0.12), transparent 35%),
+                radial-gradient(circle at 90% 90%, rgba(78, 135, 255, 0.14), transparent 35%),
+                rgba(255, 255, 255, 0.75);
+            box-shadow: var(--shadow);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 0.72rem;
+        }
+
+        .skill-card {
+            min-height: 90px;
+            border: 2px solid var(--ink);
+            border-radius: 12px;
+            padding: 0.8rem 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--white);
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 0.92rem;
+            font-weight: 700;
+            line-height: 1.2;
+            box-shadow: 6px 6px 0 rgba(28, 35, 50, 0.12);
+        }
+
+        .skill-card:nth-child(4n + 1) {
+            background: #FFF1E6;
+        }
+
+        .skill-card:nth-child(4n + 2) {
+            background: #EBF7FF;
+        }
+
+        .skill-card:nth-child(4n + 3) {
+            background: #EDFFF3;
+        }
+
+        .skill-card:nth-child(4n + 4) {
+            background: #F8F0FF;
+        }
+
+        .extra-skill {
+            display: none;
+        }
+
+        .skills-grid.expanded .extra-skill {
+            display: flex;
+        }
+
+        .skills-actions {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.62rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .skills-toggle,
+        .skills-page-link {
+            border: 2px solid var(--ink);
+            border-radius: 11px;
+            padding: 0.65rem 1rem;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.76rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .skills-toggle {
+            background: var(--acid);
+            color: var(--ink);
+        }
+
+        .skills-page-link {
+            background: var(--ink);
+            color: var(--white);
+        }
+
+        .skills-toggle:hover,
+        .skills-page-link:hover {
+            transform: translate(-2px, -2px);
+        }
+
+        .skills-note {
+            width: 100%;
+            margin-top: 0.25rem;
+            color: var(--ink-soft);
+            font-size: 0.84rem;
+            font-family: "IBM Plex Mono", monospace;
+        }
+
+        .pricing-section {
+            width: min(1230px, calc(100% - 2rem));
+            margin: 0 auto;
+            border: 2px solid var(--ink);
+            border-radius: 24px;
+            padding: 4.8rem 3rem;
+            background:
+                radial-gradient(circle at 20% 0%, rgba(216, 255, 102, 0.18), transparent 35%),
+                radial-gradient(circle at 86% 100%, rgba(255, 78, 141, 0.22), transparent 38%),
+                linear-gradient(135deg, #181F31 0%, #1D2A42 62%, #224B5A 100%);
+            box-shadow: 0 22px 40px rgba(21, 29, 44, 0.28);
+        }
+
+        .pricing-section .section-header {
+            text-align: center;
+            margin: 0 auto 2.4rem;
+        }
+
+        .pricing-section .section-header h2 {
+            color: var(--white);
+        }
+
+        .pricing-section .section-header p {
+            color: rgba(255, 255, 255, 0.78);
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            max-width: 930px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.95rem;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border: 2px solid var(--ink);
+            border-radius: 16px;
+            padding: 1.7rem 1.2rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 8px 8px 0 rgba(12, 19, 30, 0.2);
+        }
+
+        .pricing-card::before,
+        .pricing-card::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 14px;
+            height: 14px;
+            margin-top: -7px;
+            background: #1D2A42;
+            border-radius: 50%;
+        }
+
+        .pricing-card::before {
+            left: -8px;
+        }
+
+        .pricing-card::after {
+            right: -8px;
+        }
+
+        .pricing-card.featured {
+            background: var(--acid);
+            transform: translateY(-12px) rotate(-1deg);
+        }
+
+        .pricing-card h3 {
+            font-family: "IBM Plex Mono", monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.76rem;
+            margin-bottom: 0.8rem;
+            color: var(--ink-soft);
+        }
+
+        .pricing-card .price {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 3rem;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .pricing-card .unit {
+            font-size: 0.82rem;
+            color: var(--ink-soft);
+            margin-bottom: 0.85rem;
+        }
+
+        .pricing-card .detail {
+            border-top: 1px dashed rgba(28, 35, 50, 0.28);
+            padding-top: 0.8rem;
+            font-size: 0.82rem;
+            color: var(--ink-soft);
+            line-height: 1.48;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: rgba(255, 255, 255, 0.74);
+            font-size: 0.88rem;
+            font-family: "IBM Plex Mono", monospace;
+        }
+
+        #problems .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.7rem;
+        }
+
+        .problem-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            padding: 0.82rem 0.95rem;
+            border: 2px solid var(--ink);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 5px 5px 0 rgba(28, 35, 50, 0.12);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .problem-item:nth-child(3n + 1) {
+            background: rgba(237, 255, 245, 0.9);
+        }
+
+        .problem-item:nth-child(3n + 2) {
+            background: rgba(236, 246, 255, 0.9);
+        }
+
+        .problem-item:nth-child(3n + 3) {
+            background: rgba(255, 243, 231, 0.9);
+        }
+
+        .problem-item:hover {
+            transform: translateX(4px);
+        }
+
+        .problem-icon {
+            width: 33px;
+            height: 33px;
+            border-radius: 8px;
+            border: 2px solid var(--ink);
+            background: var(--white);
+            color: var(--teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .problem-icon svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        .problem-item p {
+            font-size: 0.9rem;
+            line-height: 1.45;
+            color: var(--ink);
+            font-weight: 600;
+            padding-top: 0.08rem;
+        }
+
+        .area {
+            width: min(1230px, calc(100% - 2rem));
+            margin: 0 auto;
+            border: 2px solid var(--ink);
+            border-radius: 24px;
+            padding: 4rem 2rem 3.8rem;
+            text-align: center;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(78, 135, 255, 0.2), transparent 28%),
+                radial-gradient(circle at 85% 80%, rgba(255, 107, 53, 0.2), transparent 30%),
+                linear-gradient(160deg, #FBF4E5 0%, #F1E2C6 100%);
+            box-shadow: var(--shadow);
+        }
+
+        .area h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.02em;
+        }
+
+        .area .area-sub {
+            color: var(--ink-soft);
+            margin-bottom: 1.35rem;
+            font-size: 0.94rem;
+        }
+
+        .neighborhoods {
+            max-width: 910px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .neighborhood-tag {
+            padding: 0.42rem 0.85rem;
+            border: 1px solid var(--ink);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.82);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-weight: 700;
+            color: var(--ink);
+            transition: transform 0.2s;
+        }
+
+        .neighborhood-tag:nth-child(odd) {
+            transform: rotate(-1.4deg);
+        }
+
+        .neighborhood-tag:nth-child(even) {
+            transform: rotate(1.2deg);
+        }
+
+        .neighborhood-tag:hover {
+            transform: translateY(-3px) rotate(0deg);
+        }
+
+        .cta {
+            width: min(1240px, 100%);
+            margin: 0 auto;
+            padding: 5.2rem 3rem;
+        }
+
+        .cta-content {
+            border: 2px solid var(--ink);
+            border-radius: 18px;
+            background: var(--white);
+            padding: 2.8rem 2rem;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .cta-content::before,
+        .cta-content::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.35;
+        }
+
+        .cta-content::before {
+            top: -80px;
+            left: -70px;
+            background: var(--acid);
+        }
+
+        .cta-content::after {
+            right: -70px;
+            bottom: -95px;
+            background: var(--blue);
+        }
+
+        .cta h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(2.05rem, 4vw, 3rem);
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta > .cta-content > p {
+            max-width: 56ch;
+            margin: 0 auto 1.7rem;
+            color: var(--ink-soft);
+            font-size: 1.02rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.72rem;
+            margin-bottom: 1.6rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-sms {
+            background: var(--teal);
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--ink);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+
+        .contact-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--orange);
+        }
+
+        .contact-item:hover {
+            color: var(--pink);
+        }
+
+        footer {
+            margin-top: 1rem;
+            background: #121A2A;
+            color: var(--white);
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 2.1rem 1.8rem;
+        }
+
+        .footer-inner {
+            width: min(1240px, 100%);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .footer-brand .brand-name {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.05rem;
+            margin-bottom: 0.18rem;
+        }
+
+        .footer-brand .brand-tag {
+            color: rgba(255, 255, 255, 0.62);
+            font-size: 0.82rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.74rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .footer-links a:hover {
+            color: var(--acid);
+        }
+
+        .footer-copy {
+            width: 100%;
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+            text-align: center;
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.54);
+        }
+
+        .footer-copy a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--orange);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+
+        .reveal.in-view {
+            opacity: 1;
+            transform: none;
+        }
+
+        @keyframes floatCard {
+            0%,
+            100% {
+                transform: rotate(var(--tilt)) translateY(0px);
+            }
+            50% {
+                transform: rotate(calc(var(--tilt) + 0.5deg)) translateY(-7px);
+            }
+        }
+
+        @media (max-width: 1120px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 7.4rem;
+                gap: 2.6rem;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .hero h1,
+            .hero > .hero-content > p,
+            .hero-offer {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero::before {
+                display: none;
+            }
+
+            .steps::before {
+                display: none;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                max-width: 430px;
+            }
+
+            .step:nth-child(2) {
+                transform: none;
+            }
+
+            .step-arrow {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .service-card {
+                grid-column: span 1 !important;
+                transform: none !important;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 390px;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .main-nav {
+                grid-template-columns: auto auto;
+                justify-content: space-between;
+                border-radius: 14px;
+                padding: 0.65rem 0.72rem;
+            }
+
+            .main-nav::before,
+            .main-nav::after {
+                display: none;
+            }
+
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero,
+            .section-wrap,
+            .cta {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+            }
+
+            .hero {
+                padding-top: 6.4rem;
+                padding-bottom: 3rem;
+            }
+
+            .how-it-works,
+            .pricing-section,
+            .area {
+                width: calc(100% - 1rem);
+                padding: 3.8rem 1.2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .skills-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .section-header {
+                text-align: left;
+            }
+
+            .section-header h2 {
+                font-size: clamp(1.9rem, 8vw, 2.7rem);
+            }
+
+            .how-it-works .section-header,
+            .pricing-section .section-header {
+                text-align: center;
+            }
+
+            .contact-grid {
+                gap: 0.7rem;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .hero h1 {
+                font-size: clamp(2rem, 13vw, 3rem);
+            }
+
+            .hero-offer {
+                transform: none;
+            }
+
+            .btn-primary,
+            .btn-secondary,
+            .btn-sms {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .icon-grid {
+                width: 100%;
+                padding: 0.45rem 0;
+            }
+
+            .iso-icon {
+                min-height: 132px;
+            }
+
+            .cta-content {
+                padding: 2.2rem 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- ── Navigation ── -->
+    <nav class="main-nav" role="navigation" aria-label="Main">
+        <a href="/" class="logo" aria-label="Tom's Tech Ally — Home">Tom's Tech <span>Ally</span></a>
+
+        <ul class="nav-links" role="list">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#problems">Common Fixes</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <a href="tel:2063354552" class="nav-cta">Call (206) 335-4552</a>
+            <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" role="navigation">
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#pricing" class="mobile-link">Pricing</a>
+        <a href="#problems" class="mobile-link">Common Fixes</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="tel:2063354552" class="mobile-cta">Call (206) 335-4552</a>
+    </nav>
+
+    <main id="main">
+
+    <!-- ── Hero ── -->
+    <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-content">
+            <div class="hero-badge" aria-hidden="true">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                Serving Seattle Neighborhoods
+            </div>
+
+            <h1 id="hero-heading">Seattle Tech Support That <span class="highlight">Solves the Problem</span></h1>
+            <p class="hero-tagline">Your Neighborhood Tech Companion</p>
+            <p>Troubleshooting first. Real solutions after. Patient in-home and remote help for home and small business.</p>
+
+            <div class="hero-offer" aria-label="Introductory offer">
+                <h3>Start with a Tech Triage Call</h3>
+                <div class="price">$21 <span>· 15–20 min</span></div>
+                <p>Quick diagnosis, clear next steps.<br>$21 fully credited toward your first appointment.</p>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="tel:2063354552" class="btn-primary">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    Call Tom
+                </a>
+                <a href="sms:2063354552" class="btn-secondary">Text Tom</a>
+            </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+            <div class="icon-grid">
+                <!-- Wi-Fi -->
+                <div class="iso-icon">
+                    <svg viewBox="0 0 130 130" fill="none" aria-hidden="true">
+                        <g transform="translate(15,20)">
+                            <path d="M50 90 L10 70 L10 60 L50 80 L90 60 L90 70 Z" fill="#E8E6DE" stroke="#1F2937" stroke-width="1.5"/>
+                            <path d="M50 80 L10 60 L50 40 L90 60 Z" fill="#FFFFFF" stroke="#1F2937" stroke-width="1.5"/>
+                            <ellipse cx="50" cy="40" rx="25" ry="12" fill="#3B82F6" stroke="#1F2937" stroke-width="1.5"/>
+                            <path d="M50 26 Q63 31 68 40" stroke="#93C5FD" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <path d="M50 19 Q70 26 78 40" stroke="#93C5FD" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <path d="M50 11 Q80 21 90 40" stroke="#93C5FD" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <circle cx="50" cy="36" r="4" fill="#FFFFFF"/>
+                        </g>
+                    </svg>
+                </div>
+                <!-- Laptop -->
+                <div class="iso-icon">
+                    <svg viewBox="0 0 130 130" fill="none" aria-hidden="true">
+                        <g transform="translate(15,20)">
+                            <path d="M50 95 L20 80 L20 75 L50 90 L80 75 L80 80 Z" fill="#1F2937" stroke="#1F2937" stroke-width="1.5"/>
+                            <rect x="20" y="30" width="60" height="40" rx="4" fill="#FFFFFF" stroke="#1F2937" stroke-width="1.5"/>
+                            <rect x="25" y="35" width="50" height="30" rx="2" fill="#3B82F6"/>
+                            <path d="M35 75 L35 85 L65 85 L65 75" stroke="#1F2937" stroke-width="1.5" fill="#E8E6DE"/>
+                            <path d="M36 52 L42 46 L42 58 Z" fill="#FFFFFF"/>
+                            <rect x="46" y="47" width="18" height="2.5" rx="1.25" fill="rgba(255,255,255,0.5)"/>
+                            <rect x="46" y="52" width="13" height="2.5" rx="1.25" fill="rgba(255,255,255,0.5)"/>
+                        </g>
+                    </svg>
+                </div>
+                <!-- Phone -->
+                <div class="iso-icon">
+                    <svg viewBox="0 0 130 130" fill="none" aria-hidden="true">
+                        <g transform="translate(15,15)">
+                            <path d="M50 95 L25 80 L25 25 L50 10 L75 25 L75 80 Z" fill="#FFFFFF" stroke="#1F2937" stroke-width="1.5"/>
+                            <path d="M50 10 L75 25 L75 80 L50 95 Z" fill="#E8E6DE" stroke="#1F2937" stroke-width="1.5"/>
+                            <rect x="32" y="22" width="30" height="55" rx="3" fill="#A78BFA" stroke="#1F2937" stroke-width="1.5"/>
+                            <rect x="35" y="28" width="24" height="40" fill="#DDD6FE"/>
+                            <ellipse cx="47" cy="73" rx="3" ry="2" fill="#1F2937"/>
+                        </g>
+                    </svg>
+                </div>
+                <!-- Smart Home -->
+                <div class="iso-icon">
+                    <svg viewBox="0 0 130 130" fill="none" aria-hidden="true">
+                        <g transform="translate(15,20)">
+                            <path d="M50 85 L15 65 L15 55 L50 75 L85 55 L85 65 Z" fill="#E8E6DE" stroke="#1F2937" stroke-width="1.5"/>
+                            <path d="M50 75 L15 55 L50 35 L85 55 Z" fill="#FFFFFF" stroke="#1F2937" stroke-width="1.5"/>
+                            <path d="M50 10 L75 25 L75 50 L50 65 L25 50 L25 25 Z" fill="#FFFFFF" stroke="#1F2937" stroke-width="1.5"/>
+                            <path d="M50 10 L50 35 L25 25 Z" fill="#E8E6DE" stroke="#1F2937" stroke-width="1.5"/>
+                            <path d="M50 10 L75 25 L50 35 Z" fill="#F4F3EE" stroke="#1F2937" stroke-width="1.5"/>
+                            <circle cx="50" cy="42" r="8" fill="#A78BFA" stroke="#1F2937" stroke-width="1.5"/>
+                            <path d="M47 42 L50 45 L54 40" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── How It Works ── -->
+    <section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
+        <div class="section-header">
+            <h2 id="how-heading">How It Works</h2>
+            <p>Three simple steps — no long-term contracts, no upsells.</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number" aria-hidden="true">1</div>
+                <h3>Triage Call — $21</h3>
+                <p>15–20 minutes. We diagnose the problem, talk through options, and give you a clear estimate. Your $21 is credited toward your first appointment.</p>
+                <span class="step-arrow" aria-hidden="true">→</span>
+            </div>
+            <div class="step">
+                <div class="step-number" aria-hidden="true">2</div>
+                <h3>Clear Estimate</h3>
+                <p>No surprises. You'll know exactly what the fix involves — remote or in-home — before committing to anything.</p>
+                <span class="step-arrow" aria-hidden="true">→</span>
+            </div>
+            <div class="step">
+                <div class="step-number" aria-hidden="true">3</div>
+                <h3>Problem Solved</h3>
+                <p>Remote support from your couch, or I come to you. Patient, thorough, and no jargon.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Services ── -->
+    <section class="section-wrap" id="services" aria-labelledby="services-heading">
+        <div class="section-header">
+            <h2 id="services-heading">How I Can Help</h2>
+            <p>Patient support and real solutions for any tech frustration — home or small business.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 52 52" fill="none" aria-hidden="true">
+                    <circle cx="26" cy="26" r="22" fill="#DDD6FE"/>
+                    <path d="M26 12 Q38 17 40 26 Q38 35 26 40 Q14 35 12 26 Q14 17 26 12" stroke="#7C3AED" stroke-width="2.5" fill="none"/>
+                    <circle cx="26" cy="26" r="5" fill="#7C3AED"/>
+                    <path d="M26 16 Q34 20 35 26" stroke="#A78BFA" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+                <h3>Wi-Fi &amp; Network Solutions</h3>
+                <p>Dead zones, drops, slow rooms. Router setup, mesh networks, and stable connections done right — without paying for a faster plan you don't need.</p>
+            </div>
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 52 52" fill="none" aria-hidden="true">
+                    <rect x="6" y="10" width="40" height="28" rx="4" fill="#93C5FD"/>
+                    <rect x="10" y="14" width="32" height="20" fill="#3B82F6"/>
+                    <path d="M18 42 L18 46 L34 46 L34 42" stroke="#1F2937" stroke-width="2" fill="none"/>
+                    <path d="M20 26 L24 30 L32 22" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h3>New Device Setup</h3>
+                <p>Computer, phone, or tablet setup from scratch. Data transfers, app configuration, cleanup, and backups done properly the first time.</p>
+            </div>
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 52 52" fill="none" aria-hidden="true">
+                    <rect x="10" y="8" width="32" height="36" rx="4" fill="#93C5FD" stroke="#1F2937" stroke-width="1.5"/>
+                    <circle cx="26" cy="22" r="7" fill="#3B82F6"/>
+                    <path d="M16 38 Q26 32 36 38" stroke="#1F2937" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+                <h3>Email &amp; Accounts</h3>
+                <p>Setup, recovery, and security basics. Get back into locked accounts, set up two-factor authentication, and keep everything safe.</p>
+            </div>
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 52 52" fill="none" aria-hidden="true">
+                    <path d="M26 6 L42 16 L42 36 L26 46 L10 36 L10 16 Z" fill="#DDD6FE" stroke="#1F2937" stroke-width="1.5"/>
+                    <circle cx="26" cy="26" r="8" fill="#A78BFA"/>
+                    <path d="M26 22 L26 30" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M22 26 L30 26" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <h3>Smart Home Setup</h3>
+                <p>Speakers, cameras, locks, thermostats, and more. Get devices connected, working together, and actually reliable.</p>
+            </div>
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 52 52" fill="none" aria-hidden="true">
+                    <circle cx="26" cy="26" r="20" fill="#93C5FD"/>
+                    <circle cx="26" cy="26" r="12" fill="#3B82F6"/>
+                    <text x="20" y="32" font-family="Bricolage Grotesque, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">?</text>
+                </svg>
+                <h3>Consulting &amp; Buying Guidance</h3>
+                <p>Thinking about buying hardware or software? Get honest advice before you spend money and avoid buyer's remorse.</p>
+            </div>
+            <div class="service-card">
+                <svg class="service-icon" viewBox="0 0 52 52" fill="none" aria-hidden="true">
+                    <rect x="6" y="12" width="40" height="28" rx="4" fill="#DDD6FE"/>
+                    <circle cx="22" cy="26" r="6" fill="#A78BFA"/>
+                    <rect x="32" y="22" width="10" height="2" rx="1" fill="#7C3AED"/>
+                    <rect x="32" y="28" width="8" height="2" rx="1" fill="#7C3AED"/>
+                </svg>
+                <h3>Patient Tutoring</h3>
+                <p>Learn at your own pace, any age, any skill level. No condescension, no rushing — just clear answers to real questions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Skills ── -->
+    <section class="section-wrap skills-section" id="skills" aria-labelledby="skills-heading">
+        <div class="section-header">
+            <h2 id="skills-heading">Skills Snapshot</h2>
+            <p>Top 10 capabilities below. Expand for more, or open the full skills page.</p>
+        </div>
+
+        <div class="skills-panel">
+            <div class="skills-grid" id="skills-grid">
+                <div class="skill-card">Web Design</div>
+                <div class="skill-card">UX/UI</div>
+                <div class="skill-card">Full Stack Development</div>
+                <div class="skill-card">Product Design</div>
+                <div class="skill-card">Heuristic Analysis</div>
+                <div class="skill-card">Reviews</div>
+                <div class="skill-card">Crypto &amp; Blockchain Evaluation</div>
+                <div class="skill-card">Spanish-Friendly Support</div>
+                <div class="skill-card">Accessibility Audits</div>
+                <div class="skill-card">Rapid Prototyping</div>
+
+                <div class="skill-card extra-skill">Design Systems</div>
+                <div class="skill-card extra-skill">User Research Synthesis</div>
+                <div class="skill-card extra-skill">Information Architecture</div>
+                <div class="skill-card extra-skill">Frontend Engineering</div>
+                <div class="skill-card extra-skill">Backend/API Integration</div>
+                <div class="skill-card extra-skill">Performance Optimization</div>
+                <div class="skill-card extra-skill">Conversion Rate Optimization</div>
+                <div class="skill-card extra-skill">Automation Workflows</div>
+                <div class="skill-card extra-skill">E-commerce Optimization</div>
+                <div class="skill-card extra-skill">No-Code Integrations</div>
+            </div>
+
+            <div class="skills-actions">
+                <button type="button" class="skills-toggle" id="skills-toggle" aria-expanded="false" aria-controls="skills-grid">Show More Skills</button>
+                <a href="/skills.html" class="skills-page-link">Open Full Skills Page</a>
+                <p class="skills-note">Need a custom stack? I can support projects in English and Spanish.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Pricing ── -->
+    <section class="pricing-section" id="pricing" aria-labelledby="pricing-heading">
+        <div class="section-header">
+            <h2 id="pricing-heading">Simple, Honest Pricing</h2>
+            <p>No hidden fees. No upsells. Just straightforward help.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card featured">
+                <h3>Start Here</h3>
+                <div class="price">$21</div>
+                <div class="unit">Tech Triage Call · 15–20 min</div>
+                <div class="detail">$21 fully credited toward your first paid remote session or in-home visit</div>
+            </div>
+            <div class="pricing-card">
+                <h3>Remote Support</h3>
+                <div class="price">$42</div>
+                <div class="unit">per hour</div>
+                <div class="detail">1-hour minimum · Screen share from your couch</div>
+            </div>
+            <div class="pricing-card">
+                <h3>In-Home Support</h3>
+                <div class="price">$42</div>
+                <div class="unit">per hour</div>
+                <div class="detail">90-minute minimum · I come to you</div>
+            </div>
+        </div>
+        <p class="pricing-note">Prices in USD. No contracts, no retainers.</p>
+    </section>
+
+    <!-- ── Common Problems ── -->
+    <section class="section-wrap" id="problems" aria-labelledby="problems-heading">
+        <div class="section-header">
+            <h2 id="problems-heading">Common Problems I Fix</h2>
+            <p>The "it was working yesterday" stuff, and plenty more.</p>
+        </div>
+        <div class="problems-grid">
+            <div class="problem-item">
+                <div class="problem-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+                    </svg>
+                </div>
+                <p>Wi-Fi drops, dead zones, and slow rooms</p>
+            </div>
+            <div class="problem-item">
+                <div class="problem-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <p>New device setup and data transfers</p>
+            </div>
+            <div class="problem-item">
+                <div class="problem-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7C5 4 4 5 4 7z M9 12h6"/>
+                    </svg>
+                </div>
+                <p>Phone storage full, backups not working</p>
+            </div>
+            <div class="problem-item">
+                <div class="problem-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <p>Email setup, recovery, and security</p>
+            </div>
+            <div class="problem-item">
+                <div class="problem-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                </div>
+                <p>Smart home devices that won't connect</p>
+            </div>
+            <div class="problem-item">
+                <div class="problem-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <p>Printers and "it used to work" issues</p>
+            </div>
+            <div class="problem-item">
+                <div class="problem-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                </div>
+                <p>Accounts locked, passwords lost, security concerns</p>
+            </div>
+            <div class="problem-item">
+                <div class="problem-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <p>Pre-purchase advice before you spend money</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Service Area ── -->
+    <section class="area" aria-labelledby="area-heading">
+        <h2 id="area-heading">Serving Seattle Neighborhoods</h2>
+        <p class="area-sub">In-home visits within these areas. Remote support available anywhere.</p>
+        <div class="neighborhoods" role="list">
+            <span class="neighborhood-tag" role="listitem">Green Lake</span>
+            <span class="neighborhood-tag" role="listitem">Wallingford</span>
+            <span class="neighborhood-tag" role="listitem">Phinney Ridge</span>
+            <span class="neighborhood-tag" role="listitem">Ballard</span>
+            <span class="neighborhood-tag" role="listitem">Queen Anne</span>
+            <span class="neighborhood-tag" role="listitem">Capitol Hill</span>
+            <span class="neighborhood-tag" role="listitem">Greenwood</span>
+            <span class="neighborhood-tag" role="listitem">Ravenna</span>
+            <span class="neighborhood-tag" role="listitem">U District</span>
+            <span class="neighborhood-tag" role="listitem">Laurelhurst</span>
+            <span class="neighborhood-tag" role="listitem">Madison Park</span>
+            <span class="neighborhood-tag" role="listitem">View Ridge</span>
+            <span class="neighborhood-tag" role="listitem">Maple Leaf</span>
+            <span class="neighborhood-tag" role="listitem">& nearby</span>
+        </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="cta" id="contact" aria-labelledby="cta-heading">
+        <div class="cta-content">
+            <h2 id="cta-heading">Ready to Fix That Tech Headache?</h2>
+            <p>Start with a $21 triage call. Get a clear diagnosis and a straightforward estimate. Your $21 is credited toward the appointment.</p>
+            <div class="cta-buttons">
+                <a href="tel:2063354552" class="btn-primary">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    Call (206) 335-4552
+                </a>
+                <a href="sms:2063354552" class="btn-sms">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                    </svg>
+                    Text Tom
+                </a>
+            </div>
+            <div class="contact-grid">
+                <a href="mailto:accounts@tomstech.net" class="contact-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    accounts@tomstech.net
+                </a>
+                <a href="https://tomstech.net" class="contact-item">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                    </svg>
+                    tomstech.net
+                </a>
+            </div>
+        </div>
+    </section>
+
+    </main><!-- /main -->
+
+    <!-- ── Footer ── -->
+    <footer role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="brand-name">Tom's Tech Ally</div>
+                <div class="brand-tag">Your Neighborhood Tech Companion · Patient support. Real solutions.</div>
+            </div>
+            <nav class="footer-links" aria-label="Footer">
+                <a href="#services">Services</a>
+                <a href="#skills">Skills</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#problems">Common Fixes</a>
+                <a href="#contact">Contact</a>
+                <a href="/skills.html">All Skills</a>
+            </nav>
+        </div>
+        <p class="footer-copy">&copy; 2026 Tom's Tech Ally · Tom Petrie · Seattle, WA · <a href="tel:2063354552">(206) 335-4552</a></p>
+    </footer>
+
+    <script>
+        const mainNav = document.querySelector('.main-nav');
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileLinks = mobileNav.querySelectorAll('a');
+        const skillsToggle = document.getElementById('skills-toggle');
+        const skillsGrid = document.getElementById('skills-grid');
+
+        // Subtle nav state once user scrolls
+        const syncNavState = () => {
+            mainNav.classList.toggle('scrolled', window.scrollY > 20);
+        };
+        syncNavState();
+        window.addEventListener('scroll', syncNavState, { passive: true });
+
+        hamburger.addEventListener('click', () => {
+            const isOpen = mobileNav.classList.toggle('open');
+            hamburger.classList.toggle('open', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+            hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+        });
+
+        // Close mobile nav when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('aria-label', 'Open menu');
+            });
+        });
+
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (!mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
+                mobileNav.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Skills list expand/collapse
+        if (skillsToggle && skillsGrid) {
+            skillsToggle.addEventListener('click', () => {
+                const expanded = skillsGrid.classList.toggle('expanded');
+                skillsToggle.setAttribute('aria-expanded', String(expanded));
+                skillsToggle.textContent = expanded ? 'Show Fewer Skills' : 'Show More Skills';
+                if (expanded) {
+                    skillsGrid.querySelectorAll('.extra-skill').forEach((skill) => {
+                        skill.classList.add('in-view');
+                    });
+                }
+            });
+        }
+
+        // Staggered reveal effect for key cards/sections
+        const revealTargets = Array.from(document.querySelectorAll(
+            '.hero-offer, .iso-icon, .step, .service-card, .skills-panel, .skill-card, .pricing-card, .problem-item, .neighborhood-tag, .cta-content'
+        ));
+
+        revealTargets.forEach((el, index) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = `${Math.min((index % 7) * 65, 390)}ms`;
+        });
+
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.16,
+                rootMargin: '0px 0px -30px 0px'
+            });
+
+            revealTargets.forEach((el) => revealObserver.observe(el));
+        } else {
+            revealTargets.forEach((el) => el.classList.add('in-view'));
+        }
+    </script>
+</body>
+</html>
