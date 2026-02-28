@@ -619,6 +619,18 @@
             height: 100%;
         }
 
+        a.iso-icon {
+            text-decoration: none;
+            cursor: pointer;
+            transition: box-shadow 0.25s ease;
+        }
+
+        a.iso-icon:hover {
+            animation-name: floatCardHover;
+            animation-duration: 2.4s;
+            box-shadow: 14px 16px 0 rgba(28, 35, 50, 0.24);
+        }
+
         .how-it-works {
             margin: 0 auto;
             width: min(1230px, calc(100% - 2rem));
@@ -1354,6 +1366,15 @@
             }
         }
 
+        @keyframes floatCardHover {
+            0%, 100% {
+                transform: rotate(var(--tilt)) translateY(-12px);
+            }
+            50% {
+                transform: rotate(calc(var(--tilt) + 0.5deg)) translateY(-18px);
+            }
+        }
+
         @keyframes heroHeadReveal {
             from {
                 font-weight: 200;
@@ -1635,7 +1656,7 @@
         <div class="hero-visual" aria-hidden="true">
             <div class="icon-grid">
                 <!-- Wi-Fi -->
-                <div class="iso-icon">
+                <a href="#service-wifi" class="iso-icon" aria-label="Wi-Fi & Network Solutions">
                     <svg viewBox="0 0 130 130" fill="none" aria-hidden="true">
                         <g transform="translate(15,20)">
                             <path d="M50 90 L10 70 L10 60 L50 80 L90 60 L90 70 Z" fill="#E8E6DE" stroke="#1F2937" stroke-width="1.5"/>
@@ -1647,9 +1668,9 @@
                             <circle cx="50" cy="36" r="4" fill="#FFFFFF"/>
                         </g>
                     </svg>
-                </div>
+                </a>
                 <!-- Laptop -->
-                <div class="iso-icon">
+                <a href="#service-setup" class="iso-icon" aria-label="New Device Setup">
                     <svg viewBox="0 0 130 130" fill="none" aria-hidden="true">
                         <g transform="translate(15,20)">
                             <path d="M50 95 L20 80 L20 75 L50 90 L80 75 L80 80 Z" fill="#1F2937" stroke="#1F2937" stroke-width="1.5"/>
@@ -1661,9 +1682,9 @@
                             <rect x="46" y="52" width="13" height="2.5" rx="1.25" fill="rgba(255,255,255,0.5)"/>
                         </g>
                     </svg>
-                </div>
+                </a>
                 <!-- Phone -->
-                <div class="iso-icon">
+                <a href="#service-email" class="iso-icon" aria-label="Email & Accounts">
                     <svg viewBox="0 0 130 130" fill="none" aria-hidden="true">
                         <g transform="translate(15,15)">
                             <path d="M50 95 L25 80 L25 25 L50 10 L75 25 L75 80 Z" fill="#FFFFFF" stroke="#1F2937" stroke-width="1.5"/>
@@ -1673,9 +1694,9 @@
                             <ellipse cx="47" cy="73" rx="3" ry="2" fill="#1F2937"/>
                         </g>
                     </svg>
-                </div>
+                </a>
                 <!-- Smart Home -->
-                <div class="iso-icon">
+                <a href="#service-smarthome" class="iso-icon" aria-label="Smart Home Setup">
                     <svg viewBox="0 0 130 130" fill="none" aria-hidden="true">
                         <g transform="translate(15,20)">
                             <path d="M50 85 L15 65 L15 55 L50 75 L85 55 L85 65 Z" fill="#E8E6DE" stroke="#1F2937" stroke-width="1.5"/>
@@ -1687,7 +1708,7 @@
                             <path d="M47 42 L50 45 L54 40" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </g>
                     </svg>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -1726,7 +1747,7 @@
             <p>Patient support and real solutions for any tech frustration — home or small business.</p>
         </div>
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card" id="service-wifi">
                 <svg class="service-icon" viewBox="0 0 52 52" fill="none" aria-hidden="true">
                     <circle cx="26" cy="26" r="22" fill="#DDD6FE"/>
                     <path d="M26 12 Q38 17 40 26 Q38 35 26 40 Q14 35 12 26 Q14 17 26 12" stroke="#7C3AED" stroke-width="2.5" fill="none"/>
@@ -1736,7 +1757,7 @@
                 <h3>Wi-Fi &amp; Network Solutions</h3>
                 <p>Dead zones, drops, slow rooms. Router setup, mesh networks, and stable connections done right — without paying for a faster plan you don't need.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" id="service-setup">
                 <svg class="service-icon" viewBox="0 0 52 52" fill="none" aria-hidden="true">
                     <rect x="6" y="10" width="40" height="28" rx="4" fill="#93C5FD"/>
                     <rect x="10" y="14" width="32" height="20" fill="#3B82F6"/>
@@ -1746,7 +1767,7 @@
                 <h3>New Device Setup</h3>
                 <p>Computer, phone, or tablet setup from scratch. Data transfers, app configuration, cleanup, and backups done properly the first time.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" id="service-email">
                 <svg class="service-icon" viewBox="0 0 52 52" fill="none" aria-hidden="true">
                     <rect x="10" y="8" width="32" height="36" rx="4" fill="#93C5FD" stroke="#1F2937" stroke-width="1.5"/>
                     <circle cx="26" cy="22" r="7" fill="#3B82F6"/>
@@ -1755,7 +1776,7 @@
                 <h3>Email &amp; Accounts</h3>
                 <p>Setup, recovery, and security basics. Get back into locked accounts, set up two-factor authentication, and keep everything safe.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" id="service-smarthome">
                 <svg class="service-icon" viewBox="0 0 52 52" fill="none" aria-hidden="true">
                     <path d="M26 6 L42 16 L42 36 L26 46 L10 36 L10 16 Z" fill="#DDD6FE" stroke="#1F2937" stroke-width="1.5"/>
                     <circle cx="26" cy="26" r="8" fill="#A78BFA"/>
