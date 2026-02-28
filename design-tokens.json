@@ -1,0 +1,546 @@
+{
+  "$metadata": {
+    "tokenSetOrder": ["primitive", "semantic", "component"]
+  },
+
+  "primitive": {
+    "color": {
+      "paper": {
+        "$value": "#FAF4E5",
+        "$type": "color",
+        "$description": "Primary background — warm off-white"
+      },
+      "paper-deep": {
+        "$value": "#F0E3C6",
+        "$type": "color",
+        "$description": "Secondary background — deeper warm cream"
+      },
+      "ink": {
+        "$value": "#1C2332",
+        "$type": "color",
+        "$description": "Primary text and borders"
+      },
+      "ink-soft": {
+        "$value": "#3B455C",
+        "$type": "color",
+        "$description": "Secondary / muted text"
+      },
+      "ink-line": {
+        "$value": "rgba(28,35,50,0.22)",
+        "$type": "color",
+        "$description": "Subtle divider and border tint"
+      },
+      "white": {
+        "$value": "#FFFDF8",
+        "$type": "color",
+        "$description": "Card / surface white (warm tint)"
+      },
+      "orange": {
+        "$value": "#FF6B35",
+        "$type": "color",
+        "$description": "Accent — brand orange, highlight, logo accent"
+      },
+      "acid": {
+        "$value": "#D8FF66",
+        "$type": "color",
+        "$description": "Accent — electric yellow-green, CTAs, featured pricing"
+      },
+      "teal": {
+        "$value": "#10A7A0",
+        "$type": "color",
+        "$description": "Accent — teal, price display, SMS button"
+      },
+      "blue": {
+        "$value": "#4E87FF",
+        "$type": "color",
+        "$description": "Accent — blue, icons, links"
+      },
+      "pink": {
+        "$value": "#FF4E8D",
+        "$type": "color",
+        "$description": "Accent — pink, decorative dots, hover states"
+      },
+      "dark-bg": {
+        "$value": "#161D2D",
+        "$type": "color",
+        "$description": "Dark section background (How It Works)"
+      },
+      "dark-bg-mid": {
+        "$value": "#252F47",
+        "$type": "color",
+        "$description": "Dark section mid (How It Works gradient)"
+      },
+      "pricing-bg": {
+        "$value": "#181F31",
+        "$type": "color",
+        "$description": "Pricing section background"
+      },
+      "footer-bg": {
+        "$value": "#121A2A",
+        "$type": "color",
+        "$description": "Footer background"
+      },
+      "tape-yellow": {
+        "$value": "rgba(248,211,110,0.80)",
+        "$type": "color",
+        "$description": "Decorative tape strip on nav and offer card"
+      },
+      "service-orange-bg": {
+        "$value": "#FFF2E6",
+        "$type": "color",
+        "$description": "Service card 1 & 4 background"
+      },
+      "service-blue-bg": {
+        "$value": "#E8F8FF",
+        "$type": "color",
+        "$description": "Service card 2 & 5 background"
+      },
+      "service-green-bg": {
+        "$value": "#EDFFF5",
+        "$type": "color",
+        "$description": "Service card 3 & 6 background"
+      },
+      "skill-orange-bg": {
+        "$value": "#FFF1E6",
+        "$type": "color",
+        "$description": "Skill card nth 4n+1"
+      },
+      "skill-blue-bg": {
+        "$value": "#EBF7FF",
+        "$type": "color",
+        "$description": "Skill card nth 4n+2"
+      },
+      "skill-green-bg": {
+        "$value": "#EDFFF3",
+        "$type": "color",
+        "$description": "Skill card nth 4n+3"
+      },
+      "skill-purple-bg": {
+        "$value": "#F8F0FF",
+        "$type": "color",
+        "$description": "Skill card nth 4n+4"
+      },
+      "problem-green-bg": {
+        "$value": "rgba(237,255,245,0.9)",
+        "$type": "color"
+      },
+      "problem-blue-bg": {
+        "$value": "rgba(236,246,255,0.9)",
+        "$type": "color"
+      },
+      "problem-orange-bg": {
+        "$value": "rgba(255,243,231,0.9)",
+        "$type": "color"
+      },
+      "icon-orange-bg": {
+        "$value": "#FFF3E7",
+        "$type": "color",
+        "$description": "Hero icon card 1 background"
+      },
+      "icon-blue-bg": {
+        "$value": "#EDF4FF",
+        "$type": "color",
+        "$description": "Hero icon card 2 background"
+      },
+      "icon-teal-bg": {
+        "$value": "#EDFFF9",
+        "$type": "color",
+        "$description": "Hero icon card 3 background"
+      },
+      "icon-yellow-bg": {
+        "$value": "#FFFBEA",
+        "$type": "color",
+        "$description": "Hero icon card 4 background"
+      }
+    },
+
+    "font-family": {
+      "display": {
+        "$value": "Space Grotesk",
+        "$type": "fontFamilies",
+        "$description": "Headings, logo, prices, step numbers"
+      },
+      "body": {
+        "$value": "Bricolage Grotesque",
+        "$type": "fontFamilies",
+        "$description": "Body copy, paragraphs, service card text"
+      },
+      "mono": {
+        "$value": "IBM Plex Mono",
+        "$type": "fontFamilies",
+        "$description": "Labels, nav links, badges, tags, CTA pills"
+      }
+    },
+
+    "font-weight": {
+      "regular": { "$value": "400", "$type": "fontWeights" },
+      "medium": { "$value": "500", "$type": "fontWeights" },
+      "semibold": { "$value": "600", "$type": "fontWeights" },
+      "bold": { "$value": "700", "$type": "fontWeights" },
+      "extrabold": { "$value": "800", "$type": "fontWeights" }
+    },
+
+    "font-size": {
+      "xs": { "$value": "0.72rem", "$type": "fontSizes", "$description": "11.5px — nav label, mono micro" },
+      "sm": { "$value": "0.76rem", "$type": "fontSizes", "$description": "12px — badges, pills, footer links" },
+      "base-sm": { "$value": "0.82rem", "$type": "fontSizes", "$description": "13px — pricing unit, detail, tags" },
+      "base": { "$value": "0.9rem", "$type": "fontSizes", "$description": "14.5px — body small, step copy" },
+      "md": { "$value": "1rem", "$type": "fontSizes", "$description": "16px — body base" },
+      "lg": { "$value": "1.1rem", "$type": "fontSizes", "$description": "17.5px — service card h3" },
+      "xl": { "$value": "1.2rem", "$type": "fontSizes", "$description": "19px — logo, footer brand" },
+      "2xl": { "$value": "1.6rem", "$type": "fontSizes", "$description": "25.5px — section sub-heading" },
+      "3xl": { "$value": "2rem", "$type": "fontSizes", "$description": "32px — h2 min" },
+      "4xl": { "$value": "2.35rem", "$type": "fontSizes", "$description": "37.5px — hero offer price" },
+      "5xl": { "$value": "3rem", "$type": "fontSizes", "$description": "48px — pricing card price" },
+      "hero-min": { "$value": "2.6rem", "$type": "fontSizes", "$description": "Hero h1 clamp min" },
+      "hero-max": { "$value": "5.2rem", "$type": "fontSizes", "$description": "Hero h1 clamp max (83px)" }
+    },
+
+    "line-height": {
+      "tight": { "$value": "0.95", "$type": "lineHeights", "$description": "Hero h1" },
+      "snug": { "$value": "1.02", "$type": "lineHeights", "$description": "Section h2" },
+      "normal": { "$value": "1.2", "$type": "lineHeights", "$description": "Skill cards" },
+      "body": { "$value": "1.58", "$type": "lineHeights", "$description": "Default body" },
+      "relaxed": { "$value": "1.62", "$type": "lineHeights", "$description": "Service cards, steps" }
+    },
+
+    "letter-spacing": {
+      "tight": { "$value": "-0.03em", "$type": "letterSpacing", "$description": "Display headings" },
+      "normal": { "$value": "0", "$type": "letterSpacing" },
+      "wide": { "$value": "0.04em", "$type": "letterSpacing", "$description": "Mono nav links" },
+      "wider": { "$value": "0.07em", "$type": "letterSpacing", "$description": "Mono badges" },
+      "widest": { "$value": "0.14em", "$type": "letterSpacing", "$description": "Decorative text" }
+    },
+
+    "spacing": {
+      "1": { "$value": "4px", "$type": "spacing" },
+      "2": { "$value": "8px", "$type": "spacing" },
+      "3": { "$value": "12px", "$type": "spacing" },
+      "4": { "$value": "16px", "$type": "spacing" },
+      "5": { "$value": "20px", "$type": "spacing" },
+      "6": { "$value": "24px", "$type": "spacing" },
+      "8": { "$value": "32px", "$type": "spacing" },
+      "10": { "$value": "40px", "$type": "spacing" },
+      "12": { "$value": "48px", "$type": "spacing" },
+      "16": { "$value": "64px", "$type": "spacing" },
+      "20": { "$value": "80px", "$type": "spacing" },
+      "24": { "$value": "96px", "$type": "spacing" }
+    },
+
+    "border-radius": {
+      "sm": { "$value": "8px", "$type": "borderRadius", "$description": "Problem icons, small elements" },
+      "md": { "$value": "11px", "$type": "borderRadius", "$description": "Skill-toggle, step numbers" },
+      "lg": { "$value": "12px", "$type": "borderRadius", "$description": "Buttons, skill cards, problem items" },
+      "xl": { "$value": "14px", "$type": "borderRadius", "$description": "Hero offer card" },
+      "2xl": { "$value": "16px", "$type": "borderRadius", "$description": "Pricing cards, step cards, service cards" },
+      "3xl": { "$value": "18px", "$type": "borderRadius", "$description": "Skills panel, CTA content" },
+      "4xl": { "$value": "20px", "$type": "borderRadius", "$description": "Main nav (desktop)" },
+      "5xl": { "$value": "24px", "$type": "borderRadius", "$description": "Pricing section, area section" },
+      "6xl": { "$value": "26px", "$type": "borderRadius", "$description": "How It Works block" },
+      "full": { "$value": "999px", "$type": "borderRadius", "$description": "Pills, nav CTA, neighborhood tags" }
+    },
+
+    "border-width": {
+      "default": { "$value": "2px", "$type": "borderWidth", "$description": "Primary stroke — all cards, nav, buttons" },
+      "thin": { "$value": "1px", "$type": "borderWidth", "$description": "Secondary dividers, neighborhood tags" }
+    },
+
+    "shadow": {
+      "flat-sm": {
+        "$value": "4px 4px 0 rgba(28,35,50,0.18)",
+        "$type": "boxShadow",
+        "$description": "Badge, step number"
+      },
+      "flat-md": {
+        "$value": "6px 6px 0 rgba(28,35,50,0.20)",
+        "$type": "boxShadow",
+        "$description": "Primary button, skill cards"
+      },
+      "flat-lg": {
+        "$value": "8px 8px 0 rgba(28,35,50,0.16)",
+        "$type": "boxShadow",
+        "$description": "Hero icon cards"
+      },
+      "flat-xl": {
+        "$value": "9px 9px 0 rgba(28,35,50,0.14)",
+        "$type": "boxShadow",
+        "$description": "Hero offer card"
+      },
+      "flat-dark": {
+        "$value": "8px 8px 0 rgba(12,19,30,0.20)",
+        "$type": "boxShadow",
+        "$description": "Pricing cards"
+      },
+      "ambient": {
+        "$value": "0 12px 26px rgba(28,35,50,0.14)",
+        "$type": "boxShadow",
+        "$description": "Standard ambient shadow (var --shadow)"
+      },
+      "dark-section": {
+        "$value": "0 24px 38px rgba(21,29,44,0.28)",
+        "$type": "boxShadow",
+        "$description": "Dark floating sections"
+      }
+    }
+  },
+
+  "semantic": {
+    "color": {
+      "bg-page": {
+        "$value": "{primitive.color.paper}",
+        "$type": "color",
+        "$description": "Page background"
+      },
+      "bg-surface": {
+        "$value": "{primitive.color.white}",
+        "$type": "color",
+        "$description": "Card / surface"
+      },
+      "bg-section-dark": {
+        "$value": "{primitive.color.dark-bg}",
+        "$type": "color"
+      },
+      "bg-section-pricing": {
+        "$value": "{primitive.color.pricing-bg}",
+        "$type": "color"
+      },
+      "text-primary": {
+        "$value": "{primitive.color.ink}",
+        "$type": "color"
+      },
+      "text-secondary": {
+        "$value": "{primitive.color.ink-soft}",
+        "$type": "color"
+      },
+      "text-on-dark": {
+        "$value": "#FFFFFF",
+        "$type": "color"
+      },
+      "text-accent": {
+        "$value": "{primitive.color.orange}",
+        "$type": "color",
+        "$description": "Highlight, logo accent, hero word"
+      },
+      "border-default": {
+        "$value": "{primitive.color.ink}",
+        "$type": "color"
+      },
+      "border-subtle": {
+        "$value": "{primitive.color.ink-line}",
+        "$type": "color"
+      },
+      "interactive-primary": {
+        "$value": "{primitive.color.acid}",
+        "$type": "color",
+        "$description": "Primary action (secondary btn, nav CTA, featured pricing)"
+      },
+      "interactive-cta": {
+        "$value": "{primitive.color.ink}",
+        "$type": "color",
+        "$description": "Primary CTA button background"
+      },
+      "interactive-sms": {
+        "$value": "{primitive.color.teal}",
+        "$type": "color"
+      },
+      "price-display": {
+        "$value": "{primitive.color.teal}",
+        "$type": "color",
+        "$description": "Hero offer price colour"
+      },
+      "focus-ring": {
+        "$value": "{primitive.color.orange}",
+        "$type": "color"
+      }
+    },
+
+    "typography": {
+      "heading-display": {
+        "$value": {
+          "fontFamily": "{primitive.font-family.display}",
+          "fontWeight": "{primitive.font-weight.bold}",
+          "lineHeight": "{primitive.line-height.tight}",
+          "letterSpacing": "{primitive.letter-spacing.tight}"
+        },
+        "$type": "typography",
+        "$description": "Hero h1"
+      },
+      "heading-section": {
+        "$value": {
+          "fontFamily": "{primitive.font-family.display}",
+          "fontWeight": "{primitive.font-weight.bold}",
+          "lineHeight": "{primitive.line-height.snug}",
+          "letterSpacing": "{primitive.letter-spacing.tight}"
+        },
+        "$type": "typography",
+        "$description": "Section h2 headings"
+      },
+      "heading-card": {
+        "$value": {
+          "fontFamily": "{primitive.font-family.display}",
+          "fontWeight": "{primitive.font-weight.bold}",
+          "fontSize": "{primitive.font-size.lg}",
+          "letterSpacing": "-0.01em"
+        },
+        "$type": "typography",
+        "$description": "Card h3 (service, step cards)"
+      },
+      "body-base": {
+        "$value": {
+          "fontFamily": "{primitive.font-family.body}",
+          "fontWeight": "{primitive.font-weight.regular}",
+          "fontSize": "{primitive.font-size.md}",
+          "lineHeight": "{primitive.line-height.body}"
+        },
+        "$type": "typography"
+      },
+      "body-small": {
+        "$value": {
+          "fontFamily": "{primitive.font-family.body}",
+          "fontWeight": "{primitive.font-weight.regular}",
+          "fontSize": "{primitive.font-size.base}",
+          "lineHeight": "{primitive.line-height.relaxed}"
+        },
+        "$type": "typography",
+        "$description": "Card body text"
+      },
+      "label-mono": {
+        "$value": {
+          "fontFamily": "{primitive.font-family.mono}",
+          "fontWeight": "{primitive.font-weight.bold}",
+          "fontSize": "{primitive.font-size.sm}",
+          "letterSpacing": "{primitive.letter-spacing.wide}",
+          "textTransform": "uppercase"
+        },
+        "$type": "typography",
+        "$description": "Nav links, badges, tags, labels"
+      },
+      "label-micro": {
+        "$value": {
+          "fontFamily": "{primitive.font-family.mono}",
+          "fontWeight": "{primitive.font-weight.bold}",
+          "fontSize": "{primitive.font-size.xs}",
+          "letterSpacing": "{primitive.letter-spacing.wider}",
+          "textTransform": "uppercase"
+        },
+        "$type": "typography",
+        "$description": "Micro labels (pricing card h3, hero offer h3)"
+      },
+      "price-large": {
+        "$value": {
+          "fontFamily": "{primitive.font-family.display}",
+          "fontWeight": "{primitive.font-weight.bold}",
+          "fontSize": "{primitive.font-size.5xl}",
+          "lineHeight": "1"
+        },
+        "$type": "typography",
+        "$description": "Pricing card large price"
+      },
+      "price-hero": {
+        "$value": {
+          "fontFamily": "{primitive.font-family.display}",
+          "fontWeight": "{primitive.font-weight.bold}",
+          "fontSize": "{primitive.font-size.4xl}",
+          "lineHeight": "1"
+        },
+        "$type": "typography",
+        "$description": "Hero offer price"
+      }
+    }
+  },
+
+  "component": {
+    "button-primary": {
+      "background": { "$value": "{semantic.color.interactive-cta}", "$type": "color" },
+      "text": { "$value": "{primitive.color.white}", "$type": "color" },
+      "border": { "$value": "{primitive.color.ink}", "$type": "color" },
+      "border-width": { "$value": "{primitive.border-width.default}", "$type": "borderWidth" },
+      "border-radius": { "$value": "{primitive.border-radius.lg}", "$type": "borderRadius" },
+      "padding-x": { "$value": "{primitive.spacing.5}", "$type": "spacing" },
+      "padding-y": { "$value": "{primitive.spacing.3}", "$type": "spacing" },
+      "shadow": { "$value": "{primitive.shadow.flat-md}", "$type": "boxShadow" },
+      "font": { "$value": "{semantic.typography.heading-card}", "$type": "typography" }
+    },
+    "button-secondary": {
+      "background": { "$value": "{semantic.color.interactive-primary}", "$type": "color" },
+      "text": { "$value": "{primitive.color.ink}", "$type": "color" },
+      "border": { "$value": "{primitive.color.ink}", "$type": "color" },
+      "border-width": { "$value": "{primitive.border-width.default}", "$type": "borderWidth" },
+      "border-radius": { "$value": "{primitive.border-radius.lg}", "$type": "borderRadius" },
+      "padding-x": { "$value": "{primitive.spacing.5}", "$type": "spacing" },
+      "padding-y": { "$value": "{primitive.spacing.3}", "$type": "spacing" }
+    },
+    "button-sms": {
+      "background": { "$value": "{semantic.color.interactive-sms}", "$type": "color" },
+      "text": { "$value": "#FFFFFF", "$type": "color" },
+      "border": { "$value": "{primitive.color.ink}", "$type": "color" },
+      "border-width": { "$value": "{primitive.border-width.default}", "$type": "borderWidth" },
+      "border-radius": { "$value": "{primitive.border-radius.lg}", "$type": "borderRadius" }
+    },
+    "nav-pill-cta": {
+      "background": { "$value": "{semantic.color.interactive-primary}", "$type": "color" },
+      "text": { "$value": "{primitive.color.ink}", "$type": "color" },
+      "border": { "$value": "{primitive.color.ink}", "$type": "color" },
+      "border-width": { "$value": "{primitive.border-width.default}", "$type": "borderWidth" },
+      "border-radius": { "$value": "{primitive.border-radius.full}", "$type": "borderRadius" }
+    },
+    "card-service": {
+      "border": { "$value": "{primitive.color.ink}", "$type": "color" },
+      "border-width": { "$value": "{primitive.border-width.default}", "$type": "borderWidth" },
+      "border-radius": { "$value": "{primitive.border-radius.2xl}", "$type": "borderRadius" },
+      "shadow": { "$value": "{primitive.shadow.ambient}", "$type": "boxShadow" },
+      "padding": { "$value": "{primitive.spacing.5}", "$type": "spacing" }
+    },
+    "card-skill": {
+      "border": { "$value": "{primitive.color.ink}", "$type": "color" },
+      "border-width": { "$value": "{primitive.border-width.default}", "$type": "borderWidth" },
+      "border-radius": { "$value": "{primitive.border-radius.lg}", "$type": "borderRadius" },
+      "shadow": { "$value": "6px 6px 0 rgba(28,35,50,0.12)", "$type": "boxShadow" },
+      "min-height": { "$value": "90px", "$type": "sizing" },
+      "padding": { "$value": "{primitive.spacing.3}", "$type": "spacing" }
+    },
+    "card-pricing-default": {
+      "background": { "$value": "{primitive.color.white}", "$type": "color" },
+      "border": { "$value": "{primitive.color.ink}", "$type": "color" },
+      "border-width": { "$value": "{primitive.border-width.default}", "$type": "borderWidth" },
+      "border-radius": { "$value": "{primitive.border-radius.2xl}", "$type": "borderRadius" },
+      "shadow": { "$value": "{primitive.shadow.flat-dark}", "$type": "boxShadow" }
+    },
+    "card-pricing-featured": {
+      "background": { "$value": "{primitive.color.acid}", "$type": "color" },
+      "transform": { "$value": "translateY(-12px) rotate(-1deg)", "$type": "other" }
+    },
+    "badge": {
+      "background": { "$value": "rgba(255,255,255,0.72)", "$type": "color" },
+      "border": { "$value": "{primitive.color.ink}", "$type": "color" },
+      "border-width": { "$value": "{primitive.border-width.default}", "$type": "borderWidth" },
+      "border-radius": { "$value": "{primitive.border-radius.xl}", "$type": "borderRadius" },
+      "shadow": { "$value": "{primitive.shadow.flat-sm}", "$type": "boxShadow" }
+    },
+    "neighborhood-tag": {
+      "background": { "$value": "rgba(255,255,255,0.82)", "$type": "color" },
+      "border": { "$value": "{primitive.color.ink}", "$type": "color" },
+      "border-width": { "$value": "{primitive.border-width.thin}", "$type": "borderWidth" },
+      "border-radius": { "$value": "{primitive.border-radius.full}", "$type": "borderRadius" }
+    },
+    "hero-offer-card": {
+      "background": { "$value": "{primitive.color.white}", "$type": "color" },
+      "border": { "$value": "{primitive.color.ink}", "$type": "color" },
+      "border-width": { "$value": "{primitive.border-width.default}", "$type": "borderWidth" },
+      "border-radius": { "$value": "{primitive.border-radius.xl}", "$type": "borderRadius" },
+      "shadow": { "$value": "{primitive.shadow.flat-xl}", "$type": "boxShadow" }
+    },
+    "problem-item": {
+      "border": { "$value": "{primitive.color.ink}", "$type": "color" },
+      "border-width": { "$value": "{primitive.border-width.default}", "$type": "borderWidth" },
+      "border-radius": { "$value": "{primitive.border-radius.lg}", "$type": "borderRadius" },
+      "shadow": { "$value": "5px 5px 0 rgba(28,35,50,0.12)", "$type": "boxShadow" }
+    },
+    "step-card": {
+      "background": { "$value": "rgba(255,255,255,0.08)", "$type": "color" },
+      "border": { "$value": "rgba(255,255,255,0.24)", "$type": "color" },
+      "border-width": { "$value": "{primitive.border-width.thin}", "$type": "borderWidth" },
+      "border-radius": { "$value": "{primitive.border-radius.2xl}", "$type": "borderRadius" }
+    }
+  }
+}
