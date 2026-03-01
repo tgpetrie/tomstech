@@ -22,12 +22,12 @@
     <meta name="twitter:description" content="Patient in-home and remote tech support for Seattle neighborhoods. Start with a quick consult call.">
 
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231F2937'/><text x='50' y='62' text-anchor='middle' font-family='Arial' font-size='42' font-weight='700' fill='%23FFFFFF'>TT</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231F2937'/><rect x='18' y='30' width='28' height='9' rx='3' fill='%23FFFFFF'/><rect x='28' y='30' width='9' height='40' rx='3' fill='%23FFFFFF'/><rect x='54' y='30' width='28' height='9' rx='3' fill='%23FFFFFF'/><rect x='64' y='30' width='9' height='40' rx='3' fill='%23FF6B35'/></svg>">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Space+Grotesk:wght@300..700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <!-- Schema.org LocalBusiness -->
     <script type="application/ld+json">
@@ -474,7 +474,7 @@
         }
 
         body {
-            font-family: "Bricolage Grotesque", sans-serif;
+            font-family: "Raleway", sans-serif;
             font-optical-sizing: auto;
             color: var(--ink);
             line-height: 1.58;
@@ -578,14 +578,21 @@
         }
 
         .logo {
-            font-family: "Space Grotesk", sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.52rem;
+            font-family: "Raleway", sans-serif;
             font-weight: 700;
             font-size: 1.2rem;
             letter-spacing: -0.02em;
             text-decoration: none;
             color: var(--ink);
             white-space: nowrap;
-            padding-left: 0.25rem;
+        }
+
+        .logo-mark {
+            flex-shrink: 0;
+            display: block;
         }
 
         .logo span {
@@ -603,7 +610,7 @@
         .nav-links a {
             text-decoration: none;
             color: var(--ink);
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.79rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -660,7 +667,7 @@
             border: 2px solid var(--ink);
             border-radius: 999px;
             padding: 0.52rem 0.95rem;
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.76rem;
             font-weight: 700;
             white-space: nowrap;
@@ -767,7 +774,7 @@
             border: 2px solid var(--ink);
             background: rgba(255, 255, 255, 0.72);
             box-shadow: 4px 4px 0 rgba(28, 35, 50, 0.18);
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.74rem;
             letter-spacing: 0.07em;
             text-transform: uppercase;
@@ -806,7 +813,7 @@
         }
 
         .hero-tagline {
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             font-size: 0.82rem;
@@ -857,7 +864,7 @@
         }
 
         .hero-offer h3 {
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.74rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
@@ -880,7 +887,7 @@
         .hero-offer .credit-mini {
             font-size: 0.85rem;
             color: var(--ink-soft);
-            font-family: "Bricolage Grotesque", sans-serif;
+            font-family: "Raleway", sans-serif;
             text-align: center;
             margin-bottom: 0;
             letter-spacing: 0.005em;
@@ -900,7 +907,7 @@
             border-radius: 12px;
             padding: 0.82rem 1.35rem;
             text-decoration: none;
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "Raleway", sans-serif;
             font-weight: 700;
             font-size: 0.93rem;
             letter-spacing: -0.01em;
@@ -935,7 +942,7 @@
         }
 
         .hero-call-link {
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.74rem;
             font-weight: 700;
             letter-spacing: 0.04em;
@@ -1104,7 +1111,7 @@
         }
 
         .section-header h2 {
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "Raleway", sans-serif;
             font-size: clamp(2rem, 4vw, 3.45rem);
             line-height: 1.02;
             letter-spacing: -0.03em;
@@ -1174,7 +1181,7 @@
             border: 2px solid var(--ink);
             background: var(--acid);
             color: var(--ink);
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "Raleway", sans-serif;
             font-size: 1.25rem;
             font-weight: 700;
             display: flex;
@@ -1184,7 +1191,7 @@
         }
 
         .step h3 {
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "Raleway", sans-serif;
             font-size: 1.08rem;
             color: var(--white);
             margin-bottom: 0.45rem;
@@ -1286,7 +1293,7 @@
         }
 
         .service-card h3 {
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "Raleway", sans-serif;
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 0.42rem;
@@ -1376,7 +1383,7 @@
         }
 
         .pricing-card h3 {
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "Raleway", sans-serif;
             font-size: 1.06rem;
             letter-spacing: -0.01em;
             margin-bottom: 0.42rem;
@@ -1418,7 +1425,7 @@
             margin-top: 1.5rem;
             color: rgba(255, 255, 255, 0.74);
             font-size: 0.88rem;
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
         }
 
         #problems .section-header {
@@ -1437,7 +1444,7 @@
         }
 
         .problem-group h3 {
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.68rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -1508,7 +1515,7 @@
         }
 
         .area h2 {
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "Raleway", sans-serif;
             font-size: clamp(1.9rem, 4vw, 2.8rem);
             margin-bottom: 0.4rem;
             letter-spacing: -0.02em;
@@ -1534,7 +1541,7 @@
             border: 1px solid var(--ink);
             border-radius: 999px;
             background: rgba(255, 255, 255, 0.82);
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.76rem;
             text-transform: uppercase;
             letter-spacing: 0.04em;
@@ -1596,7 +1603,7 @@
         }
 
         .cta h2 {
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "Raleway", sans-serif;
             font-size: clamp(2.05rem, 4vw, 3rem);
             line-height: 1;
             letter-spacing: -0.02em;
@@ -1625,7 +1632,7 @@
         .contact-intake label {
             display: block;
             margin-bottom: 0.45rem;
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.74rem;
             font-weight: 700;
             letter-spacing: 0.04em;
@@ -1639,7 +1646,7 @@
             border-radius: 10px;
             background: rgba(255, 255, 255, 0.9);
             color: var(--ink);
-            font-family: "Bricolage Grotesque", sans-serif;
+            font-family: "Raleway", sans-serif;
             font-size: 0.98rem;
             font-weight: 600;
             padding: 0.75rem 0.85rem;
@@ -1685,7 +1692,7 @@
             gap: 0.5rem;
             text-decoration: none;
             color: var(--ink);
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.8rem;
             letter-spacing: 0.03em;
             text-transform: uppercase;
@@ -1722,7 +1729,7 @@
         }
 
         .footer-brand .brand-name {
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "Raleway", sans-serif;
             font-size: 1.05rem;
             margin-bottom: 0.18rem;
         }
@@ -1741,7 +1748,7 @@
         .footer-links a {
             text-decoration: none;
             color: rgba(255, 255, 255, 0.8);
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.74rem;
             letter-spacing: 0.05em;
             text-transform: uppercase;
@@ -1893,7 +1900,7 @@
             display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
         }
         .consult-link {
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.78rem; font-weight: 700;
             letter-spacing: 0.03em; text-transform: uppercase;
             color: var(--orange); text-decoration: none;
@@ -2103,7 +2110,16 @@
 
     <!-- ── Navigation ── -->
     <nav class="main-nav" role="navigation" aria-label="Main">
-        <a href="/" class="logo" aria-label="Tom's Tech Therapy — Home">Tom's Tech <span>Therapy</span></a>
+        <a href="index.html" class="logo" aria-label="Tom's Tech Therapy — Home">
+            <svg class="logo-mark" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="32" height="32" rx="8" fill="var(--ink)"/>
+                <rect x="7" y="10" width="8" height="2.5" rx="1" fill="var(--white)"/>
+                <rect x="10.25" y="10" width="2.5" height="11" rx="1" fill="var(--white)"/>
+                <rect x="17" y="10" width="8" height="2.5" rx="1" fill="var(--white)"/>
+                <rect x="20.25" y="10" width="2.5" height="11" rx="1" fill="var(--orange)"/>
+            </svg>
+            Tom's Tech <span>Therapy</span>
+        </a>
 
         <ul class="nav-links" role="list">
             <li><a href="#services">Services</a></li>
@@ -2149,8 +2165,8 @@
                 Serving Seattle Neighborhoods
             </div>
 
-            <h1 id="hero-heading">Seattle's Patient Tech Support That <span class="highlight">Solves the Problem</span></h1>
             <p class="hero-tagline">Your Neighborhood Tech Companion</p>
+            <h1 id="hero-heading">Seattle's Patient Tech Support That <span class="highlight">Solves the Problem</span></h1>
             <p>Not sure what is wrong with your tech or where to start? I am Tom, your tech therapist. I troubleshoot calmly, explain clearly, and leave you with steps you can repeat without stress.</p>
 
             <div class="hero-offer" aria-label="Introductory offer">
@@ -2308,7 +2324,7 @@
                 <svg class="service-icon" viewBox="0 0 52 52" fill="none" aria-hidden="true">
                     <circle cx="26" cy="26" r="20" fill="#93C5FD"/>
                     <circle cx="26" cy="26" r="12" fill="#3B82F6"/>
-                    <text x="20" y="32" font-family="Bricolage Grotesque, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">?</text>
+                    <text x="20" y="32" font-family="Raleway, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">?</text>
                 </svg>
                 <h3>Consulting &amp; Buying Guidance</h3>
                 <p>Thinking about buying hardware or software? Get honest advice before you spend money and avoid buyer's remorse.</p>

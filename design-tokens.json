@@ -161,19 +161,19 @@
         "$description": "Primary display + heading face — H1 (800, animated), H2/H3 section/card headings, footer brand, pricing text, step text"
       },
       "display": {
-        "$value": "Space Grotesk",
+        "$value": "Raleway",
         "$type": "fontFamilies",
-        "$description": "UI elements — logo, buttons, nav, step number circles"
+        "$description": "UI elements — logo, buttons, nav, step number circles. Raleway 700, ls -0.02em"
       },
       "body": {
-        "$value": "Bricolage Grotesque",
+        "$value": "Raleway",
         "$type": "fontFamilies",
-        "$description": "Body copy, paragraphs, service card body text"
+        "$description": "Body copy, paragraphs, service card body text. Raleway 400"
       },
       "mono": {
-        "$value": "IBM Plex Mono",
+        "$value": "Raleway",
         "$type": "fontFamilies",
-        "$description": "Labels, nav links, badges, tags, CTA pills, section kickers"
+        "$description": "Labels, nav links, badges, tags, CTA pills, section kickers. Raleway 700, uppercase, letter-spacing 0.07em"
       }
     },
 
