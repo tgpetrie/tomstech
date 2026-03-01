@@ -155,20 +155,25 @@
     },
 
     "font-family": {
+      "hero": {
+        "$value": "Raleway",
+        "$type": "fontFamilies",
+        "$description": "Primary display + heading face — H1 (800, animated), H2/H3 section/card headings, footer brand, pricing text, step text"
+      },
       "display": {
         "$value": "Space Grotesk",
         "$type": "fontFamilies",
-        "$description": "Headings, logo, prices, step numbers"
+        "$description": "UI elements — logo, buttons, nav, step number circles"
       },
       "body": {
         "$value": "Bricolage Grotesque",
         "$type": "fontFamilies",
-        "$description": "Body copy, paragraphs, service card text"
+        "$description": "Body copy, paragraphs, service card body text"
       },
       "mono": {
         "$value": "IBM Plex Mono",
         "$type": "fontFamilies",
-        "$description": "Labels, nav links, badges, tags, CTA pills"
+        "$description": "Labels, nav links, badges, tags, CTA pills, section kickers"
       }
     },
 
@@ -357,33 +362,33 @@
     "typography": {
       "heading-display": {
         "$value": {
-          "fontFamily": "{primitive.font-family.display}",
-          "fontWeight": "{primitive.font-weight.bold}",
+          "fontFamily": "{primitive.font-family.hero}",
+          "fontWeight": "{primitive.font-weight.extrabold}",
           "lineHeight": "{primitive.line-height.tight}",
           "letterSpacing": "{primitive.letter-spacing.tight}"
         },
         "$type": "typography",
-        "$description": "Hero h1"
+        "$description": "Hero h1 — Raleway 800, clamp(2.6–5.2rem), ls −0.03em, weight-animates on load"
       },
       "heading-section": {
         "$value": {
-          "fontFamily": "{primitive.font-family.display}",
+          "fontFamily": "{primitive.font-family.hero}",
           "fontWeight": "{primitive.font-weight.bold}",
           "lineHeight": "{primitive.line-height.snug}",
           "letterSpacing": "{primitive.letter-spacing.tight}"
         },
         "$type": "typography",
-        "$description": "Section h2 headings"
+        "$description": "Section h2 headings — Raleway 700"
       },
       "heading-card": {
         "$value": {
-          "fontFamily": "{primitive.font-family.display}",
+          "fontFamily": "{primitive.font-family.hero}",
           "fontWeight": "{primitive.font-weight.bold}",
           "fontSize": "{primitive.font-size.lg}",
           "letterSpacing": "-0.01em"
         },
         "$type": "typography",
-        "$description": "Card h3 (service, step cards)"
+        "$description": "Card h3 (service, step, pricing cards) — Raleway 700"
       },
       "body-base": {
         "$value": {
@@ -428,23 +433,33 @@
       },
       "price-large": {
         "$value": {
-          "fontFamily": "{primitive.font-family.display}",
+          "fontFamily": "{primitive.font-family.hero}",
           "fontWeight": "{primitive.font-weight.bold}",
           "fontSize": "{primitive.font-size.5xl}",
           "lineHeight": "1"
         },
         "$type": "typography",
-        "$description": "Pricing card large price"
+        "$description": "Pricing card large price — Raleway 700"
       },
       "price-hero": {
         "$value": {
-          "fontFamily": "{primitive.font-family.display}",
+          "fontFamily": "{primitive.font-family.hero}",
           "fontWeight": "{primitive.font-weight.bold}",
           "fontSize": "{primitive.font-size.4xl}",
           "lineHeight": "1"
         },
         "$type": "typography",
-        "$description": "Hero offer price"
+        "$description": "Hero offer price — Raleway 700"
+      },
+      "heading-light": {
+        "$value": {
+          "fontFamily": "{primitive.font-family.hero}",
+          "fontWeight": "{primitive.font-weight.medium}",
+          "lineHeight": "{primitive.line-height.relaxed}",
+          "letterSpacing": "{primitive.letter-spacing.normal}"
+        },
+        "$type": "typography",
+        "$description": "Raleway 500 — supporting / secondary text, step credits, credit-mini"
       }
     }
   },
