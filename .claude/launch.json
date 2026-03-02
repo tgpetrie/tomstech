@@ -3,14 +3,8 @@
   "configurations": [
     {
       "name": "TomsTech",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "3456"],
-      "port": 3456
-    },
-    {
-      "name": "design-system",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-p", "3456", "."],
+      "runtimeExecutable": "/bin/sh",
+      "runtimeArgs": ["-c", "PATH=/opt/homebrew/bin:$PATH npx serve -p 3456 /Users/cdmxx/Documents/TomsTech"],
       "port": 3456
     }
   ]
