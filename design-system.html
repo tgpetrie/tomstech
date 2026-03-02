@@ -1,213 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="earthy">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tom's Tech Therapy — Design System</title>
+    <title>Tom's Tech Therapy — Design System v2</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tomstech-system.css">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            /* ── Primitive ─────── */
-            --paper:        #FAF4E5;
-            --paper-deep:   #F0E3C6;
-            --ink:          #1C2332;
-            --ink-soft:     #3B455C;
-            --ink-line:     rgba(28,35,50,0.22);
-            --white:        #FFFDF8;
-            --orange:       #FF6B35;
-            --acid:         #D8FF66;
-            --teal:         #10A7A0;
-            --blue:         #4E87FF;
-            --pink:         #FF4E8D;
-            --dark-bg:      #161D2D;
-            --pricing-bg:   #181F31;
-            --footer-bg:    #121A2A;
-            --tape:         rgba(248,211,110,0.80);
-            /* ── Shadows ────────  */
-            --shadow-flat-sm: 4px 4px 0 rgba(28,35,50,0.18);
-            --shadow-flat-md: 6px 6px 0 rgba(28,35,50,0.20);
-            --shadow-flat-lg: 8px 8px 0 rgba(28,35,50,0.16);
-            --shadow-flat-xl: 9px 9px 0 rgba(28,35,50,0.14);
-            --shadow-ambient: 0 12px 26px rgba(28,35,50,0.14);
-            /* ── System UI ──────── */
-            --sys-bg: #EDEBE3;
+            /* DS shell variables — not in tomstech-system.css */
+            --sys-bg:      #EDEBE3;
             --sys-sidebar: #1C2332;
-            --sys-border: rgba(28,35,50,0.12);
         }
 
-        body {
-            font-family: "Raleway", sans-serif;
-            background: var(--sys-bg);
-            color: var(--ink);
-            -webkit-font-smoothing: antialiased;
-            line-height: 1.58;
-        }
+        body { font-family: "Raleway", sans-serif; background: var(--sys-bg); color: var(--ink); -webkit-font-smoothing: antialiased; line-height: 1.58; }
 
         /* ── Layout ── */
-        .ds-layout {
-            display: grid;
-            grid-template-columns: 220px 1fr;
-            min-height: 100vh;
-        }
+        .ds-layout { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
 
         /* ── Sidebar ── */
-        .ds-sidebar {
-            background: var(--sys-sidebar);
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            overflow-y: auto;
-            padding: 1.5rem 0 2rem;
-            scrollbar-width: thin;
-        }
-        .ds-sidebar-brand {
-            padding: 0 1.25rem 1.25rem;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            margin-bottom: 1rem;
-        }
-        .ds-sidebar-brand .sp { font-family: "Raleway", sans-serif; font-size: 1rem; font-weight: 700; color: #fff; }
-        .ds-sidebar-brand .sp span { color: var(--orange); }
-        .ds-sidebar-brand .sub { font-family: "Raleway", sans-serif; font-size: 0.65rem; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+        .ds-sidebar { background: var(--sys-sidebar); position: sticky; top: 0; height: 100vh; overflow-y: auto; padding: 1.5rem 0 2rem; scrollbar-width: thin; }
+        .ds-sidebar-brand { padding: 0 1.25rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 1rem; }
+        .ds-sidebar-brand .sp { font-size: 1rem; font-weight: 700; color: #fff; }
+        .ds-sidebar-brand .sp span { color: #FF6B35; }
+        .ds-sidebar-brand .sub { font-size: 0.65rem; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
         .ds-nav-group { margin-bottom: 0.25rem; }
-        .ds-nav-group-label {
-            font-family: "Raleway", sans-serif;
-            font-size: 0.62rem; font-weight: 700;
-            color: rgba(255,255,255,0.28);
-            text-transform: uppercase; letter-spacing: 1.2px;
-            padding: 0.85rem 1.25rem 0.3rem;
-        }
-        .ds-nav-group a {
-            display: block; padding: 0.42rem 1.25rem;
-            font-size: 0.82rem; font-weight: 600;
-            color: rgba(255,255,255,0.62);
-            text-decoration: none;
-            border-left: 2px solid transparent;
-            transition: all 0.15s;
-        }
-        .ds-nav-group a:hover { color: #fff; border-left-color: var(--acid); background: rgba(255,255,255,0.04); }
+        .ds-nav-group-label { font-size: 0.62rem; font-weight: 700; color: rgba(255,255,255,0.28); text-transform: uppercase; letter-spacing: 1.2px; padding: 0.85rem 1.25rem 0.3rem; }
+        .ds-nav-group a { display: block; padding: 0.42rem 1.25rem; font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.62); text-decoration: none; border-left: 2px solid transparent; transition: all 0.15s; }
+        .ds-nav-group a:hover { color: #fff; border-left-color: #D8FF66; background: rgba(255,255,255,0.04); }
+
+        /* ── Theme picker ── */
+        .ds-theme-row { padding: 0.75rem 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 0.5rem; }
+        .ds-theme-row label { display: block; font-size: 0.62rem; font-weight: 700; color: rgba(255,255,255,0.28); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 0.45rem; }
+        #ds-theme-select { width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; color: rgba(255,255,255,0.85); font-family: "Raleway", sans-serif; font-size: 0.8rem; font-weight: 600; padding: 0.42rem 0.6rem; cursor: pointer; appearance: none; }
+        #ds-theme-select option { background: #1C2332; color: #fff; }
 
         /* ── Main ── */
-        .ds-main {
-            padding: 3rem 3.5rem 5rem;
-            max-width: 1100px;
-        }
+        .ds-main { padding: 3rem 3.5rem 5rem; max-width: 1100px; }
 
         /* ── Page header ── */
-        .ds-page-header {
-            margin-bottom: 3.5rem;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid var(--ink);
-        }
-        .ds-page-header .eyebrow {
-            font-family: "Raleway", sans-serif;
-            font-size: 0.72rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.1em;
-            color: var(--ink-soft); margin-bottom: 0.5rem;
-        }
-        .ds-page-header h1 {
-            font-family: "Raleway", sans-serif;
-            font-size: 2.8rem; font-weight: 700;
-            letter-spacing: -0.03em; line-height: 1;
-            margin-bottom: 0.75rem;
-        }
+        .ds-page-header { margin-bottom: 3.5rem; padding-bottom: 2rem; border-bottom: 2px solid var(--ink); }
+        .ds-page-header .eyebrow { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); margin-bottom: 0.5rem; }
+        .ds-page-header h1 { font-size: 2.8rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.75rem; }
         .ds-page-header p { color: var(--ink-soft); max-width: 60ch; }
 
         /* ── Import callout ── */
-        .import-box {
-            background: var(--white);
-            border: 2px solid var(--ink);
-            border-radius: 14px;
-            padding: 1.5rem;
-            margin-bottom: 3.5rem;
-            box-shadow: var(--shadow-flat-md);
-        }
-        .import-box h3 {
-            font-family: "Raleway", sans-serif;
-            font-size: 1rem; font-weight: 700;
-            margin-bottom: 0.85rem;
-        }
+        .import-box { background: var(--white); border: 2px solid var(--ink); border-radius: 14px; padding: 1.5rem; margin-bottom: 3.5rem; box-shadow: var(--shadow-flat-md); }
+        .import-box h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.85rem; }
         .import-steps { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-        .import-steps li {
-            display: flex; align-items: flex-start; gap: 0.75rem;
-            font-size: 0.88rem; color: var(--ink-soft);
-        }
-        .step-num {
-            min-width: 22px; height: 22px;
-            background: var(--acid); border: 2px solid var(--ink);
-            border-radius: 6px; font-family: "Raleway", sans-serif;
-            font-size: 0.75rem; font-weight: 700; color: var(--ink);
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: var(--shadow-flat-sm); flex-shrink: 0;
-        }
-        .import-steps li code {
-            font-family: "Raleway", sans-serif;
-            background: var(--paper-deep); padding: 1px 6px; border-radius: 4px;
-            font-size: 0.82rem;
-        }
+        .import-steps li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.88rem; color: var(--ink-soft); }
+        .step-num { min-width: 22px; height: 22px; background: var(--acid); border: 2px solid var(--ink); border-radius: 6px; font-size: 0.75rem; font-weight: 700; color: var(--ink); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-flat-sm); flex-shrink: 0; }
+        .import-steps li code { font-family: "Raleway", sans-serif; background: var(--paper-deep); padding: 1px 6px; border-radius: 4px; font-size: 0.82rem; }
 
-        /* ── Section ── */
+        /* ── Sections ── */
         .ds-section { margin-bottom: 4rem; scroll-margin-top: 2rem; }
-        .ds-section-title {
-            font-family: "Raleway", sans-serif;
-            font-size: 1.6rem; font-weight: 700;
-            letter-spacing: -0.02em; margin-bottom: 0.4rem;
-        }
+        .ds-section-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
         .ds-section-desc { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 1.75rem; }
         .ds-divider { height: 2px; background: var(--ink); border-radius: 1px; margin: 3rem 0; }
 
-        /* ── Token label ── */
-        .token-label {
-            font-family: "Raleway", sans-serif;
-            font-size: 0.7rem; font-weight: 700;
-            color: var(--ink-soft); letter-spacing: 0.04em;
-        }
-        .token-value {
-            font-family: "Raleway", sans-serif;
-            font-size: 0.68rem; color: var(--ink-soft);
-        }
+        /* ── Token display ── */
+        .token-label { font-size: 0.7rem; font-weight: 700; color: var(--ink-soft); letter-spacing: 0.04em; }
+        .token-value { font-size: 0.68rem; color: var(--ink-soft); }
 
         /* ── Color grid ── */
-        .color-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 0.75rem;
-        }
-        .color-chip {
-            border: 2px solid var(--ink);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-flat-sm);
-        }
-        .color-swatch {
-            height: 72px;
-        }
-        .color-info {
-            background: var(--white);
-            padding: 0.6rem 0.75rem 0.65rem;
-        }
-        .color-info .name { font-family: "Raleway", sans-serif; font-weight: 700; font-size: 0.82rem; margin-bottom: 2px; }
-        .color-info .hex  { font-family: "Raleway", sans-serif; font-size: 0.7rem; color: var(--ink-soft); }
-        .color-info .var  { font-family: "Raleway", sans-serif; font-size: 0.65rem; color: var(--blue); margin-top: 1px; }
+        .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.75rem; }
+        .color-chip { border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-flat-sm); }
+        .color-swatch { height: 72px; }
+        .color-info { background: var(--white); padding: 0.6rem 0.75rem 0.65rem; }
+        .color-info .name { font-weight: 700; font-size: 0.82rem; margin-bottom: 2px; }
+        .color-info .hex  { font-size: 0.7rem; color: var(--ink-soft); }
+        .color-info .var  { font-size: 0.65rem; color: var(--blue); margin-top: 1px; }
 
         /* ── Type specimens ── */
         .type-table { width: 100%; border-collapse: collapse; }
-        .type-table th {
-            font-family: "Raleway", sans-serif;
-            font-size: 0.68rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.06em;
-            text-align: left; padding: 0.5rem 0.75rem;
-            border-bottom: 2px solid var(--ink);
-            color: var(--ink-soft);
-        }
-        .type-table td {
-            padding: 0.85rem 0.75rem;
-            border-bottom: 1px solid var(--ink-line);
-            vertical-align: middle;
-        }
+        .type-table th { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; text-align: left; padding: 0.5rem 0.75rem; border-bottom: 2px solid var(--ink); color: var(--ink-soft); }
+        .type-table td { padding: 0.85rem 0.75rem; border-bottom: 1px solid var(--ink-line); vertical-align: middle; }
         .type-table tr:last-child td { border-bottom: none; }
 
         /* ── Spacing scale ── */
@@ -215,268 +86,85 @@
         .spacing-row { display: flex; align-items: center; gap: 1rem; }
         .spacing-bar-wrap { flex: 1; background: var(--paper-deep); border-radius: 4px; height: 24px; border: 1px solid var(--ink-line); overflow: hidden; }
         .spacing-bar { height: 100%; background: var(--blue); opacity: 0.7; border-radius: 4px; }
-        .spacing-label { width: 48px; font-family: "Raleway", sans-serif; font-size: 0.7rem; font-weight: 700; }
-        .spacing-val { width: 44px; font-family: "Raleway", sans-serif; font-size: 0.68rem; color: var(--ink-soft); }
+        .spacing-label { width: 48px; font-size: 0.7rem; font-weight: 700; }
+        .spacing-val { width: 44px; font-size: 0.68rem; color: var(--ink-soft); }
 
         /* ── Radius demos ── */
         .radius-grid { display: flex; flex-wrap: wrap; gap: 0.85rem; align-items: flex-start; }
-        .radius-demo {
-            background: var(--white);
-            border: 2px solid var(--ink);
-            display: flex; align-items: center; justify-content: center;
-            flex-direction: column; gap: 4px;
-            width: 110px; height: 80px;
-            box-shadow: var(--shadow-flat-sm);
-        }
-        .radius-demo .r-name { font-family: "Raleway", sans-serif; font-size: 0.65rem; font-weight: 700; }
-        .radius-demo .r-val { font-family: "Raleway", sans-serif; font-size: 0.6rem; color: var(--ink-soft); }
+        .radius-demo { background: var(--white); border: 2px solid var(--ink); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 4px; width: 110px; height: 80px; box-shadow: var(--shadow-flat-sm); }
+        .radius-demo .r-name { font-size: 0.65rem; font-weight: 700; }
+        .radius-demo .r-val  { font-size: 0.6rem; color: var(--ink-soft); }
 
         /* ── Shadow demos ── */
         .shadow-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; }
-        .shadow-demo {
-            background: var(--white);
-            border: 2px solid var(--ink);
-            border-radius: 12px;
-            padding: 1rem 1.25rem;
-            min-width: 140px;
-        }
-        .shadow-demo .sh-name { font-family: "Raleway", sans-serif; font-weight: 700; font-size: 0.82rem; margin-bottom: 4px; }
-        .shadow-demo .sh-val { font-family: "Raleway", sans-serif; font-size: 0.62rem; color: var(--ink-soft); line-height: 1.5; }
+        .shadow-demo { background: var(--white); border: 2px solid var(--ink); border-radius: 12px; padding: 1rem 1.25rem; min-width: 140px; }
+        .shadow-demo .sh-name { font-weight: 700; font-size: 0.82rem; margin-bottom: 4px; }
+        .shadow-demo .sh-val  { font-size: 0.62rem; color: var(--ink-soft); line-height: 1.5; }
 
-        /* ── Component showcase area ── */
-        .comp-stage {
-            background: var(--paper);
-            border: 2px solid var(--ink);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        .comp-stage.dark {
-            background: var(--dark-bg);
-        }
-        .comp-label {
-            font-family: "Raleway", sans-serif;
-            font-size: 0.68rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.08em;
-            color: var(--ink-soft); margin-bottom: 1rem;
-        }
+        /* ── Component showcase ── */
+        .comp-stage { background: var(--paper); border: 2px solid var(--ink); border-radius: 16px; padding: 2rem; margin-bottom: 1rem; }
+        .comp-stage.dark { background: var(--dark-bg); }
+        .comp-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 1rem; }
         .comp-label.dark { color: rgba(255,255,255,0.38); }
         .comp-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1rem; }
 
-        /* ── Buttons ── */
-        .btn { border: 2px solid var(--ink); border-radius: 12px; padding: 0.8rem 1.35rem; text-decoration: none; font-family: "Raleway", sans-serif; font-weight: 700; font-size: 0.93rem; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 0.42rem; cursor: pointer; }
-        .btn-p { background: var(--ink); color: var(--white); box-shadow: var(--shadow-flat-md); }
-        .btn-s { background: var(--acid); color: var(--ink); }
-        .btn-sms { background: var(--teal); color: #fff; }
-        .btn-nav { background: var(--acid); color: var(--ink); border-radius: 999px; padding: 0.52rem 0.95rem; font-family: "Raleway", sans-serif; font-size: 0.76rem; }
-
-        /* ── Nav ── */
-        .nav-demo {
-            background: rgba(255,252,244,0.9);
-            border: 2px solid var(--ink);
-            border-radius: 20px;
-            padding: 0.72rem 0.9rem;
-            display: flex; align-items: center; justify-content: space-between;
-            gap: 1rem; position: relative;
-        }
-        .nav-demo::before, .nav-demo::after {
-            content: ""; position: absolute;
-            width: 54px; height: 14px;
-            background: var(--tape); border: 1px solid var(--ink-line);
-            top: -10px;
-        }
+        /* ── Nav demo wrapper (DS-specific) ── */
+        .nav-demo { background: rgba(255,252,244,0.9); border: 2px solid var(--ink); border-radius: 20px; padding: 0.72rem 0.9rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; position: relative; }
+        .nav-demo::before, .nav-demo::after { content: ""; position: absolute; width: 54px; height: 14px; background: var(--tape); border: 1px solid var(--ink-line); top: -10px; }
         .nav-demo::before { left: 18%; transform: rotate(-4deg); }
         .nav-demo::after  { right: 14%; transform: rotate(6deg); }
-        .nav-demo .nd-logo { font-family: "Raleway", sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--ink); }
-        .nav-demo .nd-logo span { color: var(--orange); }
-        .nav-demo-links { display: flex; gap: 0.35rem; }
-        .nav-demo-link { font-family: "Raleway", sans-serif; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.4rem 0.65rem; border-radius: 999px; border: 1px solid transparent; color: var(--ink); }
+        .nav-demo-links { display: flex; gap: 0.35rem; align-items: center; }
+        .nav-demo-link { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 0.4rem 0.65rem; border-radius: 999px; color: var(--ink); }
 
-        /* ── Badge ── */
-        .badge-demo {
-            display: inline-flex; align-items: center; gap: 0.45rem;
-            padding: 0.45rem 0.82rem;
-            border-radius: 10px; border: 2px solid var(--ink);
-            background: rgba(255,255,255,0.72);
-            box-shadow: var(--shadow-flat-sm);
-            font-family: "Raleway", sans-serif;
-            font-size: 0.74rem; letter-spacing: 0.07em;
-            text-transform: uppercase; font-weight: 700;
-        }
+        /* ── Skill card (from skills.html — not in tomstech-system.css) ── */
+        .skill-card { min-height: 90px; width: 130px; border: 2px solid var(--ink); border-radius: 12px; padding: 0.8rem 0.7rem; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.82rem; font-weight: 700; line-height: 1.2; box-shadow: var(--shadow-flat-sm); }
+        .skill-card:nth-child(4n+1) { background: #FFF1E6; }
+        .skill-card:nth-child(4n+2) { background: #EBF7FF; }
+        .skill-card:nth-child(4n+3) { background: #EDFFF3; }
+        .skill-card:nth-child(4n+4) { background: #F8F0FF; }
 
-        /* ── Hero offer card ── */
-        .offer-card {
-            max-width: 360px;
-            padding: 1.2rem 1.25rem;
-            border: 2px solid var(--ink);
-            border-radius: 14px;
-            background: var(--white);
-            box-shadow: var(--shadow-flat-xl);
-            transform: rotate(-1.25deg);
-            position: relative;
-        }
-        .offer-card::before, .offer-card::after {
-            content: ""; position: absolute;
-            width: 58px; height: 14px;
-            background: rgba(255,214,124,0.75);
-            border: 1px solid rgba(28,35,50,0.25);
-            top: -9px;
-        }
-        .offer-card::before { left: 16px; transform: rotate(-10deg); }
-        .offer-card::after  { right: 16px; transform: rotate(8deg); }
-        .offer-card .oc-label { font-family: "Raleway", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 0.35rem; font-weight: 700; }
-        .offer-card .oc-price { font-family: "Raleway", sans-serif; color: var(--teal); font-size: 2.35rem; line-height: 1; margin-bottom: 0.4rem; font-weight: 700; }
-        .offer-card .oc-price span { font-size: 0.9rem; color: var(--ink-soft); font-family: "Raleway", sans-serif; }
-        .offer-card .oc-note { font-size: 0.88rem; color: var(--ink-soft); }
+        /* ── btn-sms (teal call-to-action — not in tomstech-system.css) ── */
+        .btn-sms { background: var(--teal); color: #fff; border: 2px solid var(--ink); border-radius: 12px; padding: 0.8rem 1.35rem; font-weight: 700; font-size: 0.93rem; display: inline-flex; align-items: center; gap: 0.42rem; text-decoration: none; cursor: pointer; box-shadow: var(--shadow-flat-sm); transition: transform 0.15s, box-shadow 0.15s; }
+        .btn-sms:hover { transform: translate(-2px,-2px); box-shadow: 8px 8px 0 rgba(28,35,50,0.20); }
 
-        /* ── Service card ── */
-        .svc-card {
-            border-radius: 15px; border: 2px solid var(--ink);
-            padding: 1.35rem 1.2rem;
-            box-shadow: var(--shadow-ambient);
-            position: relative; overflow: hidden;
-            width: 220px;
-        }
-        .svc-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,255,255,0.34), transparent 35%); }
-        .svc-card.sc1 { background: #FFF2E6; transform: rotate(-1.2deg); }
-        .svc-card.sc2 { background: #E8F8FF; transform: rotate(0.8deg); }
-        .svc-card.sc3 { background: #EDFFF5; transform: rotate(-0.7deg); }
-        .svc-icon-box { width: 44px; height: 44px; margin-bottom: 0.75rem; background: rgba(0,0,0,0.06); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
-        .svc-card h4 { font-family: "Raleway", sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.3rem; }
-        .svc-card p { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.5; }
-
-        /* ── Skill card ── */
-        .skill-c {
-            min-height: 90px; width: 120px;
-            border: 2px solid var(--ink); border-radius: 12px;
-            padding: 0.8rem 0.7rem;
-            display: flex; align-items: center; justify-content: center;
-            text-align: center;
-            font-family: "Raleway", sans-serif;
-            font-size: 0.82rem; font-weight: 700; line-height: 1.2;
-            box-shadow: 6px 6px 0 rgba(28,35,50,0.12);
-        }
-        .skill-c.sk1 { background: #FFF1E6; }
-        .skill-c.sk2 { background: #EBF7FF; }
-        .skill-c.sk3 { background: #EDFFF3; }
-        .skill-c.sk4 { background: #F8F0FF; }
-
-        /* ── Pricing card ── */
-        .pricing-c {
-            background: var(--white);
-            border: 2px solid var(--ink);
-            border-radius: 16px;
-            padding: 1.7rem 1.2rem;
-            text-align: center;
-            position: relative;
-            box-shadow: 8px 8px 0 rgba(12,19,30,0.20);
-            width: 190px;
-        }
-        .pricing-c::before, .pricing-c::after {
-            content: ""; position: absolute; top: 50%;
-            width: 14px; height: 14px; margin-top: -7px;
-            background: var(--dark-bg); border-radius: 50%;
-        }
-        .pricing-c::before { left: -8px; }
-        .pricing-c::after  { right: -8px; }
-        .pricing-c.feat { background: var(--acid); transform: translateY(-10px) rotate(-1deg); }
-        .pricing-c .pc-label { font-family: "Raleway", sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; margin-bottom: 0.75rem; color: var(--ink-soft); font-weight: 700; }
-        .pricing-c .pc-price { font-family: "Raleway", sans-serif; font-size: 2.8rem; line-height: 1; margin-bottom: 0.2rem; font-weight: 700; }
-        .pricing-c .pc-unit { font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 0.75rem; }
-        .pricing-c .pc-detail { border-top: 1px dashed rgba(28,35,50,0.28); padding-top: 0.75rem; font-size: 0.78rem; color: var(--ink-soft); line-height: 1.45; }
-
-        /* ── Problem item ── */
-        .problem-c {
-            display: flex; align-items: flex-start; gap: 0.8rem;
-            padding: 0.82rem 0.95rem;
-            border: 2px solid var(--ink); border-radius: 12px;
-            box-shadow: 5px 5px 0 rgba(28,35,50,0.12);
-            width: 280px;
-        }
-        .problem-c.p1 { background: rgba(237,255,245,0.9); }
-        .problem-c.p2 { background: rgba(236,246,255,0.9); }
-        .problem-c.p3 { background: rgba(255,243,231,0.9); }
-        .problem-icon-c {
-            width: 33px; height: 33px; border-radius: 8px;
-            border: 2px solid var(--ink); background: var(--white);
-            color: var(--teal); display: flex; align-items: center;
-            justify-content: center; flex-shrink: 0; font-size: 0.9rem;
-        }
-        .problem-c p { font-size: 0.88rem; font-weight: 600; color: var(--ink); line-height: 1.45; padding-top: 0.08rem; }
-
-        /* ── Neighborhood tag ── */
-        .hood-tag {
-            padding: 0.42rem 0.85rem;
-            border: 1px solid var(--ink); border-radius: 999px;
-            background: rgba(255,255,255,0.82);
-            font-family: "Raleway", sans-serif;
-            font-size: 0.76rem; text-transform: uppercase;
-            letter-spacing: 0.04em; font-weight: 700;
-            color: var(--ink);
-        }
-        .hood-tag.odd  { transform: rotate(-1.4deg); }
-        .hood-tag.even { transform: rotate(1.2deg); }
-
-        /* ── Step card ── */
-        .step-c {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.24);
-            border-radius: 16px; padding: 1.5rem 1rem;
-            text-align: center; width: 200px;
-        }
-        .step-num-c {
-            width: 50px; height: 50px; margin: 0 auto 0.75rem;
-            border-radius: 11px; border: 2px solid var(--ink);
-            background: var(--acid); color: var(--ink);
-            font-family: "Raleway", sans-serif;
-            font-size: 1.25rem; font-weight: 700;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 4px 4px 0 rgba(9,13,20,0.32);
-        }
-        .step-c h4 { font-family: "Raleway", sans-serif; font-size: 0.95rem; color: var(--white); margin-bottom: 0.35rem; font-weight: 700; }
-        .step-c p { font-size: 0.82rem; color: rgba(255,255,255,0.72); line-height: 1.55; }
-
-        /* ── Footer preview ── */
-        .footer-preview {
-            background: var(--footer-bg);
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
-        }
-        .fp-brand { font-family: "Raleway", sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; }
+        /* ── Footer preview (DS-specific display) ── */
+        .footer-preview { background: #121A2A; border-radius: 12px; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .fp-brand { font-size: 0.95rem; font-weight: 700; color: #fff; }
         .fp-sub { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
         .fp-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-        .fp-link { font-family: "Raleway", sans-serif; font-size: 0.72rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; }
+        .fp-link { font-size: 0.72rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; }
 
-        /* ── Grid ── */
-        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        /* ── Layout helpers ── */
+        .ds-section-wrap { background: var(--white); border: 2px solid var(--ink); border-radius: 16px; padding: 1.75rem; box-shadow: var(--shadow-ambient); }
 
-        /* ── Section container ── */
-        .ds-section-wrap {
-            background: var(--white);
-            border: 2px solid var(--ink);
-            border-radius: 16px;
-            padding: 1.75rem;
-            box-shadow: var(--shadow-ambient);
-        }
+        /* ── Snippet viewer ── */
+        details.ds-snippet { margin-top: 0.75rem; border: 1px solid var(--ink-line); border-radius: 10px; overflow: hidden; }
+        details.ds-snippet summary { display: flex; align-items: center; gap: 0.5rem; padding: 0.55rem 0.85rem; font-size: 0.72rem; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; list-style: none; user-select: none; }
+        details.ds-snippet summary::-webkit-details-marker { display: none; }
+        details.ds-snippet summary::before { content: "▶"; font-size: 0.6rem; transition: transform 0.15s; }
+        details.ds-snippet[open] summary::before { transform: rotate(90deg); }
+        details.ds-snippet summary .ds-copy-btn { margin-left: auto; }
+        pre.ds-code { background: #1C2332; padding: 1rem 1.1rem; overflow-x: auto; }
+        pre.ds-code code { font-family: "Raleway", sans-serif; font-size: 0.78rem; color: #D8FF66; line-height: 1.6; white-space: pre; display: block; }
+        .ds-copy-btn { background: var(--acid); border: 1px solid var(--ink); border-radius: 6px; padding: 2px 9px; font-family: "Raleway", sans-serif; font-size: 0.7rem; font-weight: 700; color: var(--ink); cursor: pointer; transition: background 0.12s; }
+        .ds-copy-btn:hover { background: var(--orange); color: #fff; border-color: var(--orange); }
 
-        /* Copy code ── */
-        .copy-badge {
-            display: inline-flex; align-items: center;
-            background: var(--paper-deep); border: 1px solid var(--ink-line);
-            border-radius: 6px; padding: 2px 8px;
-            font-family: "Raleway", sans-serif;
-            font-size: 0.68rem; color: var(--ink);
-        }
-        /* CSS class reference badge ── */
-        .class-badge {
-            display: inline-flex; align-items: center;
-            background: var(--dark-bg); border: 1px solid rgba(216,255,102,0.3);
-            border-radius: 6px; padding: 2px 8px;
-            font-family: "Raleway", sans-serif;
-            font-size: 0.68rem; color: var(--acid);
-        }
+        /* ── Reference badges ── */
+        .copy-badge { display: inline-flex; align-items: center; background: var(--paper-deep); border: 1px solid var(--ink-line); border-radius: 6px; padding: 2px 8px; font-size: 0.68rem; color: var(--ink); }
+        .class-badge { display: inline-flex; align-items: center; background: #161D2D; border: 1px solid rgba(216,255,102,0.3); border-radius: 6px; padding: 2px 8px; font-size: 0.68rem; color: #D8FF66; cursor: pointer; transition: background 0.12s; }
+        .class-badge:hover { background: rgba(216,255,102,0.1); }
+
+        /* ── Theme Cards ── */
+        .ds-themes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .ds-theme-card { border-radius: 14px; overflow: hidden; border: 2px solid var(--ink); box-shadow: var(--shadow-flat-sm); }
+        .ds-theme-card-inner { background: var(--paper); padding: 1rem; display: flex; flex-direction: column; gap: 0.45rem; }
+        .ds-theme-swatches { display: flex; gap: 4px; margin-bottom: 0.2rem; }
+        .ds-swatch { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,0.15); flex-shrink: 0; }
+        .ds-theme-name { font-size: 0.9rem; font-weight: 800; color: var(--ink); }
+        .ds-theme-slug { font-size: 0.68rem; color: var(--ink-soft); line-height: 1.3; }
+        .ds-theme-slug code { font-family: "Raleway", sans-serif; font-size: 0.68rem; background: var(--paper-deep); padding: 1px 4px; border-radius: 4px; }
+        .ds-theme-apply { margin-top: 0.25rem; background: var(--ink); color: var(--paper); border: none; border-radius: 8px; padding: 0.35rem 0.8rem; font-family: "Raleway", sans-serif; font-size: 0.72rem; font-weight: 700; cursor: pointer; align-self: flex-start; transition: opacity 0.12s; }
+        .ds-theme-apply:hover { opacity: 0.8; }
 
         @media (max-width: 860px) {
             .ds-layout { grid-template-columns: 1fr; }
@@ -492,7 +180,7 @@
     <aside class="ds-sidebar">
         <div class="ds-sidebar-brand">
             <div class="sp">Tom's Tech <span>Therapy</span></div>
-            <div class="sub">Design System v1.0</div>
+            <div class="sub">Design System v2.0</div>
         </div>
         <nav>
             <div class="ds-nav-group">
@@ -520,11 +208,28 @@
                 <a href="#skill-cards">Skill Cards</a>
                 <a href="#pricing-cards">Pricing Cards</a>
                 <a href="#problem-items">Problem Items</a>
-                <a href="#hood-tags">Neighborhood Tags</a>
+                <a href="#neighborhood-tags">Neighborhood Tags</a>
                 <a href="#step-cards">Step Cards</a>
-                <a href="#footer-comp">Footer</a>
+                <a href="#footer">Footer</a>
+                <a href="#themes">Themes</a>
             </div>
         </nav>
+        <div class="ds-theme-row">
+            <label for="ds-theme-select">Theme Preview</label>
+            <select id="ds-theme-select">
+                <option value="">Default</option>
+                <option value="earthy">Earthy</option>
+                <option value="midnight">Midnight</option>
+                <option value="forest">Forest</option>
+                <option value="dusk">Dusk</option>
+                <option value="neon">Neon</option>
+                <option value="cosmos">Cosmos</option>
+                <option value="aurora">Aurora</option>
+                <option value="nebula">Nebula</option>
+                <option value="solar">Solar</option>
+                <option value="galaxy">Galaxy</option>
+            </select>
+        </div>
     </aside>
 
     <!-- ── Main ── -->
@@ -533,52 +238,52 @@
         <div class="ds-page-header">
             <div class="eyebrow">Tom's Tech Therapy · tomstech.net</div>
             <h1>Design System</h1>
-            <p>All tokens, components, and patterns from the production website. Import <code style="font-family:'Raleway',sans-serif;font-size:0.88em;background:var(--paper-deep);padding:1px 6px;border-radius:4px;">design-tokens.json</code> into Figma via Token Studio, then use this page as your component reference.</p>
+            <p>All tokens, components, and patterns from the production website. Use the <strong>Theme Preview</strong> selector to see all 11 themes live. Import <code style="font-family:'Raleway',sans-serif;font-size:0.88em;background:var(--paper-deep);padding:1px 6px;border-radius:4px;">design-tokens.json</code> into Figma via Token Studio, then use this page as your component reference.</p>
         </div>
 
         <!-- ── Figma Import ── -->
         <div class="import-box" id="import">
-            <h3>How to import into Figma</h3>
-            <p style="font-size:0.82rem;color:var(--ink-soft);margin:0 0 1rem;line-height:1.5;"><strong>Note:</strong> Token Studio now requires a paid plan. Use the free community plugin <strong>json-to-figma-styles</strong> instead — it creates native Figma Color Styles and Text Styles that work on the free Figma plan. Figma Variables require a Professional plan.</p>
+            <h3>How to use this system</h3>
+            <p style="font-size:0.82rem;color:var(--ink-soft);margin:0 0 1rem;line-height:1.5;"><strong>Tip:</strong> Token Studio now requires a paid plan. Use the free community plugin <strong>json-to-figma-styles</strong> instead — it creates native Figma Color Styles and Text Styles that work on the free Figma plan.</p>
             <ol class="import-steps">
-                <li><div class="step-num">1</div><span>In Figma, open <strong>Plugins → Community</strong> and search <strong>"json-to-figma-styles"</strong> — install it (free)</span></li>
-                <li><div class="step-num">2</div><span>Run the plugin → paste or load <code>design-tokens.json</code> from this project folder</span></li>
-                <li><div class="step-num">3</div><span>It will create <strong>Color Styles</strong> and <strong>Text Styles</strong> directly in your Figma file</span></li>
-                <li><div class="step-num">4</div><span>Add <strong>Raleway</strong> to your Figma file via <strong>Text panel → Fonts</strong> — it's the only typeface used (v2.0 single-font system)</span></li>
-                <li><div class="step-num">5</div><span>Build components by referencing the token names (e.g. <code>primitive/color/ink</code>, <code>primitive/shadow/flat-md</code>). Use this page as your component reference.</span></li>
+                <li><div class="step-num">1</div><span>Add <code>&lt;link rel="stylesheet" href="tomstech-system.css"&gt;</code> to your HTML <code>&lt;head&gt;</code></span></li>
+                <li><div class="step-num">2</div><span>Add <code>data-theme="earthy"</code> to your <code>&lt;html&gt;</code> tag to activate a theme</span></li>
+                <li><div class="step-num">3</div><span>Use the class names shown on this page — all components render from that one CSS file</span></li>
+                <li><div class="step-num">4</div><span>For Figma: open <strong>Plugins → Community</strong>, install <strong>"json-to-figma-styles"</strong>, load <code>design-tokens.json</code></span></li>
+                <li><div class="step-num">5</div><span>Build components by referencing token names, e.g. <code>primitive/color/ink</code>, <code>primitive/shadow/flat-md</code></span></li>
             </ol>
         </div>
 
         <!-- ── Fonts ── -->
         <div class="ds-section" id="fonts">
             <div class="ds-section-title">Fonts</div>
-            <div class="ds-section-desc"><strong>Raleway is the sole typeface across the entire site</strong> (v2.0). Its variable axis (100–900) creates all hierarchy: <strong>800</strong> for hero H1 (weight-animated on load), <strong>700</strong> for section H2 / card H3 / labels / buttons / logo, <strong>400</strong> for body copy. Label and badge roles use Raleway 700 + <code style="font-family:'Raleway',sans-serif;font-size:0.82em;background:var(--paper-deep);padding:1px 6px;border-radius:4px;">text-transform: uppercase</code> + letter-spacing to maintain visual separation without a second typeface.</div>
+            <div class="ds-section-desc"><strong>Raleway is the sole typeface</strong> (v2.0 single-font system). Its variable axis (100–900) creates all hierarchy: <strong>800</strong> for hero H1, <strong>700</strong> for section H2 / card H3 / labels / buttons / logo, <strong>400</strong> for body copy. Label and badge roles use Raleway 700 + <code style="font-family:'Raleway',sans-serif;font-size:0.82em;background:var(--paper-deep);padding:1px 6px;border-radius:4px;">text-transform: uppercase</code> + letter-spacing.</div>
             <div class="ds-section-wrap">
                 <table class="type-table" style="margin-bottom:0">
-                    <thead><tr><th>Role</th><th>Family</th><th>Weights Used</th><th>Token</th></tr></thead>
+                    <thead><tr><th>Role</th><th>Specimen</th><th>Spec</th><th>Token</th></tr></thead>
                     <tbody>
                         <tr>
-                            <td><span style="font-size:0.82rem;color:var(--ink-soft);">H1 Hero · H2 Sections · H3 Cards · Price + Supporting</span></td>
-                            <td style="font-family:'Raleway';font-weight:800;font-size:1.1rem;letter-spacing:-0.02em;">Raleway</td>
-                            <td><span class="token-value">100..900 variable · 800 H1 · 700 H2/H3 · 500 supporting</span></td>
+                            <td><span style="font-size:0.82rem;color:var(--ink-soft);">H1 Hero / H2 Sections / H3 Cards</span></td>
+                            <td style="font-family:'Raleway';font-weight:800;font-size:1.15rem;letter-spacing:-0.02em;">Raleway</td>
+                            <td><span class="token-value">100..900 variable · 800 H1 · 700 H2/H3</span></td>
                             <td><span class="copy-badge">primitive/font-family/hero</span></td>
                         </tr>
                         <tr>
                             <td><span style="font-size:0.82rem;color:var(--ink-soft);">Body / Paragraphs / Cards</span></td>
                             <td style="font-family:'Raleway';font-size:1.05rem;">Raleway 400</td>
-                            <td><span class="token-value">400 regular</span></td>
+                            <td><span class="token-value">400 regular · lh 1.58</span></td>
                             <td><span class="copy-badge">primitive/font-family/body</span></td>
                         </tr>
                         <tr>
                             <td><span style="font-size:0.82rem;color:var(--ink-soft);">Labels / Nav / Tags / Kickers</span></td>
-                            <td style="font-family:'Raleway';font-weight:700;font-size:0.95rem;letter-spacing:0.07em;text-transform:uppercase;">Raleway 700 + uppercase</td>
-                            <td><span class="token-value">700 · uppercase · letter-spacing 0.07em</span></td>
+                            <td style="font-family:'Raleway';font-weight:700;font-size:0.9rem;letter-spacing:0.07em;text-transform:uppercase;">Raleway 700 + uppercase</td>
+                            <td><span class="token-value">700 · uppercase · ls 0.07em</span></td>
                             <td><span class="copy-badge">primitive/font-family/mono</span></td>
                         </tr>
                         <tr>
                             <td><span style="font-size:0.82rem;color:var(--ink-soft);">Logo / Buttons / UI Chrome</span></td>
                             <td style="font-family:'Raleway';font-weight:700;font-size:1.1rem;">Raleway 700</td>
-                            <td><span class="token-value">700 · ls -0.02em</span></td>
+                            <td><span class="token-value">700 · ls −0.02em</span></td>
                             <td><span class="copy-badge">primitive/font-family/display</span></td>
                         </tr>
                     </tbody>
@@ -591,10 +296,10 @@
         <!-- ── Colors ── -->
         <div class="ds-section" id="colors">
             <div class="ds-section-title">Colors</div>
-            <div class="ds-section-desc">All primitive color tokens. Reference as <code style="font-family:'Raleway',sans-serif;font-size:0.82em;">primitive/color/[name]</code> in Token Studio.</div>
+            <div class="ds-section-desc">All primitive color tokens. Reference as <code style="font-family:'Raleway',sans-serif;font-size:0.82em;">primitive/color/[name]</code> in Token Studio. Theme overrides change these at the <code style="font-family:'Raleway',sans-serif;font-size:0.82em;">[data-theme]</code> level.</div>
 
             <div style="margin-bottom:1.25rem;">
-                <div class="token-label" style="margin-bottom:0.75rem;">BACKGROUNDS & SURFACES</div>
+                <div class="token-label" style="margin-bottom:0.75rem;">BACKGROUNDS &amp; SURFACES</div>
                 <div class="color-grid">
                     <div class="color-chip"><div class="color-swatch" style="background:#FAF4E5;"></div><div class="color-info"><div class="name">Paper</div><div class="hex">#FAF4E5</div><div class="var">--paper</div></div></div>
                     <div class="color-chip"><div class="color-swatch" style="background:#F0E3C6;"></div><div class="color-info"><div class="name">Paper Deep</div><div class="hex">#F0E3C6</div><div class="var">--paper-deep</div></div></div>
@@ -651,8 +356,8 @@
                     <tbody>
                         <tr>
                             <td class="token-label">Display / Hero H1</td>
-                            <td style="font-family:'Raleway';font-size:2.6rem;font-weight:800;letter-spacing:-0.03em;line-height:0.95;">Solves the Problem</td>
-                            <td class="token-value">Raleway · clamp(2.6–5.2rem) · 800 · ls −0.03em · lh 0.95 · animate weight on load</td>
+                            <td style="font-family:'Raleway';font-size:2.4rem;font-weight:800;letter-spacing:-0.03em;line-height:0.95;">Solves It</td>
+                            <td class="token-value">Raleway · clamp(2.6–5.2rem) · 800 · ls −0.03em · lh 0.95</td>
                             <td><span class="copy-badge">semantic/typography/heading-display</span></td>
                         </tr>
                         <tr>
@@ -663,7 +368,7 @@
                         </tr>
                         <tr>
                             <td class="token-label">Card H3</td>
-                            <td style="font-family:'Raleway';font-size:1.1rem;font-weight:700;letter-spacing:-0.01em;">Wi-Fi & Network</td>
+                            <td style="font-family:'Raleway';font-size:1.1rem;font-weight:700;letter-spacing:-0.01em;">Wi-Fi &amp; Network</td>
                             <td class="token-value">Raleway · 1.1rem · 700 · ls −0.01em</td>
                             <td><span class="copy-badge">semantic/typography/heading-card</span></td>
                         </tr>
@@ -720,7 +425,6 @@
                     <div class="spacing-row"><span class="spacing-label">sp-2</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:8px;"></div></div><span class="spacing-val">8px</span></div>
                     <div class="spacing-row"><span class="spacing-label">sp-3</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:12px;"></div></div><span class="spacing-val">12px</span></div>
                     <div class="spacing-row"><span class="spacing-label">sp-4</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:16px;"></div></div><span class="spacing-val">16px</span></div>
-                    <div class="spacing-row"><span class="spacing-label">sp-5</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:20px;"></div></div><span class="spacing-val">20px</span></div>
                     <div class="spacing-row"><span class="spacing-label">sp-6</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:24px;"></div></div><span class="spacing-val">24px</span></div>
                     <div class="spacing-row"><span class="spacing-label">sp-8</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:32px;"></div></div><span class="spacing-val">32px</span></div>
                     <div class="spacing-row"><span class="spacing-label">sp-10</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:40px;"></div></div><span class="spacing-val">40px</span></div>
@@ -742,9 +446,7 @@
                 <div class="radius-demo" style="border-radius:12px;"><span class="r-name">lg</span><span class="r-val">12px</span></div>
                 <div class="radius-demo" style="border-radius:14px;"><span class="r-name">xl</span><span class="r-val">14px</span></div>
                 <div class="radius-demo" style="border-radius:16px;"><span class="r-name">2xl</span><span class="r-val">16px</span></div>
-                <div class="radius-demo" style="border-radius:18px;"><span class="r-name">3xl</span><span class="r-val">18px</span></div>
                 <div class="radius-demo" style="border-radius:20px;"><span class="r-name">4xl</span><span class="r-val">20px</span></div>
-                <div class="radius-demo" style="border-radius:24px;"><span class="r-name">5xl</span><span class="r-val">24px</span></div>
                 <div class="radius-demo" style="border-radius:26px;"><span class="r-name">6xl</span><span class="r-val">26px</span></div>
                 <div class="radius-demo" style="border-radius:999px;width:140px;"><span class="r-name">full</span><span class="r-val">999px</span></div>
             </div>
@@ -753,13 +455,13 @@
         <!-- ── Shadows ── -->
         <div class="ds-section" id="shadows">
             <div class="ds-section-title">Shadows</div>
-            <div class="ds-section-desc">All shadows are hard-offset (flat) style — no blur, just X/Y offset. Token: <code style="font-family:'Raleway',sans-serif;font-size:0.82em;">primitive/shadow/[key]</code></div>
+            <div class="ds-section-desc">Hard-offset (flat) style — no blur, pure X/Y offset. Token: <code style="font-family:'Raleway',sans-serif;font-size:0.82em;">primitive/shadow/[key]</code> · Now CSS variables: <code style="font-family:'Raleway',sans-serif;font-size:0.82em;">var(--shadow-flat-sm)</code> etc.</div>
             <div class="shadow-grid">
-                <div class="shadow-demo" style="box-shadow:4px 4px 0 rgba(28,35,50,0.18);"><div class="sh-name">flat-sm</div><div class="sh-val">4 4 0<br>rgba 0.18</div></div>
-                <div class="shadow-demo" style="box-shadow:6px 6px 0 rgba(28,35,50,0.20);"><div class="sh-name">flat-md</div><div class="sh-val">6 6 0<br>rgba 0.20</div></div>
-                <div class="shadow-demo" style="box-shadow:8px 8px 0 rgba(28,35,50,0.16);"><div class="sh-name">flat-lg</div><div class="sh-val">8 8 0<br>rgba 0.16</div></div>
-                <div class="shadow-demo" style="box-shadow:9px 9px 0 rgba(28,35,50,0.14);"><div class="sh-name">flat-xl</div><div class="sh-val">9 9 0<br>rgba 0.14</div></div>
-                <div class="shadow-demo" style="box-shadow:8px 8px 0 rgba(12,19,30,0.20);"><div class="sh-name">flat-dark</div><div class="sh-val">8 8 0<br>rgba(12,19,30) 0.20</div></div>
+                <div class="shadow-demo" style="box-shadow:var(--shadow-flat-sm);"><div class="sh-name">flat-sm</div><div class="sh-val">4 4 0<br>rgba 0.18</div></div>
+                <div class="shadow-demo" style="box-shadow:var(--shadow-flat-md);"><div class="sh-name">flat-md</div><div class="sh-val">6 6 0<br>rgba 0.20</div></div>
+                <div class="shadow-demo" style="box-shadow:var(--shadow-flat-lg);"><div class="sh-name">flat-lg</div><div class="sh-val">8 8 0<br>rgba 0.16</div></div>
+                <div class="shadow-demo" style="box-shadow:var(--shadow-flat-xl);"><div class="sh-name">flat-xl</div><div class="sh-val">9 9 0<br>rgba 0.14</div></div>
+                <div class="shadow-demo" style="box-shadow:var(--shadow-flat-dark);"><div class="sh-name">flat-dark</div><div class="sh-val">8 8 0<br>rgba(12,19,30) 0.20</div></div>
                 <div class="shadow-demo" style="box-shadow:0 12px 26px rgba(28,35,50,0.14);"><div class="sh-name">ambient</div><div class="sh-val">0 12 26<br>rgba 0.14</div></div>
                 <div class="shadow-demo" style="box-shadow:0 24px 38px rgba(21,29,44,0.28);"><div class="sh-name">dark-section</div><div class="sh-val">0 24 38<br>rgba 0.28</div></div>
             </div>
@@ -785,19 +487,19 @@
 
         <!-- ════ COMPONENTS ════ -->
         <div style="margin-bottom:2rem;padding:1rem 1.25rem;background:var(--white);border:2px solid var(--ink);border-radius:12px;display:flex;flex-wrap:wrap;gap:1.25rem;align-items:center;">
-            <span style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.85rem;">Badge legend:</span>
+            <span style="font-weight:700;font-size:0.85rem;">Badge legend:</span>
             <span style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--ink-soft);">
-                <span class="copy-badge">token/name</span> Token Studio token reference
+                <span class="copy-badge">token/name</span> Token Studio reference
             </span>
             <span style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--ink-soft);">
-                <span class="class-badge">.css-class</span> Production CSS class name (index.html)
+                <span class="class-badge">.css-class</span> Production class — click to copy
             </span>
         </div>
 
         <!-- ── Nav ── -->
         <div class="ds-section" id="nav">
             <div class="ds-section-title">Navigation</div>
-            <div class="ds-section-desc">Fixed floating island. Border-radius: 20px. Two decorative tape strips (::before / ::after) with <code style="font-family:'Raleway',sans-serif;font-size:0.82em;">--tape</code> color, rotated ±4–6°.</div>
+            <div class="ds-section-desc">Fixed floating island. Border-radius: 20px. Two decorative tape strips (::before / ::after) with <code style="font-family:'Raleway',sans-serif;font-size:0.82em;">--tape</code> color, rotated ±4–6°. Hamburger + mobile-nav for screens below 800px.</div>
             <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
                 <span class="class-badge">.main-nav</span>
                 <span class="class-badge">.logo</span>
@@ -807,25 +509,42 @@
                 <span class="class-badge">.mobile-nav</span>
             </div>
             <div class="comp-stage" style="padding-top:2.5rem;">
-                <div class="comp-label">Desktop Nav</div>
+                <div class="comp-label">Desktop Nav (floating island)</div>
                 <div class="nav-demo">
-                    <a class="nd-logo">Tom's Tech <span>Therapy</span></a>
+                    <a href="#" class="logo" style="text-decoration:none;">Tom's Tech <span>Therapy</span></a>
                     <div class="nav-demo-links">
                         <span class="nav-demo-link">Services</span>
                         <span class="nav-demo-link">Skills</span>
                         <span class="nav-demo-link">Pricing</span>
                         <span class="nav-demo-link">Common Fixes</span>
-                        <span class="nav-demo-link">Contact</span>
                     </div>
-                    <a class="btn btn-nav">Call (206) 335-4552</a>
+                    <a class="nav-cta" href="#">Call (206) 335-4552</a>
                 </div>
             </div>
+            <details class="ds-snippet">
+                <summary>HTML snippet <button class="ds-copy-btn">Copy</button></summary>
+                <pre class="ds-code"><code>&lt;nav class="main-nav" role="navigation"&gt;
+  &lt;a href="/" class="logo" aria-label="Tom's Tech Therapy — Home"&gt;
+    &lt;!-- SVG logo mark here --&gt;
+    &lt;span class="logo-wordmark"&gt;Tom's Tech &lt;span&gt;Therapy&lt;/span&gt;&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;div class="nav-links"&gt;
+    &lt;a href="#services"&gt;Services&lt;/a&gt;
+    &lt;a href="#pricing"&gt;Pricing&lt;/a&gt;
+    &lt;a href="#contact"&gt;Contact&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;a href="tel:+12063354552" class="nav-cta"&gt;Call (206) 335-4552&lt;/a&gt;
+  &lt;button class="hamburger" aria-label="Open menu" aria-expanded="false"&gt;
+    &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/nav&gt;</code></pre>
+            </details>
         </div>
 
         <!-- ── Buttons ── -->
         <div class="ds-section" id="buttons">
             <div class="ds-section-title">Buttons</div>
-            <div class="ds-section-desc">All buttons: 2px solid border, border-radius: 12px, Raleway 700. Hover behaviour: translate(−2px, −2px) + shadow increase.</div>
+            <div class="ds-section-desc">All buttons: 2px solid border, border-radius: 12px, Raleway 700. Hover: translate(−2px, −2px) + shadow increase.</div>
             <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
                 <span class="class-badge">.btn-primary</span>
                 <span class="class-badge">.btn-secondary</span>
@@ -836,522 +555,567 @@
                 <div class="comp-label">Button variants</div>
                 <div class="comp-row">
                     <div style="display:flex;flex-direction:column;align-items:flex-start;gap:0.5rem;">
-                        <a class="btn btn-p">Call Tom</a>
+                        <a class="btn-primary" href="#">Book Free Consult ↗</a>
                         <span class="token-label">Primary — bg: ink · text: white · shadow: flat-md</span>
                         <span class="copy-badge">component/button-primary</span>
                         <span class="class-badge">.btn-primary</span>
                     </div>
                     <div style="display:flex;flex-direction:column;align-items:flex-start;gap:0.5rem;">
-                        <a class="btn btn-s">Call Tom</a>
-                        <span class="token-label">Secondary — bg: acid · text: ink</span>
+                        <a class="btn-secondary" href="#">See All Services</a>
+                        <span class="token-label">Secondary — bg: acid · text: ink · 2px ink border</span>
                         <span class="copy-badge">component/button-secondary</span>
                         <span class="class-badge">.btn-secondary</span>
                     </div>
                     <div style="display:flex;flex-direction:column;align-items:flex-start;gap:0.5rem;">
-                        <a class="btn btn-sms">Call Tom</a>
-                        <span class="token-label">SMS — bg: teal · text: white</span>
+                        <a class="btn-sms" href="#">Text Me</a>
+                        <span class="token-label">SMS — bg: teal · text: white · from skills.html</span>
                         <span class="copy-badge">component/button-sms</span>
                         <span class="class-badge">.btn-sms</span>
                     </div>
                     <div style="display:flex;flex-direction:column;align-items:flex-start;gap:0.5rem;">
-                        <a class="btn btn-nav">Call (206) 335-4552</a>
-                        <span class="token-label">Nav CTA — bg: acid · radius: full · Raleway 700</span>
+                        <a class="nav-cta" href="#">Call Now</a>
+                        <span class="token-label">Nav CTA — bg: acid · radius: 999px · Raleway 700</span>
                         <span class="copy-badge">component/nav-pill-cta</span>
                         <span class="class-badge">.nav-cta</span>
                     </div>
                 </div>
             </div>
+            <details class="ds-snippet">
+                <summary>HTML snippet <button class="ds-copy-btn">Copy</button></summary>
+                <pre class="ds-code"><code>&lt;a class="btn-primary" href="tel:+12063354552"&gt;Call Tom ↗&lt;/a&gt;
+&lt;a class="btn-secondary" href="#services"&gt;See All Services&lt;/a&gt;
+&lt;a class="btn-sms" href="sms:+12063354552"&gt;Text Me&lt;/a&gt;
+&lt;a class="nav-cta" href="tel:+12063354552"&gt;Call (206) 335-4552&lt;/a&gt;</code></pre>
+            </details>
         </div>
 
-        <!-- ── Badge ── -->
+
+        <!-- ── Badge / Pill ── -->
         <div class="ds-section" id="badges">
             <div class="ds-section-title">Badge / Pill</div>
-            <div class="ds-section-desc">Used in the hero section. Raleway 700, uppercase, border + flat shadow. Radius: 10px.</div>
-            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;align-items:center;">
+            <div class="ds-section-desc">Used in the hero section. Raleway 700, uppercase, letter-spacing 0.07em. 2px border + shadow-flat-sm, radius 10px.</div>
+            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
                 <span class="class-badge">.hero-badge</span>
             </div>
             <div class="comp-stage">
                 <div class="comp-label">Hero badge</div>
-                <div class="badge-demo">Serving Seattle Neighborhoods</div>
+                <span class="hero-badge">🏠 Serving Seattle Neighborhoods</span>
             </div>
+            <details class="ds-snippet">
+                <summary>HTML snippet <button class="ds-copy-btn">Copy</button></summary>
+                <pre class="ds-code"><code>&lt;span class="hero-badge"&gt;🏠 Serving Seattle Neighborhoods&lt;/span&gt;</code></pre>
+            </details>
         </div>
 
         <!-- ── Hero Offer Card ── -->
         <div class="ds-section" id="hero-offer">
             <div class="ds-section-title">Hero Offer Card</div>
-            <div class="ds-section-desc">Slight rotation (−1.25°). Two decorative tape strips (same as nav). Shadow: flat-xl. Radius: 14px.</div>
-            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;align-items:center;">
+            <div class="ds-section-desc">Inline offer card used in the hero. <code>h3</code> = small uppercase label · <code>.duration</code> = large display value (2rem/800) · <code>.credit-mini</code> = fine print. White bg, 3px border, shadow-flat-md.</div>
+            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
                 <span class="class-badge">.hero-offer</span>
-                <span class="class-badge">.hero-offer h3</span>
+                <span class="class-badge">h3</span>
                 <span class="class-badge">.duration</span>
                 <span class="class-badge">.credit-mini</span>
             </div>
-            <div class="comp-stage" style="padding-top:2.5rem;">
-                <div class="comp-label">Hero Offer Card</div>
-                <div class="offer-card">
-                    <div class="oc-label">Quick Consult</div>
-                    <div class="oc-price"><span>15–20 min</span></div>
-                    <div class="oc-note" style="text-align:center;font-size:0.68rem;font-family:'Raleway',sans-serif;margin-bottom:0.45rem;opacity:.86;">A $21 value in free credit applies.</div>
-                    <div class="oc-note">Quick consult, clear next steps.</div>
+            <div class="comp-stage">
+                <div class="comp-label">Offer card</div>
+                <div class="hero-offer">
+                    <h3>Free Consult</h3>
+                    <span class="duration">30 min</span>
+                    <p class="credit-mini">No commitment · In person or remote</p>
                 </div>
             </div>
+            <details class="ds-snippet">
+                <summary>HTML snippet <button class="ds-copy-btn">Copy</button></summary>
+                <pre class="ds-code"><code>&lt;div class="hero-offer"&gt;
+    &lt;h3&gt;Free Consult&lt;/h3&gt;
+    &lt;span class="duration"&gt;30 min&lt;/span&gt;
+    &lt;p class="credit-mini"&gt;No commitment · In person or remote&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </details>
         </div>
 
         <!-- ── Service Cards ── -->
         <div class="ds-section" id="service-cards">
             <div class="ds-section-title">Service Cards</div>
-            <div class="ds-section-desc">12-col grid. Cards 1–3: span 4, each rotated. Cards 4–6: span 5/4/3 (no rotation on row 2). Tinted backgrounds cycle: orange / blue-light / green.</div>
-            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
+            <div class="ds-section-desc">Rotating bg via <code>:nth-child(3n+1/2/3)</code>. 3px border, shadow-flat-md, radius 16px. Icon in 44px circle, h3 title, and description paragraph. Wrap in a CSS grid (repeat 3, 1fr).</div>
+            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
                 <span class="class-badge">.service-card</span>
-                <span class="class-badge">.services-grid</span>
-                <span class="class-badge">.service-icon</span>
             </div>
             <div class="comp-stage">
-                <div class="comp-label">Service cards (3 variants)</div>
-                <div class="comp-row">
-                    <div class="svc-card sc1">
-                        <div class="svc-icon-box">WF</div>
-                        <h4>Wi-Fi &amp; Network</h4>
-                        <p>Dead zones, drops, slow rooms. Router and mesh setup done right.</p>
+                <div class="comp-label">3 cards — shows full color rotation</div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+                    <div class="service-card">
+                        <div class="icon">💻</div>
+                        <h3>Laptop & Desktop Repair</h3>
+                        <p>Diagnostics, hardware fixes, and performance tune-ups for Windows and Mac.</p>
                     </div>
-                    <div class="svc-card sc2">
-                        <div class="svc-icon-box">PC</div>
-                        <h4>New Device Setup</h4>
-                        <p>Computer, phone, tablet setup from scratch.</p>
+                    <div class="service-card">
+                        <div class="icon">📶</div>
+                        <h3>Wi-Fi & Home Network</h3>
+                        <p>Dead zones, slow speeds, router setup — coverage that actually reaches everywhere.</p>
                     </div>
-                    <div class="svc-card sc3">
-                        <div class="svc-icon-box">SH</div>
-                        <h4>Smart Home</h4>
-                        <p>Speakers, cameras, locks, thermostats.</p>
+                    <div class="service-card">
+                        <div class="icon">🔐</div>
+                        <h3>Security & Privacy</h3>
+                        <p>Virus removal, password managers, privacy audits, and two-factor setup.</p>
                     </div>
                 </div>
             </div>
+            <details class="ds-snippet">
+                <summary>HTML snippet <button class="ds-copy-btn">Copy</button></summary>
+                <pre class="ds-code"><code>&lt;div class="service-card"&gt;
+    &lt;div class="icon"&gt;💻&lt;/div&gt;
+    &lt;h3&gt;Laptop &amp; Desktop Repair&lt;/h3&gt;
+    &lt;p&gt;Diagnostics, hardware fixes, and performance tune-ups.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </details>
         </div>
 
         <!-- ── Skill Cards ── -->
         <div class="ds-section" id="skill-cards">
             <div class="ds-section-title">Skill Cards</div>
-            <div class="ds-section-desc">5-col grid (responsive to 3→2→1). Flat offset shadow. 4 rotating background colours. Min-height 90px.</div>
-            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
+            <div class="ds-section-desc">From skills.html — 4-color rotating pastel backgrounds via <code>:nth-child(4n+1…4)</code>. 130px wide, 90px min-height, 2px border, shadow-flat-sm, centered text. Defined as local DS style (not in tomstech-system.css).</div>
+            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
                 <span class="class-badge">.skill-card</span>
-                <span class="class-badge">.skills-grid</span>
-                <span class="class-badge">.skills-panel</span>
-                <span class="class-badge">.extra-skill</span>
-                <span class="class-badge">.skills-toggle</span>
+                <span style="font-size:0.7rem;background:#FFF3CD;border:1px solid #FFC107;border-radius:6px;padding:0.2rem 0.5rem;color:#856404;font-weight:700;">local DS style</span>
             </div>
             <div class="comp-stage">
-                <div class="comp-label">Skill card grid (5-col example)</div>
-                <div style="display:flex;flex-wrap:wrap;gap:0.72rem;">
-                    <div class="skill-c sk1">Wi-Fi &amp; Network</div>
-                    <div class="skill-c sk2">Device Setup</div>
-                    <div class="skill-c sk3">Smart Home</div>
-                    <div class="skill-c sk4">Email &amp; Accounts</div>
-                    <div class="skill-c sk1">Tech on the Road</div>
-                    <div class="skill-c sk2">Consulting</div>
-                    <div class="skill-c sk3">Tutoring</div>
-                    <div class="skill-c sk4">Blockchain Evaluation</div>
+                <div class="comp-label">Skill card grid (4 to show color rotation)</div>
+                <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+                    <div class="skill-card">Windows 10/11</div>
+                    <div class="skill-card">macOS Sequoia</div>
+                    <div class="skill-card">Wi-Fi Networks</div>
+                    <div class="skill-card">Password Mgr</div>
+                    <div class="skill-card">Virus Removal</div>
+                    <div class="skill-card">Printer Setup</div>
                 </div>
             </div>
+            <details class="ds-snippet">
+                <summary>HTML snippet <button class="ds-copy-btn">Copy</button></summary>
+                <pre class="ds-code"><code>&lt;div class="skill-card"&gt;Windows 10/11&lt;/div&gt;
+&lt;div class="skill-card"&gt;macOS Sequoia&lt;/div&gt;</code></pre>
+            </details>
         </div>
 
         <!-- ── Pricing Cards ── -->
         <div class="ds-section" id="pricing-cards">
             <div class="ds-section-title">Pricing Cards</div>
-            <div class="ds-section-desc">3-col grid. Dark background context. Punch-hole circles (::before/::after at 50% vertical). Featured card: acid background, Y-translate −12px, rotate −1°.</div>
-            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
+            <div class="ds-section-desc">Standard and <code>.featured</code> variant. <code>h3</code> = card title · <code>.price</code> = large number · <code>.unit</code> = time label · <code>.detail</code> = fine print. Featured: bg acid, 4px border, shadow-flat-lg.</div>
+            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
                 <span class="class-badge">.pricing-card</span>
                 <span class="class-badge">.pricing-card.featured</span>
-                <span class="class-badge">.pricing-grid</span>
                 <span class="class-badge">.price</span>
                 <span class="class-badge">.unit</span>
                 <span class="class-badge">.detail</span>
             </div>
-            <div class="comp-stage dark">
-                <div class="comp-label dark">Pricing cards</div>
-                <div style="display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap;padding:1rem 0;">
-                    <div class="pricing-c feat">
-                        <div class="pc-label">Start Here: Quick Consult</div>
-                        <div class="pc-price">$21</div>
-                        <div class="pc-unit">15–20 min</div>
-                        <div class="pc-detail">A $21 free credit applies to your first hour of call or in-home support.</div>
+            <div class="comp-stage">
+                <div class="comp-label">Standard + featured pair</div>
+                <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;max-width:480px;">
+                    <div class="pricing-card">
+                        <h3>Hourly</h3>
+                        <div class="price">$95</div>
+                        <div class="unit">/hr</div>
+                        <div class="detail">Billed in 30-min increments</div>
                     </div>
-                    <div class="pricing-c">
-                        <div class="pc-label">Remote Support</div>
-                        <div class="pc-price">$42/hr</div>
-                        <div class="pc-unit">General issues</div>
-                        <div class="pc-detail">Phone or screen-share help for everyday troubleshooting and fixes.</div>
-                    </div>
-                    <div class="pricing-c">
-                        <div class="pc-label">Business Support</div>
-                        <div class="pc-price">Fee varies</div>
-                        <div class="pc-unit">Specialized, robust work</div>
-                        <div class="pc-detail">Websites, workflows, audits, and complex project support.</div>
-                    </div>
-                    <div class="pricing-c">
-                        <div class="pc-label">In-Home Support</div>
-                        <div class="pc-price">Rate varies</div>
-                        <div class="pc-unit">By project or task</div>
-                        <div class="pc-detail">On-site help quoted by scope, complexity, and travel.</div>
+                    <div class="pricing-card featured">
+                        <h3>Flat-Rate Fix</h3>
+                        <div class="price">$145</div>
+                        <div class="unit">flat</div>
+                        <div class="detail">Most common issues — one price</div>
                     </div>
                 </div>
             </div>
+            <details class="ds-snippet">
+                <summary>HTML snippet <button class="ds-copy-btn">Copy</button></summary>
+                <pre class="ds-code"><code>&lt;div class="pricing-card"&gt;
+    &lt;h3&gt;Hourly&lt;/h3&gt;
+    &lt;div class="price"&gt;$95&lt;/div&gt;
+    &lt;div class="unit"&gt;/hr&lt;/div&gt;
+    &lt;div class="detail"&gt;Billed in 30-min increments&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="pricing-card featured"&gt;
+    &lt;h3&gt;Flat-Rate Fix&lt;/h3&gt;
+    &lt;div class="price"&gt;$145&lt;/div&gt;
+    &lt;div class="unit"&gt;flat&lt;/div&gt;
+    &lt;div class="detail"&gt;Most common issues — one price&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </details>
         </div>
 
         <!-- ── Problem Items ── -->
         <div class="ds-section" id="problem-items">
             <div class="ds-section-title">Problem Items</div>
-            <div class="ds-section-desc">2-col grid. 3 rotating pastel background tints (green / blue / orange). 2px border. Flat offset shadow. Icon box: 33×33px, border-radius 8px, border 2px.</div>
-            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
+            <div class="ds-section-desc">Used in the "Sound Familiar?" section. <code>.problem-icon</code> = 48px round icon circle with border + shadow-flat-sm. Pair with a <code>&lt;p&gt;</code> for the problem text. Grid: repeat(3, 1fr).</div>
+            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
                 <span class="class-badge">.problem-item</span>
-                <span class="class-badge">.problems-grid</span>
                 <span class="class-badge">.problem-icon</span>
             </div>
             <div class="comp-stage">
-                <div class="comp-label">Problem items</div>
-                <div style="display:flex;flex-direction:column;gap:0.7rem;max-width:340px;">
-                    <div class="problem-c p1"><div class="problem-icon-c">WF</div><p>Wi-Fi drops, dead zones, and slow rooms</p></div>
-                    <div class="problem-c p2"><div class="problem-icon-c">DV</div><p>New device setup and data transfers</p></div>
-                    <div class="problem-c p3"><div class="problem-icon-c">PR</div><p>Printers and "it used to work" issues</p></div>
+                <div class="comp-label">3-column problem grid</div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+                    <div class="problem-item">
+                        <div class="problem-icon">🐌</div>
+                        <p>Your laptop takes 10 minutes to start</p>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-icon">📶</div>
+                        <p>Wi-Fi drops out in certain rooms</p>
+                    </div>
+                    <div class="problem-item">
+                        <div class="problem-icon">🔒</div>
+                        <p>You've been locked out of an account</p>
+                    </div>
                 </div>
             </div>
+            <details class="ds-snippet">
+                <summary>HTML snippet <button class="ds-copy-btn">Copy</button></summary>
+                <pre class="ds-code"><code>&lt;div class="problem-item"&gt;
+    &lt;div class="problem-icon"&gt;🐌&lt;/div&gt;
+    &lt;p&gt;Your laptop takes 10 minutes to start&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </details>
         </div>
 
         <!-- ── Neighborhood Tags ── -->
-        <div class="ds-section" id="hood-tags">
+        <div class="ds-section" id="neighborhood-tags">
             <div class="ds-section-title">Neighborhood Tags</div>
-            <div class="ds-section-desc">Pills. Odd items: rotate −1.4°. Even items: rotate +1.2°. Hover: translateY −3px + rotate 0°. Raleway 700 uppercase.</div>
-            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
+            <div class="ds-section-desc">Area tags that alternate bg via <code>:nth-child(odd/even)</code> — odd: orange bg + ink text, even: acid bg + ink text. 2px border, shadow-flat-sm, radius 8px. Raleway 700.</div>
+            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
                 <span class="class-badge">.neighborhood-tag</span>
-                <span class="class-badge">.neighborhoods</span>
-                <span class="class-badge">:nth-child(odd/even)</span>
             </div>
             <div class="comp-stage">
-                <div class="comp-label">Neighborhood tags</div>
+                <div class="comp-label">Tag cloud — 6 tags to show alternation</div>
                 <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
-                    <span class="hood-tag odd">Green Lake</span>
-                    <span class="hood-tag even">Wallingford</span>
-                    <span class="hood-tag odd">Phinney Ridge</span>
-                    <span class="hood-tag even">Ballard</span>
-                    <span class="hood-tag odd">Queen Anne</span>
-                    <span class="hood-tag even">Capitol Hill</span>
-                    <span class="hood-tag odd">Greenwood</span>
-                    <span class="hood-tag even">& nearby</span>
+                    <span class="neighborhood-tag">Capitol Hill</span>
+                    <span class="neighborhood-tag">Fremont</span>
+                    <span class="neighborhood-tag">Ballard</span>
+                    <span class="neighborhood-tag">Queen Anne</span>
+                    <span class="neighborhood-tag">Wallingford</span>
+                    <span class="neighborhood-tag">Green Lake</span>
                 </div>
             </div>
+            <details class="ds-snippet">
+                <summary>HTML snippet <button class="ds-copy-btn">Copy</button></summary>
+                <pre class="ds-code"><code>&lt;span class="neighborhood-tag"&gt;Capitol Hill&lt;/span&gt;
+&lt;span class="neighborhood-tag"&gt;Fremont&lt;/span&gt;
+&lt;span class="neighborhood-tag"&gt;Ballard&lt;/span&gt;</code></pre>
+            </details>
         </div>
 
         <!-- ── Step Cards ── -->
         <div class="ds-section" id="step-cards">
-            <div class="ds-section-title">Step Cards (How It Works)</div>
-            <div class="ds-section-desc">Dark section context. 3-col grid with dashed connector line. Step 2 offset by Y +22px. Number chip: acid bg, 2px ink border, flat-sm shadow.</div>
-            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
+            <div class="ds-section-title">Step Cards</div>
+            <div class="ds-section-desc">Used in "How It Works." <code>.step-number</code> = large 3.5rem numeral in ink color, Raleway 800. <code>h3</code> = step title. <code>p</code> = description. 3px border, shadow-flat-md. Arrange in a 3-column grid.</div>
+            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
                 <span class="class-badge">.step</span>
-                <span class="class-badge">.steps</span>
                 <span class="class-badge">.step-number</span>
-                <span class="class-badge">.how-it-works</span>
-                <span class="class-badge">.step-arrow</span>
             </div>
-            <div class="comp-stage dark">
-                <div class="comp-label dark">Step cards — 3-col with connector</div>
-                <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-                    <div class="step-c">
-                        <div class="step-num-c">1</div>
-                        <h4>Quick Consult</h4>
-                        <p>15–20 min quick consult with a clear estimate.</p>
-                        <p style="margin-top:0.45rem;padding-top:0.45rem;border-top:1px dashed rgba(255,255,255,0.24);font-family:'Raleway',sans-serif;font-size:0.74rem;opacity:.75;">$21 in free credit applies after your first call.</p>
+            <div class="comp-stage">
+                <div class="comp-label">3-step "How It Works" flow</div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <h3>Book a Free Consult</h3>
+                        <p>15 minutes by phone or text. Tell me what's broken and I'll tell you what it costs.</p>
                     </div>
-                    <div class="step-c" style="transform:translateY(22px);">
-                        <div class="step-num-c">2</div>
-                        <h4>Clear Estimate</h4>
-                        <p>You know exactly what's involved before committing.</p>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <h3>I Come to You</h3>
+                        <p>In-home visits across Seattle — no driving your machine anywhere.</p>
                     </div>
-                    <div class="step-c">
-                        <div class="step-num-c">3</div>
-                        <h4>Problem Solved</h4>
-                        <p>Remote or in-home. Patient, thorough, no jargon.</p>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <h3>Fixed. Explained. Done.</h3>
+                        <p>I fix it, explain what happened, and leave you with notes you'll actually keep.</p>
                     </div>
                 </div>
             </div>
+            <details class="ds-snippet">
+                <summary>HTML snippet <button class="ds-copy-btn">Copy</button></summary>
+                <pre class="ds-code"><code>&lt;div class="step"&gt;
+    &lt;div class="step-number"&gt;01&lt;/div&gt;
+    &lt;h3&gt;Book a Free Consult&lt;/h3&gt;
+    &lt;p&gt;15 minutes by phone or text.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </details>
         </div>
 
         <!-- ── Footer ── -->
-        <div class="ds-section" id="footer-comp">
+        <div class="ds-section" id="footer">
             <div class="ds-section-title">Footer</div>
-            <div class="ds-section-desc">Background: #121A2A. 2-col flex: brand left, footer links right. All links Raleway 700 uppercase. Hover: acid yellow.</div>
-            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
-                <span class="class-badge">footer</span>
+            <div class="ds-section-desc">Full-width footer with ink background, paper text. <code>.site-footer</code> wraps the layout. <code>.footer-inner</code> = flex row (brand left, links right). <code>.brand-name</code> = logo wordmark. <code>.footer-links</code> = row of links. Uses real CSS from tomstech-system.css.</div>
+            <div style="margin-bottom:0.75rem;display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+                <span class="class-badge">.site-footer</span>
                 <span class="class-badge">.footer-inner</span>
                 <span class="class-badge">.footer-brand</span>
-                <span class="class-badge">.footer-links a</span>
-                <span class="class-badge">.footer-copy</span>
+                <span class="class-badge">.brand-name</span>
+                <span class="class-badge">.footer-links</span>
             </div>
-            <div class="footer-preview">
-                <div>
-                    <div class="fp-brand">Tom's Tech Therapy</div>
-                    <div class="fp-sub">Your Neighborhood Tech Companion · Patient support. Real solutions.</div>
-                </div>
-                <div class="fp-links">
-                    <a class="fp-link">Services</a>
-                    <a class="fp-link">Skills</a>
-                    <a class="fp-link">Pricing</a>
-                    <a class="fp-link">Common Fixes</a>
-                    <a class="fp-link">Contact</a>
-                    <a class="fp-link">All Skills</a>
-                </div>
+            <div class="comp-stage" style="padding:0;overflow:hidden;border-radius:14px;">
+                <div class="comp-label" style="margin:0.5rem 0 0 0.75rem;">Footer preview</div>
+                <footer class="site-footer" style="margin-top:0.5rem;">
+                    <div class="footer-inner">
+                        <div class="footer-brand">
+                            <span class="brand-name">Tom's Tech <span>Therapy</span></span>
+                            <span>Seattle's neighborhood tech guy · (206) 335-4552</span>
+                        </div>
+                        <nav class="footer-links">
+                            <a href="#">Services</a>
+                            <a href="#">Pricing</a>
+                            <a href="#">Areas</a>
+                            <a href="#">Contact</a>
+                        </nav>
+                    </div>
+                </footer>
             </div>
+            <details class="ds-snippet">
+                <summary>HTML snippet <button class="ds-copy-btn">Copy</button></summary>
+                <pre class="ds-code"><code>&lt;footer class="site-footer"&gt;
+    &lt;div class="footer-inner"&gt;
+        &lt;div class="footer-brand"&gt;
+            &lt;span class="brand-name"&gt;Tom's Tech &lt;span&gt;Therapy&lt;/span&gt;&lt;/span&gt;
+            &lt;span&gt;Seattle's neighborhood tech guy&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;nav class="footer-links"&gt;
+            &lt;a href="#services"&gt;Services&lt;/a&gt;
+            &lt;a href="#pricing"&gt;Pricing&lt;/a&gt;
+            &lt;a href="#areas"&gt;Areas&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+            </details>
         </div>
-
-        <div class="ds-divider"></div>
 
         <!-- ── Themes ── -->
         <div class="ds-section" id="themes">
             <div class="ds-section-title">Themes</div>
-            <div class="ds-section-desc">11 themes via CSS variable override. Apply with <code style="font-family:'Raleway',sans-serif;font-size:0.82em;">data-theme="[slug]"</code> on <code style="font-family:'Raleway',sans-serif;font-size:0.82em;">&lt;html&gt;</code>. All 30+ implementation variables automatically re-resolve — no JS needed. Each theme overrides: <strong>--paper</strong> (bg), <strong>--ink</strong> (text), <strong>--orange/acid/teal</strong> (accents), plus all surface/dark/glow derivatives.</div>
+            <div class="ds-section-desc">11 themes set via <code>data-theme="[slug]"</code> on the <code>&lt;html&gt;</code> element. Each card below uses its own <code>data-theme</code> to render its own colors — no JS, pure CSS cascade. Click "Apply" to preview the theme across the whole page.</div>
+            <div class="ds-themes-grid">
 
-            <div class="token-label" style="margin-bottom:0.75rem;">HOW TO APPLY</div>
-            <div style="background:#1C2332;border-radius:8px;padding:0.75rem 1rem;margin-bottom:1.5rem;font-family:'Raleway',sans-serif;font-size:0.82rem;color:#D8FF66;letter-spacing:0.01em;">
-                &lt;html lang="en" data-theme="earthy"&gt; &nbsp;<span style="color:rgba(255,255,255,0.35);">← change slug to switch theme</span>
-            </div>
-
-            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;">
-
-                <!-- Default -->
-                <div style="border:2px solid var(--ink);border-radius:12px;overflow:hidden;">
-                    <div style="background:#FAF4E5;padding:0.75rem 1rem;display:flex;justify-content:space-between;align-items:center;">
-                        <div>
-                            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:#1C2332;">Default</div>
-                            <div style="font-family:'Raleway',sans-serif;font-size:0.65rem;color:#3B455C;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;">Warm paper · brand orange</div>
+                <div class="ds-theme-card" data-theme="">
+                    <div class="ds-theme-card-inner">
+                        <div class="ds-theme-swatches">
+                            <span class="ds-swatch" style="background:var(--paper);" title="--paper"></span>
+                            <span class="ds-swatch" style="background:var(--ink);" title="--ink"></span>
+                            <span class="ds-swatch" style="background:var(--orange);" title="--orange"></span>
+                            <span class="ds-swatch" style="background:var(--teal);" title="--teal"></span>
+                            <span class="ds-swatch" style="background:var(--acid);" title="--acid"></span>
                         </div>
-                        <span class="copy-badge" style="font-size:0.65rem;">:root</span>
-                    </div>
-                    <div style="display:flex;height:28px;">
-                        <div style="flex:1;background:#FAF4E5;" title="--paper"></div>
-                        <div style="flex:1;background:#F0E3C6;" title="--paper-deep"></div>
-                        <div style="flex:1;background:#1C2332;" title="--ink"></div>
-                        <div style="flex:1;background:#FF6B35;" title="--orange"></div>
-                        <div style="flex:1;background:#D8FF66;" title="--acid"></div>
-                        <div style="flex:1;background:#10A7A0;" title="--teal"></div>
-                        <div style="flex:1;background:#121A2A;" title="--footer-surface"></div>
+                        <div class="ds-theme-name">Default</div>
+                        <div class="ds-theme-slug"><code>data-theme=""</code></div>
+                        <button class="ds-theme-apply" data-apply="">Apply</button>
                     </div>
                 </div>
 
-                <!-- Earthy -->
-                <div style="border:2px solid #283618;border-radius:12px;overflow:hidden;">
-                    <div style="background:#fefae0;padding:0.75rem 1rem;display:flex;justify-content:space-between;align-items:center;">
-                        <div>
-                            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:#283618;">Earthy</div>
-                            <div style="font-family:'Raleway',sans-serif;font-size:0.65rem;color:#4a5a2a;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;">Forest wheat · sage green</div>
+                <div class="ds-theme-card" data-theme="earthy">
+                    <div class="ds-theme-card-inner">
+                        <div class="ds-theme-swatches">
+                            <span class="ds-swatch" style="background:var(--paper);" title="--paper"></span>
+                            <span class="ds-swatch" style="background:var(--ink);" title="--ink"></span>
+                            <span class="ds-swatch" style="background:var(--orange);" title="--orange"></span>
+                            <span class="ds-swatch" style="background:var(--teal);" title="--teal"></span>
+                            <span class="ds-swatch" style="background:var(--acid);" title="--acid"></span>
                         </div>
-                        <span class="copy-badge" style="font-size:0.65rem;">earthy</span>
-                    </div>
-                    <div style="display:flex;height:28px;">
-                        <div style="flex:1;background:#fefae0;" title="--paper"></div>
-                        <div style="flex:1;background:#f0e3b8;" title="--paper-deep"></div>
-                        <div style="flex:1;background:#283618;" title="--ink"></div>
-                        <div style="flex:1;background:#bc6c25;" title="--orange"></div>
-                        <div style="flex:1;background:#dda15e;" title="--acid"></div>
-                        <div style="flex:1;background:#606c38;" title="--teal"></div>
-                        <div style="flex:1;background:#1a2410;" title="--footer-surface"></div>
+                        <div class="ds-theme-name">Earthy</div>
+                        <div class="ds-theme-slug"><code>data-theme="earthy"</code></div>
+                        <button class="ds-theme-apply" data-apply="earthy">Apply</button>
                     </div>
                 </div>
 
-                <!-- Midnight -->
-                <div style="border:2px solid #000000;border-radius:12px;overflow:hidden;">
-                    <div style="background:#f5f5f5;padding:0.75rem 1rem;display:flex;justify-content:space-between;align-items:center;">
-                        <div>
-                            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:#000000;">Midnight</div>
-                            <div style="font-family:'Raleway',sans-serif;font-size:0.65rem;color:#14213D;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;">Black + prussian blue · amber</div>
+                <div class="ds-theme-card" data-theme="midnight">
+                    <div class="ds-theme-card-inner">
+                        <div class="ds-theme-swatches">
+                            <span class="ds-swatch" style="background:var(--paper);" title="--paper"></span>
+                            <span class="ds-swatch" style="background:var(--ink);" title="--ink"></span>
+                            <span class="ds-swatch" style="background:var(--orange);" title="--orange"></span>
+                            <span class="ds-swatch" style="background:var(--teal);" title="--teal"></span>
+                            <span class="ds-swatch" style="background:var(--acid);" title="--acid"></span>
                         </div>
-                        <span class="copy-badge" style="font-size:0.65rem;">midnight</span>
-                    </div>
-                    <div style="display:flex;height:28px;">
-                        <div style="flex:1;background:#f5f5f5;" title="--paper"></div>
-                        <div style="flex:1;background:#e5e5e5;" title="--paper-deep"></div>
-                        <div style="flex:1;background:#000000;" title="--ink"></div>
-                        <div style="flex:1;background:#FCA311;" title="--orange"></div>
-                        <div style="flex:1;background:#FCA311;" title="--acid"></div>
-                        <div style="flex:1;background:#14213D;" title="--teal"></div>
-                        <div style="flex:1;background:#000000;" title="--footer-surface"></div>
+                        <div class="ds-theme-name">Midnight</div>
+                        <div class="ds-theme-slug"><code>data-theme="midnight"</code></div>
+                        <button class="ds-theme-apply" data-apply="midnight">Apply</button>
                     </div>
                 </div>
 
-                <!-- Forest -->
-                <div style="border:2px solid #2F3E46;border-radius:12px;overflow:hidden;">
-                    <div style="background:#dde5d8;padding:0.75rem 1rem;display:flex;justify-content:space-between;align-items:center;">
-                        <div>
-                            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:#2F3E46;">Forest</div>
-                            <div style="font-family:'Raleway',sans-serif;font-size:0.65rem;color:#354F52;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;">Ash grey · sage · teals</div>
+                <div class="ds-theme-card" data-theme="forest">
+                    <div class="ds-theme-card-inner">
+                        <div class="ds-theme-swatches">
+                            <span class="ds-swatch" style="background:var(--paper);" title="--paper"></span>
+                            <span class="ds-swatch" style="background:var(--ink);" title="--ink"></span>
+                            <span class="ds-swatch" style="background:var(--orange);" title="--orange"></span>
+                            <span class="ds-swatch" style="background:var(--teal);" title="--teal"></span>
+                            <span class="ds-swatch" style="background:var(--acid);" title="--acid"></span>
                         </div>
-                        <span class="copy-badge" style="font-size:0.65rem;">forest</span>
-                    </div>
-                    <div style="display:flex;height:28px;">
-                        <div style="flex:1;background:#dde5d8;" title="--paper"></div>
-                        <div style="flex:1;background:#cad2c5;" title="--paper-deep"></div>
-                        <div style="flex:1;background:#2F3E46;" title="--ink"></div>
-                        <div style="flex:1;background:#52796F;" title="--orange"></div>
-                        <div style="flex:1;background:#84A98C;" title="--acid"></div>
-                        <div style="flex:1;background:#52796F;" title="--teal"></div>
-                        <div style="flex:1;background:#1a282b;" title="--footer-surface"></div>
+                        <div class="ds-theme-name">Forest</div>
+                        <div class="ds-theme-slug"><code>data-theme="forest"</code></div>
+                        <button class="ds-theme-apply" data-apply="forest">Apply</button>
                     </div>
                 </div>
 
-                <!-- Dusk -->
-                <div style="border:2px solid #355070;border-radius:12px;overflow:hidden;">
-                    <div style="background:#FDF5EF;padding:0.75rem 1rem;display:flex;justify-content:space-between;align-items:center;">
-                        <div>
-                            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:#355070;">Dusk</div>
-                            <div style="font-family:'Raleway',sans-serif;font-size:0.65rem;color:#4d6585;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;">Blue-purple · coral · bronze</div>
+                <div class="ds-theme-card" data-theme="dusk">
+                    <div class="ds-theme-card-inner">
+                        <div class="ds-theme-swatches">
+                            <span class="ds-swatch" style="background:var(--paper);" title="--paper"></span>
+                            <span class="ds-swatch" style="background:var(--ink);" title="--ink"></span>
+                            <span class="ds-swatch" style="background:var(--orange);" title="--orange"></span>
+                            <span class="ds-swatch" style="background:var(--teal);" title="--teal"></span>
+                            <span class="ds-swatch" style="background:var(--acid);" title="--acid"></span>
                         </div>
-                        <span class="copy-badge" style="font-size:0.65rem;">dusk</span>
-                    </div>
-                    <div style="display:flex;height:28px;">
-                        <div style="flex:1;background:#FDF5EF;" title="--paper"></div>
-                        <div style="flex:1;background:#F5E5D8;" title="--paper-deep"></div>
-                        <div style="flex:1;background:#355070;" title="--ink"></div>
-                        <div style="flex:1;background:#E56B6F;" title="--orange"></div>
-                        <div style="flex:1;background:#EAAC8B;" title="--acid"></div>
-                        <div style="flex:1;background:#B56576;" title="--teal"></div>
-                        <div style="flex:1;background:#1e2d40;" title="--footer-surface"></div>
+                        <div class="ds-theme-name">Dusk</div>
+                        <div class="ds-theme-slug"><code>data-theme="dusk"</code></div>
+                        <button class="ds-theme-apply" data-apply="dusk">Apply</button>
                     </div>
                 </div>
 
-                <!-- Neon -->
-                <div style="border:2px solid #545863;border-radius:12px;overflow:hidden;">
-                    <div style="background:#FFF5F5;padding:0.75rem 1rem;display:flex;justify-content:space-between;align-items:center;">
-                        <div>
-                            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:#545863;">Neon</div>
-                            <div style="font-family:'Raleway',sans-serif;font-size:0.65rem;color:#666a77;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;">Charcoal · aqua · peach · yellow</div>
+                <div class="ds-theme-card" data-theme="neon">
+                    <div class="ds-theme-card-inner">
+                        <div class="ds-theme-swatches">
+                            <span class="ds-swatch" style="background:var(--paper);" title="--paper"></span>
+                            <span class="ds-swatch" style="background:var(--ink);" title="--ink"></span>
+                            <span class="ds-swatch" style="background:var(--orange);" title="--orange"></span>
+                            <span class="ds-swatch" style="background:var(--teal);" title="--teal"></span>
+                            <span class="ds-swatch" style="background:var(--acid);" title="--acid"></span>
                         </div>
-                        <span class="copy-badge" style="font-size:0.65rem;">neon</span>
-                    </div>
-                    <div style="display:flex;height:28px;">
-                        <div style="flex:1;background:#FFF5F5;" title="--paper"></div>
-                        <div style="flex:1;background:#FFE3E3;" title="--paper-deep"></div>
-                        <div style="flex:1;background:#545863;" title="--ink"></div>
-                        <div style="flex:1;background:#F96E46;" title="--orange"></div>
-                        <div style="flex:1;background:#F9C846;" title="--acid"></div>
-                        <div style="flex:1;background:#00E8FC;" title="--teal"></div>
-                        <div style="flex:1;background:#1e2028;" title="--footer-surface"></div>
+                        <div class="ds-theme-name">Neon</div>
+                        <div class="ds-theme-slug"><code>data-theme="neon"</code></div>
+                        <button class="ds-theme-apply" data-apply="neon">Apply</button>
                     </div>
                 </div>
 
-                <!-- Cosmos -->
-                <div style="border:2px solid #0D0820;border-radius:12px;overflow:hidden;">
-                    <div style="background:#F5F0FF;padding:0.75rem 1rem;display:flex;justify-content:space-between;align-items:center;">
-                        <div>
-                            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:#0D0820;">Cosmos</div>
-                            <div style="font-family:'Raleway',sans-serif;font-size:0.65rem;color:#2D1B5E;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;">Void black · star gold · nebula purple</div>
+                <div class="ds-theme-card" data-theme="cosmos">
+                    <div class="ds-theme-card-inner">
+                        <div class="ds-theme-swatches">
+                            <span class="ds-swatch" style="background:var(--paper);" title="--paper"></span>
+                            <span class="ds-swatch" style="background:var(--ink);" title="--ink"></span>
+                            <span class="ds-swatch" style="background:var(--orange);" title="--orange"></span>
+                            <span class="ds-swatch" style="background:var(--teal);" title="--teal"></span>
+                            <span class="ds-swatch" style="background:var(--acid);" title="--acid"></span>
                         </div>
-                        <span class="copy-badge" style="font-size:0.65rem;">cosmos</span>
-                    </div>
-                    <div style="display:flex;height:28px;">
-                        <div style="flex:1;background:#F5F0FF;" title="--paper"></div>
-                        <div style="flex:1;background:#EAE0FF;" title="--paper-deep"></div>
-                        <div style="flex:1;background:#0D0820;" title="--ink"></div>
-                        <div style="flex:1;background:#FFD700;" title="--orange"></div>
-                        <div style="flex:1;background:#C8B8FF;" title="--acid"></div>
-                        <div style="flex:1;background:#9D4EDD;" title="--teal"></div>
-                        <div style="flex:1;background:#020008;" title="--footer-surface"></div>
+                        <div class="ds-theme-name">Cosmos</div>
+                        <div class="ds-theme-slug"><code>data-theme="cosmos"</code></div>
+                        <button class="ds-theme-apply" data-apply="cosmos">Apply</button>
                     </div>
                 </div>
 
-                <!-- Aurora -->
-                <div style="border:2px solid #03120E;border-radius:12px;overflow:hidden;">
-                    <div style="background:#F0FFF8;padding:0.75rem 1rem;display:flex;justify-content:space-between;align-items:center;">
-                        <div>
-                            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:#03120E;">Aurora</div>
-                            <div style="font-family:'Raleway',sans-serif;font-size:0.65rem;color:#064E3B;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;">Polar night · aurora green · magenta</div>
+                <div class="ds-theme-card" data-theme="aurora">
+                    <div class="ds-theme-card-inner">
+                        <div class="ds-theme-swatches">
+                            <span class="ds-swatch" style="background:var(--paper);" title="--paper"></span>
+                            <span class="ds-swatch" style="background:var(--ink);" title="--ink"></span>
+                            <span class="ds-swatch" style="background:var(--orange);" title="--orange"></span>
+                            <span class="ds-swatch" style="background:var(--teal);" title="--teal"></span>
+                            <span class="ds-swatch" style="background:var(--acid);" title="--acid"></span>
                         </div>
-                        <span class="copy-badge" style="font-size:0.65rem;">aurora</span>
-                    </div>
-                    <div style="display:flex;height:28px;">
-                        <div style="flex:1;background:#F0FFF8;" title="--paper"></div>
-                        <div style="flex:1;background:#D8FFEE;" title="--paper-deep"></div>
-                        <div style="flex:1;background:#03120E;" title="--ink"></div>
-                        <div style="flex:1;background:#00FFB3;" title="--orange"></div>
-                        <div style="flex:1;background:#A7FFC4;" title="--acid"></div>
-                        <div style="flex:1;background:#10B981;" title="--teal"></div>
-                        <div style="flex:1;background:#020806;" title="--footer-surface"></div>
+                        <div class="ds-theme-name">Aurora</div>
+                        <div class="ds-theme-slug"><code>data-theme="aurora"</code></div>
+                        <button class="ds-theme-apply" data-apply="aurora">Apply</button>
                     </div>
                 </div>
 
-                <!-- Nebula -->
-                <div style="border:2px solid #1A0025;border-radius:12px;overflow:hidden;">
-                    <div style="background:#FFF0FF;padding:0.75rem 1rem;display:flex;justify-content:space-between;align-items:center;">
-                        <div>
-                            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:#1A0025;">Nebula</div>
-                            <div style="font-family:'Raleway',sans-serif;font-size:0.65rem;color:#3D0066;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;">Cosmic dust · magenta · electric cyan</div>
+                <div class="ds-theme-card" data-theme="nebula">
+                    <div class="ds-theme-card-inner">
+                        <div class="ds-theme-swatches">
+                            <span class="ds-swatch" style="background:var(--paper);" title="--paper"></span>
+                            <span class="ds-swatch" style="background:var(--ink);" title="--ink"></span>
+                            <span class="ds-swatch" style="background:var(--orange);" title="--orange"></span>
+                            <span class="ds-swatch" style="background:var(--teal);" title="--teal"></span>
+                            <span class="ds-swatch" style="background:var(--acid);" title="--acid"></span>
                         </div>
-                        <span class="copy-badge" style="font-size:0.65rem;">nebula</span>
-                    </div>
-                    <div style="display:flex;height:28px;">
-                        <div style="flex:1;background:#FFF0FF;" title="--paper"></div>
-                        <div style="flex:1;background:#FFD8FF;" title="--paper-deep"></div>
-                        <div style="flex:1;background:#1A0025;" title="--ink"></div>
-                        <div style="flex:1;background:#FF10F0;" title="--orange"></div>
-                        <div style="flex:1;background:#00FFFF;" title="--acid"></div>
-                        <div style="flex:1;background:#BF00FF;" title="--teal"></div>
-                        <div style="flex:1;background:#080010;" title="--footer-surface"></div>
+                        <div class="ds-theme-name">Nebula</div>
+                        <div class="ds-theme-slug"><code>data-theme="nebula"</code></div>
+                        <button class="ds-theme-apply" data-apply="nebula">Apply</button>
                     </div>
                 </div>
 
-                <!-- Solar -->
-                <div style="border:2px solid #0A0500;border-radius:12px;overflow:hidden;">
-                    <div style="background:#FFFBF0;padding:0.75rem 1rem;display:flex;justify-content:space-between;align-items:center;">
-                        <div>
-                            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:#0A0500;">Solar</div>
-                            <div style="font-family:'Raleway',sans-serif;font-size:0.65rem;color:#3D1A00;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;">Space black · molten corona · plasma</div>
+                <div class="ds-theme-card" data-theme="solar">
+                    <div class="ds-theme-card-inner">
+                        <div class="ds-theme-swatches">
+                            <span class="ds-swatch" style="background:var(--paper);" title="--paper"></span>
+                            <span class="ds-swatch" style="background:var(--ink);" title="--ink"></span>
+                            <span class="ds-swatch" style="background:var(--orange);" title="--orange"></span>
+                            <span class="ds-swatch" style="background:var(--teal);" title="--teal"></span>
+                            <span class="ds-swatch" style="background:var(--acid);" title="--acid"></span>
                         </div>
-                        <span class="copy-badge" style="font-size:0.65rem;">solar</span>
-                    </div>
-                    <div style="display:flex;height:28px;">
-                        <div style="flex:1;background:#FFFBF0;" title="--paper"></div>
-                        <div style="flex:1;background:#FFF3D0;" title="--paper-deep"></div>
-                        <div style="flex:1;background:#0A0500;" title="--ink"></div>
-                        <div style="flex:1;background:#FF6600;" title="--orange"></div>
-                        <div style="flex:1;background:#FFE000;" title="--acid"></div>
-                        <div style="flex:1;background:#FF4500;" title="--teal"></div>
-                        <div style="flex:1;background:#030100;" title="--footer-surface"></div>
+                        <div class="ds-theme-name">Solar</div>
+                        <div class="ds-theme-slug"><code>data-theme="solar"</code></div>
+                        <button class="ds-theme-apply" data-apply="solar">Apply</button>
                     </div>
                 </div>
 
-                <!-- Galaxy -->
-                <div style="border:2px solid #04081A;border-radius:12px;overflow:hidden;">
-                    <div style="background:#F0F4FF;padding:0.75rem 1rem;display:flex;justify-content:space-between;align-items:center;">
-                        <div>
-                            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:#04081A;">Galaxy</div>
-                            <div style="font-family:'Raleway',sans-serif;font-size:0.65rem;color:#0F1F50;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;">Deep space blue · milky way · stellar ice</div>
+                <div class="ds-theme-card" data-theme="galaxy">
+                    <div class="ds-theme-card-inner">
+                        <div class="ds-theme-swatches">
+                            <span class="ds-swatch" style="background:var(--paper);" title="--paper"></span>
+                            <span class="ds-swatch" style="background:var(--ink);" title="--ink"></span>
+                            <span class="ds-swatch" style="background:var(--orange);" title="--orange"></span>
+                            <span class="ds-swatch" style="background:var(--teal);" title="--teal"></span>
+                            <span class="ds-swatch" style="background:var(--acid);" title="--acid"></span>
                         </div>
-                        <span class="copy-badge" style="font-size:0.65rem;">galaxy</span>
-                    </div>
-                    <div style="display:flex;height:28px;">
-                        <div style="flex:1;background:#F0F4FF;" title="--paper"></div>
-                        <div style="flex:1;background:#E0EAFF;" title="--paper-deep"></div>
-                        <div style="flex:1;background:#04081A;" title="--ink"></div>
-                        <div style="flex:1;background:#6EE7F7;" title="--orange"></div>
-                        <div style="flex:1;background:#E8D5FF;" title="--acid"></div>
-                        <div style="flex:1;background:#4FACFE;" title="--teal"></div>
-                        <div style="flex:1;background:#010208;" title="--footer-surface"></div>
+                        <div class="ds-theme-name">Galaxy</div>
+                        <div class="ds-theme-slug"><code>data-theme="galaxy"</code></div>
+                        <button class="ds-theme-apply" data-apply="galaxy">Apply</button>
                     </div>
                 </div>
 
-            </div>
-
-            <div style="margin-top:1.5rem;padding:1rem;background:rgba(28,35,50,0.05);border-radius:10px;border-left:3px solid var(--orange);">
-                <div class="token-label" style="margin-bottom:0.5rem;">SWATCH KEY (left → right)</div>
-                <div style="display:flex;flex-wrap:wrap;gap:0.5rem;font-family:'Raleway',sans-serif;font-size:0.72rem;color:var(--ink-soft);">
-                    <span>■ --paper</span>
-                    <span>■ --paper-deep</span>
-                    <span>■ --ink</span>
-                    <span>■ --orange (accent 1)</span>
-                    <span>■ --acid (accent 2)</span>
-                    <span>■ --teal (accent 3)</span>
-                    <span>■ --footer-surface</span>
-                </div>
-            </div>
-        </div>
+            </div><!-- /ds-themes-grid -->
+        </div><!-- /themes section -->
 
     </main>
-</div>
+</div><!-- /.ds-layout -->
+
+<script>
+/* ── Theme switcher ── */
+(function () {
+    var select = document.getElementById('ds-theme-select');
+    if (!select) return;
+    var saved = localStorage.getItem('tomstech-theme') || 'earthy';
+    document.documentElement.setAttribute('data-theme', saved);
+    select.value = saved;
+    select.addEventListener('change', function () {
+        var val = this.value;
+        document.documentElement.setAttribute('data-theme', val);
+        localStorage.setItem('tomstech-theme', val);
+    });
+})();
+
+/* ── Theme card Apply buttons ── */
+document.addEventListener('click', function (e) {
+    var applyBtn = e.target.closest('.ds-theme-apply');
+    if (applyBtn) {
+        var val = applyBtn.getAttribute('data-apply');
+        document.documentElement.setAttribute('data-theme', val);
+        localStorage.setItem('tomstech-theme', val);
+        var select = document.getElementById('ds-theme-select');
+        if (select) select.value = val;
+        return;
+    }
+
+    /* ── Copy buttons (snippet viewers) ── */
+    if (e.target.classList.contains('ds-copy-btn')) {
+        var code = e.target.closest('details');
+        if (!code) return;
+        var codeEl = code.querySelector('code');
+        if (!codeEl) return;
+        navigator.clipboard.writeText(codeEl.textContent).then(function () {
+            var btn = e.target;
+            var orig = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(function () { btn.textContent = orig; }, 1400);
+        });
+        return;
+    }
+
+    /* ── Class badge click-to-copy ── */
+    if (e.target.classList.contains('class-badge')) {
+        var text = e.target.textContent;
+        navigator.clipboard.writeText(text).then(function () {
+            var orig2 = e.target.textContent;
+            e.target.textContent = orig2 + ' ✓';
+            setTimeout(function () { e.target.textContent = orig2; }, 1000);
+        });
+    }
+});
+</script>
 </body>
 </html>
