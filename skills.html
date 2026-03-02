@@ -17,161 +17,15 @@
     <meta property="og:site_name" content="Tom's Tech Therapy">
 
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231F2937'/><text x='50' y='62' text-anchor='middle' font-family='Arial' font-size='42' font-weight='700' fill='%23FFFFFF'>TT</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%231F2937'/><rect x='18' y='30' width='28' height='9' rx='3' fill='%23FFFFFF'/><rect x='28' y='30' width='9' height='40' rx='3' fill='%23FFFFFF'/><rect x='54' y='30' width='28' height='9' rx='3' fill='%23FFFFFF'/><rect x='64' y='30' width='9' height='40' rx='3' fill='%23FF6B35'/></svg>">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Space+Grotesk:wght@300..700&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="tomstech-system.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --paper: #fefae0;
-            --paper-deep: #f0e3b8;
-            --ink: #283618;
-            --ink-soft: #4a5a2a;
-            --line: rgba(40, 54, 24, 0.22);
-            --white: #fffef8;
-            --orange: #bc6c25;
-            --acid: #dda15e;
-            --teal: #606c38;
-            --blue: #7a8c4a;
-            --pink: #bc6c25;
-            --shadow: 0 12px 26px rgba(40, 54, 24, 0.14);
-            --body-glow-warm: rgba(188, 108, 37, 0.15);
-            --body-glow-cool: rgba(96, 108, 56, 0.13);
-            --body-bg-top: #fefae0;
-            --body-bg-bottom: #f0e3b8;
-            --body-dot: rgba(40, 54, 24, 0.06);
-            --nav-surface: rgba(254, 250, 224, 0.92);
-            --nav-tape: rgba(221, 161, 94, 0.6);
-            --mobile-surface: rgba(254, 250, 224, 0.96);
-            --tape-strip: rgba(221, 161, 94, 0.55);
-            --footer-surface: #1a2410;
-        }
-
-        html { scroll-behavior: smooth; background: var(--paper); }
-
-        body {
-            font-family: "Bricolage Grotesque", sans-serif;
-            color: var(--ink); line-height: 1.58;
-            background:
-                radial-gradient(circle at 14% 5%, var(--body-glow-warm), transparent 30%),
-                radial-gradient(circle at 85% 9%, var(--body-glow-cool), transparent 30%),
-                linear-gradient(180deg, var(--body-bg-top) 0%, var(--body-bg-bottom) 100%);
-            min-height: 100vh; overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body::before {
-            content: ""; position: fixed; inset: 0; pointer-events: none;
-            background-image:
-                radial-gradient(var(--body-dot) 0.7px, transparent 0.7px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.42) 1px, transparent 1px);
-            background-size: 9px 9px, 24px 24px;
-            opacity: 0.35; z-index: -2;
-        }
-
-        .skip-link {
-            position: absolute; top: -100%; left: 1rem;
-            background: var(--ink); color: var(--white);
-            padding: 0.5rem 1rem; border-radius: 0 0 10px 10px;
-            font-size: 0.86rem; font-weight: 700; z-index: 999;
-            transition: top 0.2s; text-decoration: none;
-        }
-        .skip-link:focus { top: 0; }
-
-        /* ── Nav ── */
-        .main-nav {
-            position: fixed; top: 0.55rem; left: 50%;
-            transform: translateX(-50%);
-            width: min(1200px, calc(100% - 1rem));
-            background: var(--nav-surface);
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border: 2px solid var(--ink); border-radius: 20px;
-            padding: 0.72rem 0.9rem;
-            display: grid; grid-template-columns: auto 1fr auto;
-            align-items: center; gap: 1rem; z-index: 120;
-        }
-        .main-nav::before, .main-nav::after {
-            content: ""; position: absolute;
-            width: 30px; height: 8px;
-            background: var(--nav-tape);
-            border: 1px solid var(--line); top: -6px;
-        }
-        .main-nav::before { left: 18%; transform: rotate(-4deg); }
-        .main-nav::after  { right: 14%; transform: rotate(6deg); }
-        .logo {
-            font-family: "Space Grotesk", sans-serif; font-weight: 700;
-            font-size: 1.2rem; letter-spacing: -0.02em;
-            text-decoration: none; color: var(--ink); white-space: nowrap; padding-left: 0.25rem;
-        }
-        .logo span { color: var(--orange); }
-        .nav-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.35rem; list-style: none; }
-        .nav-links a {
-            text-decoration: none; color: var(--ink);
-            font-family: "IBM Plex Mono", monospace;
-            font-size: 0.79rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.04em;
-            padding: 0.45rem 0.72rem; border-radius: 999px;
-            border: 1px solid transparent; transition: all 0.2s;
-        }
-        .nav-links a:hover, .nav-links a.active { border-color: var(--ink); background: var(--acid); }
-        .nav-right { display: flex; align-items: center; gap: 0.5rem; }
-        .theme-pod-trigger {
-            width: 2rem;
-            height: 2rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1.5px solid var(--line);
-            border-radius: 999px;
-            background: var(--nav-surface);
-            color: var(--ink-soft);
-            cursor: pointer;
-            opacity: 0.52;
-            transition: opacity 0.2s, transform 0.2s, border-color 0.2s;
-        }
-        .theme-pod-trigger:hover,
-        .theme-pod-trigger:focus-visible {
-            opacity: 1;
-            transform: translateY(-1px);
-            border-color: var(--ink);
-        }
-        .theme-pod-trigger svg { width: 1.05rem; height: 1.05rem; display: block; }
-        .nav-cta {
-            text-decoration: none; color: var(--ink); background: var(--acid);
-            border: 2px solid var(--ink); border-radius: 999px;
-            padding: 0.52rem 0.95rem;
-            font-family: "IBM Plex Mono", monospace;
-            font-size: 0.76rem; font-weight: 700; white-space: nowrap;
-        }
-        .hamburger {
-            display: none; flex-direction: column; gap: 5px;
-            cursor: pointer; padding: 4px; background: none; border: none;
-        }
-        .hamburger span { display: block; width: 21px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.25s; }
-        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .hamburger.open span:nth-child(2) { opacity: 0; }
-        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-        .mobile-nav {
-            display: none; position: fixed; top: 76px;
-            left: 0.5rem; right: 0.5rem;
-            background: var(--mobile-surface);
-            border: 2px solid var(--ink); border-radius: 16px;
-            padding: 1rem; z-index: 110; flex-direction: column;
-            gap: 0.65rem; box-shadow: var(--shadow);
-        }
-        .mobile-nav.open { display: flex; }
-        .mobile-nav a { text-decoration: none; color: var(--ink); font-weight: 700; padding: 0.45rem 0.2rem; }
-        .mobile-nav .mobile-cta {
-            display: block; margin-top: 0.4rem; padding: 0.72rem 0.9rem;
-            background: var(--acid); border: 2px solid var(--ink);
-            border-radius: 10px; text-align: center;
-        }
-
         /* ── Layout ── */
         .outer { width: min(1240px, 100%); margin: 0 auto; padding: 0 3rem; }
 
@@ -185,7 +39,7 @@
         }
 
         .page-eyebrow {
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.76rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.1em;
             color: var(--ink-soft); margin-bottom: 0.75rem;
@@ -250,7 +104,7 @@
             display: block; margin-bottom: 0.1rem;
         }
         .sidebar-stat .s-label {
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.68rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.07em;
             color: var(--ink-soft);
@@ -261,7 +115,7 @@
         .btn-primary, .btn-secondary {
             border: 2px solid var(--ink); border-radius: 12px;
             padding: 0.78rem 1.2rem; text-decoration: none;
-            font-family: "Space Grotesk", sans-serif;
+            font-family: "Raleway", sans-serif;
             font-weight: 700; font-size: 0.93rem; letter-spacing: -0.01em;
             display: inline-flex; align-items: center; gap: 0.42rem;
             transition: transform 0.2s, box-shadow 0.2s;
@@ -311,7 +165,7 @@
         .skill-group:nth-child(6) .skill-group-head { background: rgba(168, 124, 138, 0.14); }
 
         .skill-group-head h3 {
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.72rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.09em;
             color: var(--ink);
@@ -319,7 +173,7 @@
         .skill-group-body { padding: 0.85rem 1rem; background: rgba(255,255,255,0.7); }
         .skill-group-body ul { list-style: none; display: flex; flex-direction: column; gap: 0.3rem; }
         .skill-group-body li {
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.76rem; font-weight: 700;
             letter-spacing: 0.01em; color: var(--ink);
             display: flex; align-items: center; gap: 0.4rem;
@@ -330,7 +184,7 @@
             background: var(--orange); flex-shrink: 0;
         }
         .skill-group-body li span {
-            font-weight: 500; font-family: "Bricolage Grotesque", sans-serif;
+            font-weight: 500; font-family: "Raleway", sans-serif;
             font-size: 0.82rem; color: var(--ink-soft);
             letter-spacing: 0;
         }
@@ -360,7 +214,7 @@
             letter-spacing: -0.04em; line-height: 1; color: var(--ink); opacity: 0.18;
         }
         .case-type {
-            font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; font-weight: 700;
+            font-family: "Raleway", sans-serif; font-size: 0.64rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.08em;
             padding: 0.18rem 0.5rem; border-radius: 6px; border: 1.5px solid;
         }
@@ -377,7 +231,7 @@
             line-height: 1.1; margin-bottom: 0.3rem;
         }
         .case-client {
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.73rem; color: var(--ink-soft); letter-spacing: 0.02em;
         }
 
@@ -390,13 +244,13 @@
         .case-block:nth-child(2n)  { border-right: none; }
         .case-block:nth-child(n+3) { border-bottom: none; }
         .case-block h4 {
-            font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; font-weight: 700;
+            font-family: "Raleway", sans-serif; font-size: 0.66rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.09em;
             color: var(--ink-soft); margin-bottom: 0.5rem;
         }
         .case-block p { font-size: 0.9rem; color: var(--ink); line-height: 1.6; }
         .case-block code {
-            font-family: "IBM Plex Mono", monospace; font-size: 0.82rem;
+            font-family: "Raleway", sans-serif; font-size: 0.82rem;
             background: rgba(28,35,50,0.07); padding: 0.1rem 0.35rem;
             border-radius: 4px; color: var(--ink);
         }
@@ -408,13 +262,13 @@
             display: flex; align-items: center; flex-wrap: wrap; gap: 0.4rem;
         }
         .foot-label {
-            font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; font-weight: 700;
+            font-family: "Raleway", sans-serif; font-size: 0.64rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.07em;
             color: var(--ink-soft); margin-right: 0.15rem;
         }
         .stack-pill {
             padding: 0.24rem 0.6rem; border: 1.5px solid var(--ink); border-radius: 999px;
-            font-family: "IBM Plex Mono", monospace; font-size: 0.68rem; font-weight: 700;
+            font-family: "Raleway", sans-serif; font-size: 0.68rem; font-weight: 700;
             letter-spacing: 0.02em; background: rgba(255,255,255,0.82); color: var(--ink);
         }
 
@@ -437,7 +291,7 @@
         .eng-card p { font-size: 0.87rem; color: var(--ink-soft); line-height: 1.52; }
         .eng-card .eng-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.65rem; }
         .eng-tag {
-            font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; font-weight: 700;
+            font-family: "Raleway", sans-serif; font-size: 0.64rem; font-weight: 700;
             padding: 0.18rem 0.5rem; border-radius: 999px;
             border: 1px solid rgba(28,35,50,0.3); color: var(--ink-soft);
             background: rgba(255,255,255,0.7); letter-spacing: 0.03em;
@@ -468,12 +322,12 @@
             width: min(1240px, 100%); margin: 0 auto;
             display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: center;
         }
-        .footer-brand .brand-name { font-family: "Space Grotesk", sans-serif; font-size: 1.05rem; margin-bottom: 0.18rem; }
+        .footer-brand .brand-name { font-family: "Raleway", sans-serif; font-size: 1.05rem; margin-bottom: 0.18rem; }
         .footer-brand .brand-tag  { color: rgba(255,255,255,0.62); font-size: 0.82rem; }
         .footer-links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
         .footer-links a {
             text-decoration: none; color: rgba(255,255,255,0.8);
-            font-family: "IBM Plex Mono", monospace;
+            font-family: "Raleway", sans-serif;
             font-size: 0.74rem; letter-spacing: 0.05em; text-transform: uppercase;
         }
         .footer-links a:hover { color: var(--acid); }
@@ -514,13 +368,21 @@
             .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
         }
     </style>
-    <link rel="stylesheet" href="themes.css">
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
 
     <nav class="main-nav" role="navigation" aria-label="Main">
-        <a href="/" class="logo" aria-label="Tom's Tech Therapy — Home">Tom's Tech <span>Therapy</span></a>
+        <a href="index.html" class="logo" aria-label="Tom's Tech Therapy — Home">
+            <svg class="logo-mark" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="32" height="32" rx="8" fill="var(--ink)"/>
+                <rect x="7" y="10" width="8" height="2.5" rx="1" fill="var(--white)"/>
+                <rect x="10.25" y="10" width="2.5" height="11" rx="1" fill="var(--white)"/>
+                <rect x="17" y="10" width="8" height="2.5" rx="1" fill="var(--white)"/>
+                <rect x="20.25" y="10" width="2.5" height="11" rx="1" fill="var(--orange)"/>
+            </svg>
+            Tom's Tech <span>Therapy</span>
+        </a>
         <ul class="nav-links" role="list">
             <li><a href="/#services">Services</a></li>
             <li><a href="/#pricing">Pricing</a></li>
