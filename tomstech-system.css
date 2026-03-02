@@ -36,6 +36,7 @@
     --line: rgba(28, 35, 50, 0.22);
     --white: #FFFDF8;
     --orange: #FF6B35;
+    --orange-text: #ba4e27; /* darkened for 4.5:1 on paper */
     --acid: #D8FF66;
     --teal: #10A7A0;
     --blue: #4E87FF;
@@ -126,6 +127,7 @@
     --line: rgba(40, 54, 24, 0.22);
     --white: #fffef8;
     --orange: #bc6c25;
+    --orange-text: #a96121;
     --acid: #dda15e;
     --teal: #606c38;
     --blue: #7a8c4a;
@@ -204,6 +206,7 @@
     --prob-fresh: rgba(255,248,236,.9); --prob-cool: rgba(245,245,245,.9); --prob-warm: rgba(255,243,212,.9);
     --area-glow-a: rgba(20,33,61,.15); --area-glow-b: rgba(252,163,17,.18);
     --area-bg-top: #f9f9f9; --area-bg-bottom: #e8e8e8; --footer-surface: #000000;
+    --orange-text: #9c650b;
 }
 
 /* ── Forest (ash grey + sage + teals) ── */
@@ -230,6 +233,7 @@
     --prob-fresh: rgba(232,240,229,.9); --prob-cool: rgba(221,232,228,.9); --prob-warm: rgba(216,232,222,.9);
     --area-glow-a: rgba(47,62,70,.18); --area-glow-b: rgba(82,121,111,.16);
     --area-bg-top: #e8ede4; --area-bg-bottom: #cad2c5; --footer-surface: #1a282b;
+    --orange-text: #496c63;
 }
 
 /* ── Dusk (blue-purple → coral → bronze) ── */
@@ -256,6 +260,7 @@
     --prob-fresh: rgba(254,240,232,.9); --prob-cool: rgba(240,234,245,.9); --prob-warm: rgba(253,234,232,.9);
     --area-glow-a: rgba(109,89,122,.18); --area-glow-b: rgba(229,107,111,.16);
     --area-bg-top: #FDF5EF; --area-bg-bottom: #F5E5D8; --footer-surface: #1e2d40;
+    --orange-text: #b35357;
 }
 
 /* ── Neon (charcoal + aqua + peach + yellow) ── */
@@ -282,6 +287,7 @@
     --prob-fresh: rgba(255,245,238,.9); --prob-cool: rgba(232,254,255,.9); --prob-warm: rgba(255,248,238,.9);
     --area-glow-a: rgba(0,232,252,.15); --area-glow-b: rgba(249,110,70,.14);
     --area-bg-top: #FFF5F5; --area-bg-bottom: #FFE3E3; --footer-surface: #1e2028;
+    --orange-text: #b85134;
 }
 
 /* ── Cosmos (void black + star gold + nebula purple) ── */
@@ -308,6 +314,7 @@
     --prob-fresh: rgba(245,240,255,.9); --prob-cool: rgba(237,224,255,.9); --prob-warm: rgba(248,240,255,.9);
     --area-glow-a: rgba(157,78,221,.2); --area-glow-b: rgba(255,215,0,.14);
     --area-bg-top: #F5F0FF; --area-bg-bottom: #EAE0FF; --footer-surface: #020008;
+    --orange-text: #7f6b00;
 }
 
 /* ── Aurora (polar night + aurora green + northern magenta) ── */
@@ -334,6 +341,7 @@
     --prob-fresh: rgba(240,255,248,.9); --prob-cool: rgba(237,255,248,.9); --prob-warm: rgba(255,240,250,.9);
     --area-glow-a: rgba(16,185,129,.2); --area-glow-b: rgba(0,255,179,.16);
     --area-bg-top: #F0FFF8; --area-bg-bottom: #D8FFEE; --footer-surface: #020806;
+    --orange-text: #00855d;
 }
 
 /* ── Nebula (cosmic dust + vivid magenta + electric cyan) ── */
@@ -360,6 +368,7 @@
     --prob-fresh: rgba(255,240,255,.9); --prob-cool: rgba(240,255,255,.9); --prob-warm: rgba(255,240,255,.9);
     --area-glow-a: rgba(191,0,255,.2); --area-glow-b: rgba(0,255,255,.16);
     --area-bg-top: #FFF0FF; --area-bg-bottom: #FFD8FF; --footer-surface: #080010;
+    --orange-text: #c70cbb;
 }
 
 /* ── Solar (space black + molten corona + plasma orange) ── */
@@ -386,6 +395,7 @@
     --prob-fresh: rgba(255,251,240,.9); --prob-cool: rgba(255,243,208,.9); --prob-warm: rgba(255,248,224,.9);
     --area-glow-a: rgba(255,69,0,.2); --area-glow-b: rgba(255,102,0,.16);
     --area-bg-top: #FFFBF0; --area-bg-bottom: #FFF3D0; --footer-surface: #030100;
+    --orange-text: #c44f00;
 }
 
 /* ── Galaxy (deep space blue + milky way + stellar ice) ── */
@@ -412,6 +422,7 @@
     --prob-fresh: rgba(240,244,255,.9); --prob-cool: rgba(224,234,255,.9); --prob-warm: rgba(232,240,255,.9);
     --area-glow-a: rgba(79,172,254,.2); --area-glow-b: rgba(110,231,247,.16);
     --area-bg-top: #F0F4FF; --area-bg-bottom: #E0EAFF; --footer-surface: #010208;
+    --orange-text: #397880;
 }
 
 /* ══ 4. BASE — html, body, body glows ════════════════════ */
@@ -837,7 +848,7 @@ main {
 }
 
 .hero h1 .highlight {
-    color: var(--orange);
+    color: var(--orange-text);
     position: relative;
     display: inline-block;
 }
@@ -1298,7 +1309,7 @@ a.iso-icon:hover {
     font-weight: 700;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    color: var(--orange);
+    color: var(--orange-text);
     text-decoration: none;
     border-bottom: 2px solid currentColor;
     padding-bottom: 0.1rem;
@@ -1530,7 +1541,7 @@ a.iso-icon:hover {
 .neighborhood-tag {
     padding: 0.42rem 0.85rem;
     border: 1px solid var(--ink);
-    border-radius: 999px;
+    border-radius: 10px;
     background: rgba(255, 255, 255, 0.82);
     font-family: "Raleway", sans-serif;
     font-size: 0.76rem;
@@ -1589,7 +1600,7 @@ a.iso-icon:hover {
 
 .cta > .cta-content > p {
     max-width: 56ch;
-    margin: 0 auto 1.7rem;
+    margin: 1.6rem auto 1.7rem;
     color: var(--ink-soft);
     font-size: 1.02rem;
     position: relative;
@@ -1634,7 +1645,7 @@ a.iso-icon:hover {
     text-decoration: none;
     color: var(--ink);
     border: 2px solid var(--ink);
-    border-radius: 999px;
+    border-radius: 12px;
     padding: 0.45rem 0.8rem;
     background: var(--acid);
     font-family: "Raleway", sans-serif;
@@ -1719,7 +1730,7 @@ a.iso-icon:hover {
     align-items: center;
     background: var(--ink);
     color: var(--paper);
-    border-radius: 999px;
+    border-radius: 8px;
     padding: 0.28rem 0.85rem;
     font-family: "Raleway", sans-serif;
     font-size: 0.8rem;
@@ -1740,7 +1751,7 @@ a.iso-icon:hover {
     gap: 0.3rem;
     padding: 0.22rem;
     background: rgba(0, 0, 0, 0.06);
-    border-radius: 999px;
+    border-radius: 12px;
     margin-bottom: 0.9rem;
 }
 
@@ -1752,7 +1763,7 @@ a.iso-icon:hover {
     padding: 0.42rem 1.05rem;
     border: none;
     background: transparent;
-    border-radius: 999px;
+    border-radius: 10px;
     font-family: "Raleway", sans-serif;
     font-size: 0.88rem;
     font-weight: 700;
@@ -1865,7 +1876,7 @@ a.iso-icon:hover {
     text-underline-offset: 2px;
 }
 
-.intake-hint a:hover { color: var(--orange); }
+.intake-hint a:hover { color: var(--orange-text); }
 
 .contact-grid {
     display: flex;
@@ -1894,7 +1905,7 @@ a.iso-icon:hover {
 .contact-item svg {
     width: 18px;
     height: 18px;
-    color: var(--orange);
+    color: var(--orange-text);
 }
 
 .contact-item:hover { color: var(--pink); }

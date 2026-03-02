@@ -497,7 +497,7 @@
                                 aria-selected="true" data-type="remote">
                             <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                             Remote Help
-                            <span class="booking-tab-meta">60 min · Instant confirm</span>
+                            <span class="booking-tab-meta">min. 60 min · Instant confirm</span>
                         </button>
                         <button class="booking-tab" id="tab-inhome" role="tab"
                                 aria-selected="false" data-type="inhome">
@@ -506,7 +506,7 @@
                             <span class="booking-tab-meta">90 min · 24 hr hold</span>
                         </button>
                     </div>
-                    <p class="booking-policy" id="policy-remote">Pick a time for a 60-minute remote session. You'll get an instant confirmation email.</p>
+                    <p class="booking-policy" id="policy-remote">Pick a time for a remote session — minimum 60 minutes. You'll get an instant confirmation email.</p>
                     <p class="booking-policy" id="policy-inhome" hidden>In-home visits are 90 minutes. Your time slot is held for 24 hours — Tom will confirm or suggest an alternative before it's finalized.</p>
                     <p class="booking-pending-badge" id="booking-pending-badge" hidden>
                         <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
@@ -526,7 +526,7 @@
                     <div id="booking-fallback" class="booking-fallback-form" hidden>
                         <p class="booking-fallback-intro">Pick a preferred time and Tom will confirm availability by email.</p>
                         <div class="booking-fallback-fields">
-                            <span class="fallback-type-badge" id="fallback-type-display">Remote Help · 60 min</span>
+                            <span class="fallback-type-badge" id="fallback-type-display">Remote Help · min. 60 min</span>
                             <label for="fallback-date">Preferred date</label>
                             <input type="date" id="fallback-date" name="fallback-date">
                             <label for="fallback-time">Preferred time</label>
@@ -787,7 +787,7 @@
             if (typeDisplay) {
               typeDisplay.textContent = type === 'inhome'
                 ? 'In-Home Visit · 90 min'
-                : 'Remote Help · 60 min';
+                : 'Remote Help · min. 60 min';
             }
             openLink.href = 'mailto:accounts@tomstech.net?subject=Booking%20Request';
             openLink.removeAttribute('target');
